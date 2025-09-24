@@ -6,3 +6,4 @@ C:\.richbank\c#\huntingEquipmentStore\huntingEquipmentStore\obj\x86\Debug\huntin
 C:\.richbank\c#\huntingEquipmentStore\huntingEquipmentStore\obj\x86\Debug\huntingEquipmentStore.csproj.GenerateResource.Cache
 C:\.richbank\c#\huntingEquipmentStore\huntingEquipmentStore\obj\x86\Debug\huntingEquipmentStore.exe
 C:\.richbank\c#\huntingEquipmentStore\huntingEquipmentStore\obj\x86\Debug\huntingEquipmentStore.pdb
+C:\.richbank\c#\huntingEquipmentStore\huntingEquipmentStore\obj\x86\Debug\huntingEquipmentStore.csprojResolveAssemblyReference.cache

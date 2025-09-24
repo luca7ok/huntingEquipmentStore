@@ -20,6 +20,8 @@ namespace huntingEquipmentStore
 
         private void PositionControlsRelative()
         {
+            this.Size = formSize;
+
             loginPageLabel.Location = new Point((this.ClientSize.Width - loginPageLabel.Width) / 2, (int)(this.ClientSize.Height * 0.15));
             signupPageLabel.Location = new Point((this.ClientSize.Width - signupPageLabel.Width) / 2, (int)(this.ClientSize.Height * 0.15));
 
@@ -41,6 +43,10 @@ namespace huntingEquipmentStore
             createAccountButton.Location = new Point((this.ClientSize.Width - createAccountButton.Width) / 2, (int)(this.ClientSize.Height * 0.7));
             signupButton.Location = new Point((this.ClientSize.Width - signupButton.Width) / 2, (int)(this.ClientSize.Height * 0.6));
             backToLoginButton.Location = new Point((this.ClientSize.Width - backToLoginButton.Width) / 2, (int)(this.ClientSize.Height * 0.68));
+
+            
+            flowLayoutPanel1.Size = formSize;
+            tabControl1.Size = formSize;
         }
 
 
@@ -53,10 +59,9 @@ namespace huntingEquipmentStore
             this.reviewsTableAdapter.Fill(this.hunting_equipment_storeDataSet.Reviews);
 
 
-            this.Size = formSize;
             PositionControlsRelative();
 
-            tabControl1.Size = formSize;
+
             tabControl1.SelectedTab = loginPage;
 
         }
@@ -73,6 +78,10 @@ namespace huntingEquipmentStore
                 fullnameSignupTextBox.Clear();
                 usernameSignupTextBox.Clear();
                 passwordSignupTextBox.Clear();
+            }
+            else if (tabControl1.SelectedTab == shopPage)
+            {
+                
             }
         }
 
@@ -106,17 +115,14 @@ namespace huntingEquipmentStore
                     DataTable customerTable = hunting_equipment_storeDataSet.Customers;
                     if (customerTable.Rows.Count > 0)
                     {
-                        System.Windows.Forms.MessageBox.Show("Succesfully logged in");
+                        tabControl1.SelectedTab = shopPage;
+                        menuStrip1.Visible = true;
                     }
                     else
                     {
                         System.Windows.Forms.MessageBox.Show("Password doesn't match");
                     }
-
                 }
-
-
-
             }
         }
 
@@ -169,5 +175,27 @@ namespace huntingEquipmentStore
         }
 
 
+        private void shoppingCartToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = cartPage;
+        }
+
+        private void yourAccountToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = accountPage;
+        }
+
+        private void shopToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = shopPage;
+        }
+
+        private void categoriesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = categoriesPage;
+        }
+
+
+  
     }
 }
