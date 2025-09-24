@@ -52,10 +52,10 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="hunting_equipment_storeDataSet.Designer.cs">
+    <Compile Include="hunting_equipment_storeDataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>hunting_equipment_storeDataSet.xsd</DependentUpon>
+      <DependentUpon>hunting_equipment_storeDataSet1.xsd</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -72,16 +72,16 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="app.config" />
-    <None Include="hunting_equipment_storeDataSet.xsc">
-      <DependentUpon>hunting_equipment_storeDataSet.xsd</DependentUpon>
+    <None Include="hunting_equipment_storeDataSet1.xsc">
+      <DependentUpon>hunting_equipment_storeDataSet1.xsd</DependentUpon>
     </None>
-    <None Include="hunting_equipment_storeDataSet.xsd">
+    <None Include="hunting_equipment_storeDataSet1.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>hunting_equipment_storeDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>hunting_equipment_storeDataSet1.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="hunting_equipment_storeDataSet.xss">
-      <DependentUpon>hunting_equipment_storeDataSet.xsd</DependentUpon>
+    <None Include="hunting_equipment_storeDataSet1.xss">
+      <DependentUpon>hunting_equipment_storeDataSet1.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
