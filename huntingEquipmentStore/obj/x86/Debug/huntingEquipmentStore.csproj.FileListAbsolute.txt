@@ -1,0 +1,8 @@
+C:\.richbank\c#\huntingEquipmentStore\huntingEquipmentStore\bin\Debug\huntingEquipmentStore.exe.config
+C:\.richbank\c#\huntingEquipmentStore\huntingEquipmentStore\bin\Debug\huntingEquipmentStore.exe
+C:\.richbank\c#\huntingEquipmentStore\huntingEquipmentStore\bin\Debug\huntingEquipmentStore.pdb
+C:\.richbank\c#\huntingEquipmentStore\huntingEquipmentStore\obj\x86\Debug\huntingEquipmentStore.Form1.resources
+C:\.richbank\c#\huntingEquipmentStore\huntingEquipmentStore\obj\x86\Debug\huntingEquipmentStore.Properties.Resources.resources
+C:\.richbank\c#\huntingEquipmentStore\huntingEquipmentStore\obj\x86\Debug\huntingEquipmentStore.csproj.GenerateResource.Cache
+C:\.richbank\c#\huntingEquipmentStore\huntingEquipmentStore\obj\x86\Debug\huntingEquipmentStore.exe
+C:\.richbank\c#\huntingEquipmentStore\huntingEquipmentStore\obj\x86\Debug\huntingEquipmentStore.pdb
