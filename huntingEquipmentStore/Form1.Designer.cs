@@ -101,10 +101,10 @@
             this.tabControl1.Controls.Add(this.categoriesPage);
             this.tabControl1.Controls.Add(this.cartPage);
             this.tabControl1.Controls.Add(this.accountPage);
-            this.tabControl1.Location = new System.Drawing.Point(-11, 127);
+            this.tabControl1.Location = new System.Drawing.Point(-10, 32);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1533, 669);
+            this.tabControl1.Size = new System.Drawing.Size(1533, 757);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
@@ -240,7 +240,7 @@
             this.signupPage.Location = new System.Drawing.Point(4, 22);
             this.signupPage.Name = "signupPage";
             this.signupPage.Padding = new System.Windows.Forms.Padding(3);
-            this.signupPage.Size = new System.Drawing.Size(1525, 643);
+            this.signupPage.Size = new System.Drawing.Size(1525, 731);
             this.signupPage.TabIndex = 1;
             this.signupPage.Text = "signupPage";
             // 
@@ -360,12 +360,13 @@
             this.shopPage.Location = new System.Drawing.Point(4, 22);
             this.shopPage.Name = "shopPage";
             this.shopPage.Padding = new System.Windows.Forms.Padding(3);
-            this.shopPage.Size = new System.Drawing.Size(1525, 643);
+            this.shopPage.Size = new System.Drawing.Size(1525, 731);
             this.shopPage.TabIndex = 2;
             this.shopPage.Text = "shopPage";
             // 
             // flowLayoutPanel1
             // 
+            this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(6, 106);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1513, 659);
@@ -536,6 +537,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Hunting Equipment Store";
             this.Load += new System.EventHandler(this.Form1_Load);

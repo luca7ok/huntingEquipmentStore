@@ -44,9 +44,10 @@ namespace huntingEquipmentStore
             signupButton.Location = new Point((this.ClientSize.Width - signupButton.Width) / 2, (int)(this.ClientSize.Height * 0.6));
             backToLoginButton.Location = new Point((this.ClientSize.Width - backToLoginButton.Width) / 2, (int)(this.ClientSize.Height * 0.68));
 
-            
-            flowLayoutPanel1.Size = formSize;
-            tabControl1.Size = formSize;
+
+            flowLayoutPanel1.Location = new Point((this.ClientSize.Width - flowLayoutPanel1.Width) / 2, (int)(this.ClientSize.Height * 0.1));
+            flowLayoutPanel1.Size = new Size((int)(Screen.PrimaryScreen.Bounds.Width * 0.9 * 0.7), (int)(Screen.PrimaryScreen.Bounds.Height * 0.9 * 0.7));
+            tabControl1.Size = new Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
         }
 
 
@@ -64,6 +65,78 @@ namespace huntingEquipmentStore
 
             tabControl1.SelectedTab = loginPage;
 
+            createFlowLayoutPanel();
+
+        }
+
+        private void createFlowLayoutPanel()
+        {
+            foreach (DataRow product in hunting_equipment_storeDataSet.Products.Rows)
+            {
+                Panel productCard = createProductPanel(product);
+
+                flowLayoutPanel1.Controls.Add(productCard);
+            }
+        }
+
+        private Panel createProductPanel(DataRow product)
+        {
+            Panel card = new Panel()
+            {
+                Size = new Size((int)(Screen.PrimaryScreen.Bounds.Width * 0.2), (int)(Screen.PrimaryScreen.Bounds.Height * 0.2)),
+                BorderStyle = BorderStyle.FixedSingle,
+                Margin = new Padding(5),
+                Cursor = Cursors.Hand,
+                Padding = new Padding(10)
+            };
+
+            PictureBox productImage = createProductImage(product, card);
+            card.Controls.Add(productImage);
+
+            Label productName = createProductLabel(product, card);
+            card.Controls.Add(productName);
+
+            return card;
+        }
+
+        private PictureBox createProductImage(DataRow product, Panel card)
+        {
+            PictureBox picture = new PictureBox()
+            {
+                Size = new Size((int)(card.Width / 2), (int)(card.Height * 0.6)),
+                Location = new Point((card.Width - card.Width / 2) / 2, 0),
+                SizeMode = PictureBoxSizeMode.Zoom,
+                BackColor = Color.FromArgb(245, 245, 245),
+                BorderStyle = BorderStyle.FixedSingle
+            };
+
+            string image = product["image"].ToString().Trim();
+
+            if (!string.IsNullOrEmpty(image))
+            {
+                picture.Image = Image.FromFile(@"..\\..\\Resources\" + image);
+            }
+            else
+            {
+                picture.Image = Image.FromFile(@"..\\..\\Resources\placeholder.jpg");
+            }
+
+            return picture;
+        }
+
+        private Label createProductLabel(DataRow product, Panel card)
+        {
+            Label label = new Label()
+            {  
+                Text = product["name"].ToString().Trim(),
+                Size = new Size(card.Width, (int)(card.Height * 0.2)),
+                Font = new Font("Microsoft Sans Serif", 16, FontStyle.Bold),
+                Location = new Point(0, (int)(card.Height * 0.6)),
+                ForeColor = Color.Beige,
+                TextAlign = ContentAlignment.MiddleCenter,
+                AutoSize = false
+            };
+            return label;
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
