@@ -114,7 +114,7 @@ SELECT customer_id, username, password, fullname FROM Customers WHERE (customer_
               <Mapping SourceColumn="fullname" DataSetColumn="fullname" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="hunting_equipment_storeConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="addCustomer" Modifier="Public" Name="addCustomer" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="addCustomer">
+              <DbSource ConnectionRef="hunting_equipment_storeConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="addCustomer" Modifier="Public" Name="addCustomer" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="addCustomer">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO [dbo].[Customers] ([username], [password], [fullname]) VALUES (@username, @password, @fullname);
@@ -127,7 +127,7 @@ SELECT customer_id, username, password, fullname FROM Customers WHERE (customer_
                   </DbCommand>
                 </InsertCommand>
               </DbSource>
-              <DbSource ConnectionRef="hunting_equipment_storeConnectionString (Settings)" DbObjectName="dbo.Customers" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="getCustomerByUsername" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="getCustomerByUsername" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="getCustomerByUsername">
+              <DbSource ConnectionRef="hunting_equipment_storeConnectionString (Settings)" DbObjectName="dbo.Customers" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="getCustomerByUsername" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="getCustomerByUsername" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="getCustomerByUsername">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        customer_id, username, password, fullname
@@ -139,7 +139,7 @@ WHERE        (username = @username)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="hunting_equipment_storeConnectionString (Settings)" DbObjectName="dbo.Customers" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="getCustomerByUsernameAndPassword" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="getCustomerByUsernameAndPassword" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="getCustomerByUsernameAndPassword">
+              <DbSource ConnectionRef="hunting_equipment_storeConnectionString (Settings)" DbObjectName="dbo.Customers" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="getCustomerByUsernameAndPassword" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="getCustomerByUsernameAndPassword" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="getCustomerByUsernameAndPassword">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        customer_id, username, password, fullname
@@ -285,7 +285,20 @@ SELECT product_id, name, description, price, image, category_id FROM Products WH
               <Mapping SourceColumn="image" DataSetColumn="image" />
               <Mapping SourceColumn="category_id" DataSetColumn="category_id" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="hunting_equipment_storeConnectionString (Settings)" DbObjectName="dbo.Products" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="getProductByID" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="getProductByID" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="getProductByID">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        product_id, name, description, price, image, category_id
+FROM            Products
+WHERE        (product_id = @product_id)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="product_id" ColumnName="product_id" DataSourceName="[C:\.RICHBANK\C#\HUNTINGEQUIPMENTSTORE\HUNTINGEQUIPMENTSTORE\HUNTING_EQUIPMENT_STORE.MDF].dbo.Products" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@product_id" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="product_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ReviewsTableAdapter" GeneratorDataComponentClassName="ReviewsTableAdapter" Name="Reviews" UserDataComponentName="ReviewsTableAdapter">
             <MainSource>
@@ -364,7 +377,7 @@ SELECT review_id, customer_id, product_id, rating, message, date FROM Reviews WH
   <xs:element name="hunting_equipment_storeDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="hunting_equipment_storeDataSet" msprop:Generator_UserDSName="hunting_equipment_storeDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Categories" msprop:Generator_TableClassName="CategoriesDataTable" msprop:Generator_TableVarName="tableCategories" msprop:Generator_RowChangedName="CategoriesRowChanged" msprop:Generator_TablePropName="Categories" msprop:Generator_RowDeletingName="CategoriesRowDeleting" msprop:Generator_RowChangingName="CategoriesRowChanging" msprop:Generator_RowEvHandlerName="CategoriesRowChangeEventHandler" msprop:Generator_RowDeletedName="CategoriesRowDeleted" msprop:Generator_RowClassName="CategoriesRow" msprop:Generator_UserTableName="Categories" msprop:Generator_RowEvArgName="CategoriesRowChangeEvent">
+        <xs:element name="Categories" msprop:Generator_TableClassName="CategoriesDataTable" msprop:Generator_TableVarName="tableCategories" msprop:Generator_TablePropName="Categories" msprop:Generator_RowDeletingName="CategoriesRowDeleting" msprop:Generator_RowChangingName="CategoriesRowChanging" msprop:Generator_RowEvHandlerName="CategoriesRowChangeEventHandler" msprop:Generator_RowDeletedName="CategoriesRowDeleted" msprop:Generator_UserTableName="Categories" msprop:Generator_RowChangedName="CategoriesRowChanged" msprop:Generator_RowEvArgName="CategoriesRowChangeEvent" msprop:Generator_RowClassName="CategoriesRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="category_id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columncategory_id" msprop:Generator_ColumnPropNameInRow="category_id" msprop:Generator_ColumnPropNameInTable="category_idColumn" msprop:Generator_UserColumnName="category_id" type="xs:int" />
@@ -378,7 +391,7 @@ SELECT review_id, customer_id, product_id, rating, message, date FROM Reviews WH
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Customers" msprop:Generator_TableClassName="CustomersDataTable" msprop:Generator_TableVarName="tableCustomers" msprop:Generator_RowChangedName="CustomersRowChanged" msprop:Generator_TablePropName="Customers" msprop:Generator_RowDeletingName="CustomersRowDeleting" msprop:Generator_RowChangingName="CustomersRowChanging" msprop:Generator_RowEvHandlerName="CustomersRowChangeEventHandler" msprop:Generator_RowDeletedName="CustomersRowDeleted" msprop:Generator_RowClassName="CustomersRow" msprop:Generator_UserTableName="Customers" msprop:Generator_RowEvArgName="CustomersRowChangeEvent">
+        <xs:element name="Customers" msprop:Generator_TableClassName="CustomersDataTable" msprop:Generator_TableVarName="tableCustomers" msprop:Generator_TablePropName="Customers" msprop:Generator_RowDeletingName="CustomersRowDeleting" msprop:Generator_RowChangingName="CustomersRowChanging" msprop:Generator_RowEvHandlerName="CustomersRowChangeEventHandler" msprop:Generator_RowDeletedName="CustomersRowDeleted" msprop:Generator_UserTableName="Customers" msprop:Generator_RowChangedName="CustomersRowChanged" msprop:Generator_RowEvArgName="CustomersRowChangeEvent" msprop:Generator_RowClassName="CustomersRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="customer_id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columncustomer_id" msprop:Generator_ColumnPropNameInRow="customer_id" msprop:Generator_ColumnPropNameInTable="customer_idColumn" msprop:Generator_UserColumnName="customer_id" type="xs:int" />
@@ -406,7 +419,7 @@ SELECT review_id, customer_id, product_id, rating, message, date FROM Reviews WH
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Orders" msprop:Generator_TableClassName="OrdersDataTable" msprop:Generator_TableVarName="tableOrders" msprop:Generator_RowChangedName="OrdersRowChanged" msprop:Generator_TablePropName="Orders" msprop:Generator_RowDeletingName="OrdersRowDeleting" msprop:Generator_RowChangingName="OrdersRowChanging" msprop:Generator_RowEvHandlerName="OrdersRowChangeEventHandler" msprop:Generator_RowDeletedName="OrdersRowDeleted" msprop:Generator_RowClassName="OrdersRow" msprop:Generator_UserTableName="Orders" msprop:Generator_RowEvArgName="OrdersRowChangeEvent">
+        <xs:element name="Orders" msprop:Generator_TableClassName="OrdersDataTable" msprop:Generator_TableVarName="tableOrders" msprop:Generator_TablePropName="Orders" msprop:Generator_RowDeletingName="OrdersRowDeleting" msprop:Generator_RowChangingName="OrdersRowChanging" msprop:Generator_RowEvHandlerName="OrdersRowChangeEventHandler" msprop:Generator_RowDeletedName="OrdersRowDeleted" msprop:Generator_UserTableName="Orders" msprop:Generator_RowChangedName="OrdersRowChanged" msprop:Generator_RowEvArgName="OrdersRowChangeEvent" msprop:Generator_RowClassName="OrdersRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="order_id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnorder_id" msprop:Generator_ColumnPropNameInRow="order_id" msprop:Generator_ColumnPropNameInTable="order_idColumn" msprop:Generator_UserColumnName="order_id" type="xs:int" />
@@ -417,7 +430,7 @@ SELECT review_id, customer_id, product_id, rating, message, date FROM Reviews WH
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Products" msprop:Generator_TableClassName="ProductsDataTable" msprop:Generator_TableVarName="tableProducts" msprop:Generator_RowChangedName="ProductsRowChanged" msprop:Generator_TablePropName="Products" msprop:Generator_RowDeletingName="ProductsRowDeleting" msprop:Generator_RowChangingName="ProductsRowChanging" msprop:Generator_RowEvHandlerName="ProductsRowChangeEventHandler" msprop:Generator_RowDeletedName="ProductsRowDeleted" msprop:Generator_RowClassName="ProductsRow" msprop:Generator_UserTableName="Products" msprop:Generator_RowEvArgName="ProductsRowChangeEvent">
+        <xs:element name="Products" msprop:Generator_TableClassName="ProductsDataTable" msprop:Generator_TableVarName="tableProducts" msprop:Generator_TablePropName="Products" msprop:Generator_RowDeletingName="ProductsRowDeleting" msprop:Generator_RowChangingName="ProductsRowChanging" msprop:Generator_RowEvHandlerName="ProductsRowChangeEventHandler" msprop:Generator_RowDeletedName="ProductsRowDeleted" msprop:Generator_UserTableName="Products" msprop:Generator_RowChangedName="ProductsRowChanged" msprop:Generator_RowEvArgName="ProductsRowChangeEvent" msprop:Generator_RowClassName="ProductsRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="product_id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnproduct_id" msprop:Generator_ColumnPropNameInRow="product_id" msprop:Generator_ColumnPropNameInTable="product_idColumn" msprop:Generator_UserColumnName="product_id" type="xs:int" />
@@ -447,7 +460,7 @@ SELECT review_id, customer_id, product_id, rating, message, date FROM Reviews WH
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Reviews" msprop:Generator_TableClassName="ReviewsDataTable" msprop:Generator_TableVarName="tableReviews" msprop:Generator_RowChangedName="ReviewsRowChanged" msprop:Generator_TablePropName="Reviews" msprop:Generator_RowDeletingName="ReviewsRowDeleting" msprop:Generator_RowChangingName="ReviewsRowChanging" msprop:Generator_RowEvHandlerName="ReviewsRowChangeEventHandler" msprop:Generator_RowDeletedName="ReviewsRowDeleted" msprop:Generator_RowClassName="ReviewsRow" msprop:Generator_UserTableName="Reviews" msprop:Generator_RowEvArgName="ReviewsRowChangeEvent">
+        <xs:element name="Reviews" msprop:Generator_TableClassName="ReviewsDataTable" msprop:Generator_TableVarName="tableReviews" msprop:Generator_TablePropName="Reviews" msprop:Generator_RowDeletingName="ReviewsRowDeleting" msprop:Generator_RowChangingName="ReviewsRowChanging" msprop:Generator_RowEvHandlerName="ReviewsRowChangeEventHandler" msprop:Generator_RowDeletedName="ReviewsRowDeleted" msprop:Generator_UserTableName="Reviews" msprop:Generator_RowChangedName="ReviewsRowChanged" msprop:Generator_RowEvArgName="ReviewsRowChangeEvent" msprop:Generator_RowClassName="ReviewsRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="review_id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnreview_id" msprop:Generator_ColumnPropNameInRow="review_id" msprop:Generator_ColumnPropNameInTable="review_idColumn" msprop:Generator_UserColumnName="review_id" type="xs:int" />
@@ -490,11 +503,11 @@ SELECT review_id, customer_id, product_id, rating, message, date FROM Reviews WH
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="Orders_Customers" msdata:parent="Orders" msdata:child="Customers" msdata:parentkey="customer_id" msdata:childkey="customer_id" msprop:Generator_UserChildTable="Customers" msprop:Generator_ChildPropName="GetCustomersRows" msprop:Generator_UserRelationName="Orders_Customers" msprop:Generator_RelationVarName="relationOrders_Customers" msprop:Generator_UserParentTable="Orders" msprop:Generator_ParentPropName="OrdersRow" />
-      <msdata:Relationship name="Products_Categories" msdata:parent="Products" msdata:child="Categories" msdata:parentkey="category_id" msdata:childkey="category_id" msprop:Generator_UserChildTable="Categories" msprop:Generator_ChildPropName="GetCategoriesRows" msprop:Generator_UserRelationName="Products_Categories" msprop:Generator_RelationVarName="relationProducts_Categories" msprop:Generator_UserParentTable="Products" msprop:Generator_ParentPropName="ProductsRow" />
-      <msdata:Relationship name="Products_Reviews" msdata:parent="Products" msdata:child="Reviews" msdata:parentkey="product_id" msdata:childkey="product_id" msprop:Generator_UserChildTable="Reviews" msprop:Generator_ChildPropName="GetReviewsRows" msprop:Generator_UserRelationName="Products_Reviews" msprop:Generator_ParentPropName="ProductsRow" msprop:Generator_RelationVarName="relationProducts_Reviews" msprop:Generator_UserParentTable="Products" />
-      <msdata:Relationship name="Customers_Reviews" msdata:parent="Customers" msdata:child="Reviews" msdata:parentkey="customer_id" msdata:childkey="customer_id" msprop:Generator_UserChildTable="Reviews" msprop:Generator_ChildPropName="GetReviewsRows" msprop:Generator_UserRelationName="Customers_Reviews" msprop:Generator_ParentPropName="CustomersRow" msprop:Generator_RelationVarName="relationCustomers_Reviews" msprop:Generator_UserParentTable="Customers" />
-      <msdata:Relationship name="Orders_Products" msdata:parent="Orders" msdata:child="Products" msdata:parentkey="product_id" msdata:childkey="product_id" msprop:Generator_UserChildTable="Products" msprop:Generator_ChildPropName="GetProductsRows" msprop:Generator_UserRelationName="Orders_Products" msprop:Generator_ParentPropName="OrdersRow" msprop:Generator_RelationVarName="relationOrders_Products" msprop:Generator_UserParentTable="Orders" />
+      <msdata:Relationship name="Orders_Customers" msdata:parent="Orders" msdata:child="Customers" msdata:parentkey="customer_id" msdata:childkey="customer_id" msprop:Generator_UserChildTable="Customers" msprop:Generator_ChildPropName="GetCustomersRows" msprop:Generator_UserRelationName="Orders_Customers" msprop:Generator_ParentPropName="OrdersRow" msprop:Generator_RelationVarName="relationOrders_Customers" msprop:Generator_UserParentTable="Orders" />
+      <msdata:Relationship name="Products_Categories" msdata:parent="Products" msdata:child="Categories" msdata:parentkey="category_id" msdata:childkey="category_id" msprop:Generator_UserChildTable="Categories" msprop:Generator_ChildPropName="GetCategoriesRows" msprop:Generator_UserRelationName="Products_Categories" msprop:Generator_ParentPropName="ProductsRow" msprop:Generator_RelationVarName="relationProducts_Categories" msprop:Generator_UserParentTable="Products" />
+      <msdata:Relationship name="Products_Reviews" msdata:parent="Products" msdata:child="Reviews" msdata:parentkey="product_id" msdata:childkey="product_id" msprop:Generator_UserChildTable="Reviews" msprop:Generator_ChildPropName="GetReviewsRows" msprop:Generator_UserRelationName="Products_Reviews" msprop:Generator_RelationVarName="relationProducts_Reviews" msprop:Generator_UserParentTable="Products" msprop:Generator_ParentPropName="ProductsRow" />
+      <msdata:Relationship name="Customers_Reviews" msdata:parent="Customers" msdata:child="Reviews" msdata:parentkey="customer_id" msdata:childkey="customer_id" msprop:Generator_UserChildTable="Reviews" msprop:Generator_ChildPropName="GetReviewsRows" msprop:Generator_UserRelationName="Customers_Reviews" msprop:Generator_RelationVarName="relationCustomers_Reviews" msprop:Generator_UserParentTable="Customers" msprop:Generator_ParentPropName="CustomersRow" />
+      <msdata:Relationship name="Orders_Products" msdata:parent="Orders" msdata:child="Products" msdata:parentkey="product_id" msdata:childkey="product_id" msprop:Generator_UserChildTable="Products" msprop:Generator_ChildPropName="GetProductsRows" msprop:Generator_UserRelationName="Orders_Products" msprop:Generator_RelationVarName="relationOrders_Products" msprop:Generator_UserParentTable="Orders" msprop:Generator_ParentPropName="OrdersRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

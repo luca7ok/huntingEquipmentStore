@@ -16,8 +16,9 @@ namespace huntingEquipmentStore
             InitializeComponent();
         }
 
-        Size formSize = new Size((int)(Screen.PrimaryScreen.Bounds.Width * 0.7), (int)(Screen.PrimaryScreen.Bounds.Height * 0.7));
-        TabPage lastPage;
+        private Size formSize = new Size((int)(Screen.PrimaryScreen.Bounds.Width * 0.7), (int)(Screen.PrimaryScreen.Bounds.Height * 0.7));
+        private TabPage lastPage;
+        private List<Tuple<int, int>> shoppingCart = new List<Tuple<int, int>>();
 
         private void PositionControlsRelative()
         {
@@ -53,6 +54,15 @@ namespace huntingEquipmentStore
 
             flowLayoutPanel1.Location = new Point((this.ClientSize.Width - flowLayoutPanel1.Width) / 2, (int)(this.ClientSize.Height * 0.1));
             flowLayoutPanel1.Size = new Size((int)(Screen.PrimaryScreen.Bounds.Width * 0.9 * 0.7), (int)(Screen.PrimaryScreen.Bounds.Height * 0.75 * 0.7));
+
+            flowLayoutPanel2.Size = new Size((int)(this.Size.Width * 0.6), (int)(this.Size.Height * 0.7));
+            flowLayoutPanel2.Location = new Point((int)(this.Size.Width * 0.05), (int)(this.Size.Height * 0.1));
+
+            totalItemsLabel.Location = new Point((int)(this.Size.Width * 0.75), (int)(this.Size.Height * 0.1));
+            totalPriceLabel.Location = new Point((int)(this.Size.Width * 0.75), (int)(this.Size.Height * 0.15));
+            totalItemsNumberLabel.Location = new Point((int)(this.Size.Width * 0.9), (int)(this.Size.Height * 0.1));
+            totalPriceNumberLabel.Location = new Point((int)(this.Size.Width * 0.9), (int)(this.Size.Height * 0.15));
+
             tabControl1.Size = new Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
         }
 
@@ -104,13 +114,14 @@ namespace huntingEquipmentStore
             card.Controls.Add(productName);
 
             Label productPrice = createProductPriceLabel(product, card);
-            card.Controls.Add(productPrice);
-
-            Button cartButton = createCartButton(product, card);
-            card.Controls.Add(cartButton);
+            card.Controls.Add(productPrice);  
 
             NumericUpDown quantityNumeric = createQuantityNumeric(product, card);          
             card.Controls.Add(quantityNumeric);
+
+            Button cartButton = createCartButton(product, card);
+            cartButton.Click += (s, e) => addToCart(product, quantityNumeric);
+            card.Controls.Add(cartButton);
 
             return card;
         }
@@ -231,6 +242,24 @@ namespace huntingEquipmentStore
              
         }
 
+        private void addToCart(DataRow product, NumericUpDown numericQuantity)
+        {
+            int productID = int.Parse(product["product_id"].ToString().Trim());
+            int quantity = int.Parse(numericQuantity.Value.ToString().Trim());
+
+            var existingItem = shoppingCart.FirstOrDefault(item => item.Item1 == productID);
+
+            if (existingItem != null)
+            {
+                shoppingCart.Remove(existingItem);
+                shoppingCart.Add(Tuple.Create(productID, existingItem.Item2 + quantity));
+            }
+            else
+            {
+                shoppingCart.Add(Tuple.Create(productID, quantity));
+            }
+        }
+
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (tabControl1.SelectedTab == loginPage)
@@ -347,6 +376,14 @@ namespace huntingEquipmentStore
         private void shoppingCartToolStripMenuItem_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedTab = cartPage;
+            flowLayoutPanel2.Controls.Clear();
+
+            foreach (Tuple<int, int> products in shoppingCart)
+            {
+
+            }
+
+
         }
 
         private void yourAccountToolStripMenuItem_Click(object sender, EventArgs e)
