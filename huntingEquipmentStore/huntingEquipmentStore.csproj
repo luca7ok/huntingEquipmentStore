@@ -94,7 +94,19 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\alphaburly.jpeg" />
+    <Content Include="Resources\ameristripblind.jpg" />
+    <Content Include="Resources\dannerpronghorn.png" />
+    <Content Include="Resources\doublebullblind.jpg" />
+    <Content Include="Resources\firstlitekilnhoody.jpeg" />
+    <Content Include="Resources\irishvaprtreck.jpeg" />
     <Content Include="Resources\placeholder.jpg" />
+    <Content Include="Resources\planotacklebox.png" />
+    <Content Include="Resources\remington700.jpg" />
+    <Content Include="Resources\ridgereaper.png" />
+    <Content Include="Resources\savageaxis.png" />
+    <Content Include="Resources\stikajacket.JPG" />
+    <Content Include="Resources\winchesterm70.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

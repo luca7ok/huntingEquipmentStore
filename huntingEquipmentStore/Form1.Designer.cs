@@ -53,12 +53,13 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.categoriesPage = new System.Windows.Forms.TabPage();
             this.cartPage = new System.Windows.Forms.TabPage();
-            this.accountPage = new System.Windows.Forms.TabPage();
+            this.ordersPage = new System.Windows.Forms.TabPage();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.shopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.categoriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.shoppingCartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.yourAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hunting_equipment_storeDataSet = new huntingEquipmentStore.hunting_equipment_storeDataSet();
             this.customersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.categoriesBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -74,6 +75,12 @@
             this.reviewsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.reviewsTableAdapter = new huntingEquipmentStore.hunting_equipment_storeDataSetTableAdapters.ReviewsTableAdapter();
             this.categoriesBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
+            this.productPage = new System.Windows.Forms.TabPage();
+            this.productPicture = new System.Windows.Forms.PictureBox();
+            this.productNameLabel = new System.Windows.Forms.Label();
+            this.productPriceLabel = new System.Windows.Forms.Label();
+            this.productDescriptionLabel = new System.Windows.Forms.Label();
+            this.backProductButton = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.loginPage.SuspendLayout();
             this.signupPage.SuspendLayout();
@@ -88,6 +95,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reviewsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriesBindingSource3)).BeginInit();
+            this.productPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.productPicture)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -100,11 +109,12 @@
             this.tabControl1.Controls.Add(this.shopPage);
             this.tabControl1.Controls.Add(this.categoriesPage);
             this.tabControl1.Controls.Add(this.cartPage);
-            this.tabControl1.Controls.Add(this.accountPage);
-            this.tabControl1.Location = new System.Drawing.Point(-10, 32);
+            this.tabControl1.Controls.Add(this.ordersPage);
+            this.tabControl1.Controls.Add(this.productPage);
+            this.tabControl1.Location = new System.Drawing.Point(-10, 38);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1533, 757);
+            this.tabControl1.Size = new System.Drawing.Size(1533, 751);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
@@ -123,7 +133,7 @@
             this.loginPage.Location = new System.Drawing.Point(4, 22);
             this.loginPage.Name = "loginPage";
             this.loginPage.Padding = new System.Windows.Forms.Padding(3);
-            this.loginPage.Size = new System.Drawing.Size(1525, 643);
+            this.loginPage.Size = new System.Drawing.Size(1525, 725);
             this.loginPage.TabIndex = 0;
             this.loginPage.Text = "loginPage";
             // 
@@ -187,6 +197,7 @@
             this.passwordLoginTextBox.MaxLength = 20;
             this.passwordLoginTextBox.Multiline = true;
             this.passwordLoginTextBox.Name = "passwordLoginTextBox";
+            this.passwordLoginTextBox.PasswordChar = '*';
             this.passwordLoginTextBox.Size = new System.Drawing.Size(337, 34);
             this.passwordLoginTextBox.TabIndex = 3;
             // 
@@ -240,7 +251,7 @@
             this.signupPage.Location = new System.Drawing.Point(4, 22);
             this.signupPage.Name = "signupPage";
             this.signupPage.Padding = new System.Windows.Forms.Padding(3);
-            this.signupPage.Size = new System.Drawing.Size(1525, 731);
+            this.signupPage.Size = new System.Drawing.Size(1525, 725);
             this.signupPage.TabIndex = 1;
             this.signupPage.Text = "signupPage";
             // 
@@ -360,13 +371,15 @@
             this.shopPage.Location = new System.Drawing.Point(4, 22);
             this.shopPage.Name = "shopPage";
             this.shopPage.Padding = new System.Windows.Forms.Padding(3);
-            this.shopPage.Size = new System.Drawing.Size(1525, 731);
+            this.shopPage.Size = new System.Drawing.Size(1525, 725);
             this.shopPage.TabIndex = 2;
             this.shopPage.Text = "shopPage";
             // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.AutoScrollMargin = new System.Drawing.Size(0, 20);
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.DarkSlateGray;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(6, 106);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1513, 659);
@@ -378,7 +391,7 @@
             this.categoriesPage.Location = new System.Drawing.Point(4, 22);
             this.categoriesPage.Name = "categoriesPage";
             this.categoriesPage.Padding = new System.Windows.Forms.Padding(3);
-            this.categoriesPage.Size = new System.Drawing.Size(1525, 643);
+            this.categoriesPage.Size = new System.Drawing.Size(1525, 725);
             this.categoriesPage.TabIndex = 3;
             this.categoriesPage.Text = "categoriesPage";
             // 
@@ -388,19 +401,19 @@
             this.cartPage.Location = new System.Drawing.Point(4, 22);
             this.cartPage.Name = "cartPage";
             this.cartPage.Padding = new System.Windows.Forms.Padding(3);
-            this.cartPage.Size = new System.Drawing.Size(1525, 643);
+            this.cartPage.Size = new System.Drawing.Size(1525, 725);
             this.cartPage.TabIndex = 4;
             this.cartPage.Text = "cartPage";
             // 
-            // accountPage
+            // ordersPage
             // 
-            this.accountPage.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.accountPage.Location = new System.Drawing.Point(4, 22);
-            this.accountPage.Name = "accountPage";
-            this.accountPage.Padding = new System.Windows.Forms.Padding(3);
-            this.accountPage.Size = new System.Drawing.Size(1525, 643);
-            this.accountPage.TabIndex = 5;
-            this.accountPage.Text = "accountPage";
+            this.ordersPage.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.ordersPage.Location = new System.Drawing.Point(4, 22);
+            this.ordersPage.Name = "ordersPage";
+            this.ordersPage.Padding = new System.Windows.Forms.Padding(3);
+            this.ordersPage.Size = new System.Drawing.Size(1525, 725);
+            this.ordersPage.TabIndex = 5;
+            this.ordersPage.Text = "ordersPage";
             // 
             // menuStrip1
             // 
@@ -410,7 +423,8 @@
             this.shopToolStripMenuItem,
             this.categoriesToolStripMenuItem,
             this.shoppingCartToolStripMenuItem,
-            this.yourAccountToolStripMenuItem});
+            this.yourAccountToolStripMenuItem,
+            this.logoutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1517, 45);
@@ -450,9 +464,18 @@
             this.yourAccountToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.yourAccountToolStripMenuItem.ForeColor = System.Drawing.Color.Beige;
             this.yourAccountToolStripMenuItem.Name = "yourAccountToolStripMenuItem";
-            this.yourAccountToolStripMenuItem.Size = new System.Drawing.Size(182, 41);
-            this.yourAccountToolStripMenuItem.Text = "Your account";
+            this.yourAccountToolStripMenuItem.Size = new System.Drawing.Size(164, 41);
+            this.yourAccountToolStripMenuItem.Text = "Your orders";
             this.yourAccountToolStripMenuItem.Click += new System.EventHandler(this.yourAccountToolStripMenuItem_Click);
+            // 
+            // logoutToolStripMenuItem
+            // 
+            this.logoutToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logoutToolStripMenuItem.ForeColor = System.Drawing.Color.Beige;
+            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(114, 41);
+            this.logoutToolStripMenuItem.Text = "Logout";
+            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
             // hunting_equipment_storeDataSet
             // 
@@ -529,6 +552,82 @@
             this.categoriesBindingSource3.DataMember = "Categories";
             this.categoriesBindingSource3.DataSource = this.hunting_equipment_storeDataSet;
             // 
+            // productPage
+            // 
+            this.productPage.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.productPage.Controls.Add(this.backProductButton);
+            this.productPage.Controls.Add(this.productDescriptionLabel);
+            this.productPage.Controls.Add(this.productPriceLabel);
+            this.productPage.Controls.Add(this.productNameLabel);
+            this.productPage.Controls.Add(this.productPicture);
+            this.productPage.Location = new System.Drawing.Point(4, 22);
+            this.productPage.Name = "productPage";
+            this.productPage.Padding = new System.Windows.Forms.Padding(3);
+            this.productPage.Size = new System.Drawing.Size(1525, 725);
+            this.productPage.TabIndex = 6;
+            this.productPage.Text = "productPage";
+            // 
+            // productPicture
+            // 
+            this.productPicture.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.productPicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.productPicture.Location = new System.Drawing.Point(498, 41);
+            this.productPicture.Name = "productPicture";
+            this.productPicture.Size = new System.Drawing.Size(475, 280);
+            this.productPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.productPicture.TabIndex = 0;
+            this.productPicture.TabStop = false;
+            // 
+            // productNameLabel
+            // 
+            this.productNameLabel.AutoSize = true;
+            this.productNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.productNameLabel.ForeColor = System.Drawing.Color.Beige;
+            this.productNameLabel.Location = new System.Drawing.Point(665, 359);
+            this.productNameLabel.Name = "productNameLabel";
+            this.productNameLabel.Size = new System.Drawing.Size(99, 33);
+            this.productNameLabel.TabIndex = 1;
+            this.productNameLabel.Text = "label1";
+            this.productNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // productPriceLabel
+            // 
+            this.productPriceLabel.AutoSize = true;
+            this.productPriceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.productPriceLabel.ForeColor = System.Drawing.Color.Beige;
+            this.productPriceLabel.Location = new System.Drawing.Point(665, 419);
+            this.productPriceLabel.Name = "productPriceLabel";
+            this.productPriceLabel.Size = new System.Drawing.Size(99, 33);
+            this.productPriceLabel.TabIndex = 2;
+            this.productPriceLabel.Text = "label1";
+            this.productPriceLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // productDescriptionLabel
+            // 
+            this.productDescriptionLabel.AutoSize = true;
+            this.productDescriptionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.productDescriptionLabel.ForeColor = System.Drawing.Color.Beige;
+            this.productDescriptionLabel.Location = new System.Drawing.Point(665, 508);
+            this.productDescriptionLabel.Name = "productDescriptionLabel";
+            this.productDescriptionLabel.Size = new System.Drawing.Size(99, 33);
+            this.productDescriptionLabel.TabIndex = 3;
+            this.productDescriptionLabel.Text = "label1";
+            this.productDescriptionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // backProductButton
+            // 
+            this.backProductButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.backProductButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.backProductButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.backProductButton.ForeColor = System.Drawing.Color.Beige;
+            this.backProductButton.Location = new System.Drawing.Point(38, 629);
+            this.backProductButton.Name = "backProductButton";
+            this.backProductButton.Size = new System.Drawing.Size(158, 68);
+            this.backProductButton.TabIndex = 4;
+            this.backProductButton.Text = "Back";
+            this.backProductButton.UseVisualStyleBackColor = false;
+            this.backProductButton.Click += new System.EventHandler(this.backProductButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -558,6 +657,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.reviewsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriesBindingSource3)).EndInit();
+            this.productPage.ResumeLayout(false);
+            this.productPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.productPicture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -604,12 +706,19 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.TabPage categoriesPage;
         private System.Windows.Forms.TabPage cartPage;
-        private System.Windows.Forms.TabPage accountPage;
+        private System.Windows.Forms.TabPage ordersPage;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem shopToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem categoriesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem shoppingCartToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem yourAccountToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
+        private System.Windows.Forms.TabPage productPage;
+        private System.Windows.Forms.Label productNameLabel;
+        private System.Windows.Forms.PictureBox productPicture;
+        private System.Windows.Forms.Label productPriceLabel;
+        private System.Windows.Forms.Label productDescriptionLabel;
+        private System.Windows.Forms.Button backProductButton;
 
     }
 }
