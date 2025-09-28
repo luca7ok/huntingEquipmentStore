@@ -56,12 +56,12 @@ namespace huntingEquipmentStore
             flowLayoutPanel1.Size = new Size((int)(Screen.PrimaryScreen.Bounds.Width * 0.9 * 0.7), (int)(Screen.PrimaryScreen.Bounds.Height * 0.75 * 0.7));
 
             flowLayoutPanel2.Size = new Size((int)(this.Size.Width * 0.6), (int)(this.Size.Height * 0.7));
-            flowLayoutPanel2.Location = new Point((int)(this.Size.Width * 0.05), (int)(this.Size.Height * 0.1));
+            flowLayoutPanel2.Location = new Point((int)(this.Size.Width * 0.05), (int)(this.Size.Height * 0.15));
 
-            totalItemsLabel.Location = new Point((int)(this.Size.Width * 0.75), (int)(this.Size.Height * 0.1));
-            totalPriceLabel.Location = new Point((int)(this.Size.Width * 0.75), (int)(this.Size.Height * 0.15));
-            totalItemsNumberLabel.Location = new Point((int)(this.Size.Width * 0.9), (int)(this.Size.Height * 0.1));
-            totalPriceNumberLabel.Location = new Point((int)(this.Size.Width * 0.9), (int)(this.Size.Height * 0.15));
+            totalItemsLabel.Location = new Point((int)(this.Size.Width * 0.75), (int)(this.Size.Height * 0.15));
+            totalPriceLabel.Location = new Point((int)(this.Size.Width * 0.75), (int)(this.Size.Height * 0.25));
+            totalItemsNumberLabel.Location = new Point((int)(this.Size.Width * 0.9), (int)(this.Size.Height * 0.15));
+            totalPriceNumberLabel.Location = new Point((int)(this.Size.Width * 0.9), (int)(this.Size.Height * 0.25));
 
             tabControl1.Size = new Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
         }
@@ -77,16 +77,18 @@ namespace huntingEquipmentStore
 
             PositionControlsRelative();
 
-
             tabControl1.SelectedTab = loginPage;
             TabPage lastPage = loginPage;
-
-            createFlowLayoutPanel();
 
         }
 
         private void createFlowLayoutPanel()
         {
+            flowLayoutPanel1.Controls.Clear();
+
+            hunting_equipment_storeDataSet.Products.Clear();
+            productsTableAdapter.getAllProducts(hunting_equipment_storeDataSet.Products);
+
             foreach (DataRow product in hunting_equipment_storeDataSet.Products.Rows)
             {
                 Panel productCard = createProductPanel(product);
@@ -314,6 +316,7 @@ namespace huntingEquipmentStore
                     if (customerTable.Rows.Count > 0)
                     {
                         tabControl1.SelectedTab = shopPage;
+                        createFlowLayoutPanel();
                         menuStrip1.Visible = true;
                     }
                     else
@@ -377,13 +380,123 @@ namespace huntingEquipmentStore
         {
             tabControl1.SelectedTab = cartPage;
             flowLayoutPanel2.Controls.Clear();
-
-            foreach (Tuple<int, int> products in shoppingCart)
+            if (shoppingCart.Count == 0)
             {
+                totalPriceNumberLabel.Text = "0.00 $";
+                totalItemsNumberLabel.Text = "0";
 
+                Panel card = new Panel()
+                {
+                    Size = new Size((int)(flowLayoutPanel2.Width * 0.95), (int)(Screen.PrimaryScreen.Bounds.Height * 0.1)),
+                    BorderStyle = BorderStyle.FixedSingle,
+                    Margin = new Padding(5),
+                    Padding = new Padding(10),
+                };
+                
+                Label emptyLabel = new Label()
+                {
+                    Text = "Shopping cart is empty",
+                    Font = new Font("Microsoft Sans Serif", 24, FontStyle.Bold),
+                    ForeColor = Color.Beige,
+                    TextAlign = ContentAlignment.MiddleCenter,
+                    AutoSize = true            
+                };
+                card.Controls.Add(emptyLabel);
+                emptyLabel.Location = new Point((card.Width - emptyLabel.Width) / 2, (card.Height - emptyLabel.Height) / 2);
+
+                flowLayoutPanel2.Controls.Add(card);
+                
             }
+            else
+            {
+                double totalPrice = 0;
+                int totalItems = 0;
+                foreach (Tuple<int, int> cartItem in shoppingCart)
+                {
+                    hunting_equipment_storeDataSet.Products.Clear();
+                    productsTableAdapter.getProductByID(hunting_equipment_storeDataSet.Products, cartItem.Item1);
+                    DataRow product = hunting_equipment_storeDataSet.Products.Rows[0];
 
+                    totalPrice += double.Parse(product["price"].ToString().Trim()) * cartItem.Item2;
+                    totalItems += cartItem.Item2;
 
+                    totalPriceNumberLabel.Text = totalPrice.ToString().Trim();
+                    totalItemsNumberLabel.Text = totalItems.ToString().Trim();
+
+                    Panel card = new Panel()
+                    {
+                        Size = new Size((int)(flowLayoutPanel2.Width * 0.95), (int)(Screen.PrimaryScreen.Bounds.Height * 0.1)),
+                        BorderStyle = BorderStyle.FixedSingle,
+                        Margin = new Padding(5),
+                        Padding = new Padding(10),
+                    };
+
+                    PictureBox picture = new PictureBox()
+                    {
+                        Size = new Size((int)(card.Width * 0.2), (int)(card.Height * 0.8)),
+                        Location = new Point((int)(card.Width * 0.03), (int)(card.Height - card.Height * 0.8) / 2),
+                        SizeMode = PictureBoxSizeMode.Zoom,
+                        BackColor = Color.FromArgb(245, 245, 245),
+                        BorderStyle = BorderStyle.FixedSingle,
+                        Cursor = Cursors.Hand
+                    };
+
+                    string image = product["image"].ToString().Trim();
+
+                    if (!string.IsNullOrEmpty(image))
+                    {
+                        picture.Image = Image.FromFile(@"..\\..\\Resources\" + image);
+                    }
+                    else
+                    {
+                        picture.Image = Image.FromFile(@"..\\..\\Resources\placeholder.jpg");
+                    }
+                    picture.Click += (s, f) => productDetails(product);
+
+                    Label nameLabel = new Label()
+                    {
+                        Text = product["name"].ToString().Trim(),
+                        MaximumSize = new Size((int)(card.Width * 0.3), 0),
+                        Font = new Font("Microsoft Sans Serif", 20, FontStyle.Bold),
+                        ForeColor = Color.Beige,
+                        TextAlign = ContentAlignment.MiddleCenter,
+                        Cursor = Cursors.Hand,
+                        AutoSize = true
+                    };
+                    nameLabel.Click += (s, f) => productDetails(product);
+
+                    Label amountUnitPriceLabel = new Label()
+                    {
+                        Text = cartItem.Item2.ToString().Trim() + " x " + product["price"].ToString().Trim() + " $" ,
+                        Size = new Size((int)(card.Width * 0.15), (int)(card.Height * 0.24)),
+                        Font = new Font("Microsoft Sans Serif", 20, FontStyle.Bold),
+                        Location = new Point((int)(card.Width * 0.60), (int)(card.Height - card.Height * 0.2) / 2),
+                        ForeColor = Color.Beige,
+                        TextAlign = ContentAlignment.MiddleCenter,
+                        AutoSize = true,
+                    };
+
+                    Label totalPriceLabel = new Label()
+                    {
+                        Text = (double.Parse(product["price"].ToString().Trim()) * cartItem.Item2).ToString().Trim() + " $",
+                        Size = new Size((int)(card.Width * 0.15), (int)(card.Height * 0.24)),
+                        Font = new Font("Microsoft Sans Serif", 20, FontStyle.Bold),
+                        Location = new Point((int)(card.Width * 0.85), (int)(card.Height - card.Height * 0.2) / 2),
+                        ForeColor = Color.Beige,
+                        TextAlign = ContentAlignment.MiddleCenter,
+                        AutoSize = true,
+                    };
+
+                    card.Controls.Add(picture);
+                    card.Controls.Add(nameLabel);
+                    card.Controls.Add(amountUnitPriceLabel);
+                    card.Controls.Add(totalPriceLabel);
+
+                    nameLabel.Location = new Point((int)(card.Width * 0.25), (int)(card.Height - nameLabel.Height) / 2);
+
+                    flowLayoutPanel2.Controls.Add(card);
+                }
+            }
         }
 
         private void yourAccountToolStripMenuItem_Click(object sender, EventArgs e)
@@ -394,6 +507,7 @@ namespace huntingEquipmentStore
         private void shopToolStripMenuItem_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedTab = shopPage;
+            createFlowLayoutPanel();
         }
 
         private void categoriesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -404,6 +518,7 @@ namespace huntingEquipmentStore
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedTab = loginPage;
+            shoppingCart.Clear();
             menuStrip1.Visible = false;
         }
 
