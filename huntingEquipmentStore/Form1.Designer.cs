@@ -72,6 +72,8 @@
             this.shoppingCartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.yourAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clearCartButton = new System.Windows.Forms.Button();
+            this.checkoutButton = new System.Windows.Forms.Button();
             this.hunting_equipment_storeDataSet = new huntingEquipmentStore.hunting_equipment_storeDataSet();
             this.customersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.categoriesBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -87,8 +89,9 @@
             this.reviewsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.reviewsTableAdapter = new huntingEquipmentStore.hunting_equipment_storeDataSetTableAdapters.ReviewsTableAdapter();
             this.categoriesBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
-            this.clearCartButton = new System.Windows.Forms.Button();
-            this.checkoutButton = new System.Windows.Forms.Button();
+            this.ordersBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.orderDetailsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.orderDetailsTableAdapter = new huntingEquipmentStore.hunting_equipment_storeDataSetTableAdapters.OrderDetailsTableAdapter();
             this.tabControl1.SuspendLayout();
             this.loginPage.SuspendLayout();
             this.signupPage.SuspendLayout();
@@ -106,6 +109,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reviewsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriesBindingSource3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderDetailsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -636,6 +641,34 @@
             this.logoutToolStripMenuItem.Text = "Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
+            // clearCartButton
+            // 
+            this.clearCartButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.clearCartButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.clearCartButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clearCartButton.ForeColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.clearCartButton.Location = new System.Drawing.Point(1091, 359);
+            this.clearCartButton.Name = "clearCartButton";
+            this.clearCartButton.Size = new System.Drawing.Size(303, 56);
+            this.clearCartButton.TabIndex = 7;
+            this.clearCartButton.Text = "Clear cart";
+            this.clearCartButton.UseVisualStyleBackColor = false;
+            this.clearCartButton.Click += new System.EventHandler(this.clearCartButton_Click);
+            // 
+            // checkoutButton
+            // 
+            this.checkoutButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.checkoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.checkoutButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkoutButton.ForeColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.checkoutButton.Location = new System.Drawing.Point(1091, 500);
+            this.checkoutButton.Name = "checkoutButton";
+            this.checkoutButton.Size = new System.Drawing.Size(303, 56);
+            this.checkoutButton.TabIndex = 8;
+            this.checkoutButton.Text = "Checkout";
+            this.checkoutButton.UseVisualStyleBackColor = false;
+            this.checkoutButton.Click += new System.EventHandler(this.checkoutButton_Click);
+            // 
             // hunting_equipment_storeDataSet
             // 
             this.hunting_equipment_storeDataSet.DataSetName = "hunting_equipment_storeDataSet";
@@ -660,6 +693,7 @@
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.CategoriesTableAdapter = this.categoriesTableAdapter;
             this.tableAdapterManager.CustomersTableAdapter = this.customersTableAdapter;
+            this.tableAdapterManager.OrderDetailsTableAdapter = null;
             this.tableAdapterManager.OrdersTableAdapter = this.ordersTableAdapter;
             this.tableAdapterManager.ProductsTableAdapter = this.productsTableAdapter;
             this.tableAdapterManager.ReviewsTableAdapter = null;
@@ -711,32 +745,19 @@
             this.categoriesBindingSource3.DataMember = "Categories";
             this.categoriesBindingSource3.DataSource = this.hunting_equipment_storeDataSet;
             // 
-            // clearCartButton
+            // ordersBindingSource1
             // 
-            this.clearCartButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.clearCartButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.clearCartButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clearCartButton.ForeColor = System.Drawing.Color.LightGoldenrodYellow;
-            this.clearCartButton.Location = new System.Drawing.Point(1091, 359);
-            this.clearCartButton.Name = "clearCartButton";
-            this.clearCartButton.Size = new System.Drawing.Size(303, 56);
-            this.clearCartButton.TabIndex = 7;
-            this.clearCartButton.Text = "Clear cart";
-            this.clearCartButton.UseVisualStyleBackColor = false;
-            this.clearCartButton.Click += new System.EventHandler(this.clearCartButton_Click);
+            this.ordersBindingSource1.DataMember = "Orders";
+            this.ordersBindingSource1.DataSource = this.hunting_equipment_storeDataSet;
             // 
-            // checkoutButton
+            // orderDetailsBindingSource
             // 
-            this.checkoutButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.checkoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.checkoutButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkoutButton.ForeColor = System.Drawing.Color.LightGoldenrodYellow;
-            this.checkoutButton.Location = new System.Drawing.Point(1091, 500);
-            this.checkoutButton.Name = "checkoutButton";
-            this.checkoutButton.Size = new System.Drawing.Size(303, 56);
-            this.checkoutButton.TabIndex = 8;
-            this.checkoutButton.Text = "Checkout";
-            this.checkoutButton.UseVisualStyleBackColor = false;
+            this.orderDetailsBindingSource.DataMember = "OrderDetails";
+            this.orderDetailsBindingSource.DataSource = this.hunting_equipment_storeDataSet;
+            // 
+            // orderDetailsTableAdapter
+            // 
+            this.orderDetailsTableAdapter.ClearBeforeFill = true;
             // 
             // Form1
             // 
@@ -772,6 +793,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.reviewsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriesBindingSource3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderDetailsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -839,6 +862,9 @@
         private System.Windows.Forms.Label totalPriceLabel;
         private System.Windows.Forms.Button clearCartButton;
         private System.Windows.Forms.Button checkoutButton;
+        private System.Windows.Forms.BindingSource ordersBindingSource1;
+        private System.Windows.Forms.BindingSource orderDetailsBindingSource;
+        private hunting_equipment_storeDataSetTableAdapters.OrderDetailsTableAdapter orderDetailsTableAdapter;
 
     }
 }

@@ -7,3 +7,5 @@ C:\.richbank\c#\huntingEquipmentStore\huntingEquipmentStore\obj\x86\Debug\huntin
 C:\.richbank\c#\huntingEquipmentStore\huntingEquipmentStore\obj\x86\Debug\huntingEquipmentStore.exe
 C:\.richbank\c#\huntingEquipmentStore\huntingEquipmentStore\obj\x86\Debug\huntingEquipmentStore.pdb
 C:\.richbank\c#\huntingEquipmentStore\huntingEquipmentStore\obj\x86\Debug\huntingEquipmentStore.csprojResolveAssemblyReference.cache
+C:\.richbank\c#\huntingEquipmentStore\huntingEquipmentStore\bin\Debug\hunting_equipment_store.mdf
+C:\.richbank\c#\huntingEquipmentStore\huntingEquipmentStore\bin\Debug\hunting_equipment_store_log.LDF

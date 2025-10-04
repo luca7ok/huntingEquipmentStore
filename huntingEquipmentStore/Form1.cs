@@ -19,6 +19,8 @@ namespace huntingEquipmentStore
         private Size formSize = new Size((int)(Screen.PrimaryScreen.Bounds.Width * 0.7), (int)(Screen.PrimaryScreen.Bounds.Height * 0.7));
         private TabPage lastPage;
         private List<Tuple<int, int>> shoppingCart = new List<Tuple<int, int>>();
+        DataRow customer;
+        double totalPrice = 0;
 
         private void PositionControlsRelative()
         {
@@ -72,6 +74,7 @@ namespace huntingEquipmentStore
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            this.orderDetailsTableAdapter.Fill(this.hunting_equipment_storeDataSet.OrderDetails);
             this.categoriesTableAdapter.Fill(this.hunting_equipment_storeDataSet.Categories);
             this.productsTableAdapter.Fill(this.hunting_equipment_storeDataSet.Products);
             this.customersTableAdapter.Fill(this.hunting_equipment_storeDataSet.Customers);
@@ -321,6 +324,7 @@ namespace huntingEquipmentStore
                         tabControl1.SelectedTab = shopPage;
                         createFlowLayoutPanel();
                         menuStrip1.Visible = true;
+                        customer = hunting_equipment_storeDataSet.Customers.Rows[0];
                     }
                     else
                     {
@@ -418,7 +422,7 @@ namespace huntingEquipmentStore
             }
             else
             {
-                double totalPrice = 0;
+                totalPrice = 0;
                 int totalItems = 0;
                 foreach (Tuple<int, int> cartItem in shoppingCart)
                 {
@@ -540,7 +544,31 @@ namespace huntingEquipmentStore
         {
             shoppingCart.Clear();
             fillShoppingCart();
+        }
 
+        private void checkoutButton_Click(object sender, EventArgs e)
+        {
+            if (shoppingCart.Count == 0)
+            {
+                System.Windows.Forms.MessageBox.Show("Shopping cart is empty");
+            }
+            else
+            {
+
+                ordersTableAdapter.addOrder(int.Parse(customer["customer_id"].ToString().Trim()), DateTime.Now.ToString("dd/MM/yyyy"), totalPrice);
+                ordersTableAdapter.Update(hunting_equipment_storeDataSet);
+                ordersTableAdapter.Fill(hunting_equipment_storeDataSet.Orders);
+
+                DataTable orders = hunting_equipment_storeDataSet.Orders;
+                int newOrderID = int.Parse(orders.Rows[orders.Rows.Count - 1]["order_id"].ToString().Trim());
+                
+                foreach (Tuple<int, int> cartItem in shoppingCart)
+                {
+                    orderDetailsTableAdapter.addOrderDetail(newOrderID, cartItem.Item1, cartItem.Item2);
+                }
+                shoppingCart.Clear();
+                fillShoppingCart(); 
+            }
         }
 
 
