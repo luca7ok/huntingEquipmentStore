@@ -54,6 +54,9 @@ namespace huntingEquipmentStore
             backProductButton.Size = new Size((int)(this.ClientSize.Width * 0.08), (int)(this.ClientSize.Height * 0.08));
             backProductButton.Location = new Point((int)(this.ClientSize.Width * 0.02), (int)(this.ClientSize.Height * 0.85));
 
+            backOrderDetailsButton.Size = new Size((int)(this.ClientSize.Width * 0.08), (int)(this.ClientSize.Height * 0.08));
+            backOrderDetailsButton.Location = new Point((int)(this.ClientSize.Width * 0.02), (int)(this.ClientSize.Height * 0.85));
+
             flowLayoutPanel1.Location = new Point((this.ClientSize.Width - flowLayoutPanel1.Width) / 2, (int)(this.ClientSize.Height * 0.1));
             flowLayoutPanel1.Size = new Size((int)(Screen.PrimaryScreen.Bounds.Width * 0.9 * 0.7), (int)(Screen.PrimaryScreen.Bounds.Height * 0.75 * 0.7));
 
@@ -68,7 +71,20 @@ namespace huntingEquipmentStore
             clearCartButton.Location = new Point((int)(this.Size.Width * 0.75), (int)(this.Size.Height * 0.35));
             checkoutButton.Location = new Point((int)(this.Size.Width * 0.75), (int)(this.Size.Height * 0.45));
 
+            flowLayoutPanel3.Size = new Size((int)(this.Size.Width * 0.4), (int)(this.Size.Height * 0.7));
+            flowLayoutPanel3.Location = new Point((int)(this.Size.Width - flowLayoutPanel3.Width)/2, (int)(this.Size.Height * 0.15));
+
+            yourOrdersLabel.Location = new Point((this.ClientSize.Width - yourOrdersLabel.Width) / 2, (int)(this.ClientSize.Height * 0.02));
+
             tabControl1.Size = new Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
+
+            flowLayoutPanel4.Size = new Size((int)(this.Size.Width * 0.5), (int)(this.Size.Height * 0.7));
+            flowLayoutPanel4.Location = new Point((int)(this.Size.Width - flowLayoutPanel4.Width) / 2, (int)(this.Size.Height * 0.15));
+
+            totalItemsLabel2.Location = new Point((int)(this.Size.Width * 0.78), (int)(this.Size.Height * 0.15));
+            totalPriceLabel2.Location = new Point((int)(this.Size.Width * 0.78), (int)(this.Size.Height * 0.25));
+            totalItemsNumberLabel2.Location = new Point((int)(this.Size.Width * 0.9), (int)(this.Size.Height * 0.15));
+            totalPriceNumberLabel2.Location = new Point((int)(this.Size.Width * 0.9), (int)(this.Size.Height * 0.25));
         }
 
 
@@ -94,8 +110,9 @@ namespace huntingEquipmentStore
 
             hunting_equipment_storeDataSet.Products.Clear();
             productsTableAdapter.getAllProducts(hunting_equipment_storeDataSet.Products);
+            DataTable products = hunting_equipment_storeDataSet.Products;
 
-            foreach (DataRow product in hunting_equipment_storeDataSet.Products.Rows)
+            foreach (DataRow product in products.Rows)
             {
                 Panel productCard = createProductPanel(product);
                 flowLayoutPanel1.Controls.Add(productCard);
@@ -113,21 +130,23 @@ namespace huntingEquipmentStore
                 Padding = new Padding(10),
             };
 
+            int productID = int.Parse(product["product_id"].ToString().Trim());
+
             PictureBox productImage = createProductImage(product, card);
-            productImage.Click += (s, e) => productDetails(product);
+            productImage.Click += (s, e) => productDetails(productID);
             card.Controls.Add(productImage);
 
             Label productName = createProductNameLabel(product, card);
-            productName.Click += (s, e) => productDetails(product);
+            productName.Click += (s, e) => productDetails(productID);
             card.Controls.Add(productName);
 
             Label productPrice = createProductPriceLabel(product, card);
             card.Controls.Add(productPrice);  
 
-            NumericUpDown quantityNumeric = createQuantityNumeric(product, card);          
+            NumericUpDown quantityNumeric = createQuantityNumeric( card);          
             card.Controls.Add(quantityNumeric);
 
-            Button cartButton = createCartButton(product, card);
+            Button cartButton = createCartButton(card);
             cartButton.Click += (s, e) => addToCart(product, quantityNumeric);
             card.Controls.Add(cartButton);
 
@@ -192,7 +211,7 @@ namespace huntingEquipmentStore
             return label;
         }
 
-        private NumericUpDown createQuantityNumeric(DataRow product, Panel card)
+        private NumericUpDown createQuantityNumeric(Panel card)
         {
             NumericUpDown numeric = new NumericUpDown()
             {
@@ -207,7 +226,7 @@ namespace huntingEquipmentStore
             return numeric;
         }
 
-        private Button createCartButton(DataRow product, Panel card)
+        private Button createCartButton(Panel card)
         {
             Button button = new Button()
             {
@@ -223,8 +242,12 @@ namespace huntingEquipmentStore
             return button;
         }
 
-        private void productDetails(DataRow product)
+        private void productDetails(int productID)
         {
+            hunting_equipment_storeDataSet.Products.Clear();
+            productsTableAdapter.getProductByID(hunting_equipment_storeDataSet.Products, productID);
+            DataRow product = hunting_equipment_storeDataSet.Products.Rows[0];
+
             lastPage = tabControl1.SelectedTab;
             tabControl1.SelectedTab = productPage;
 
@@ -426,15 +449,15 @@ namespace huntingEquipmentStore
                 int totalItems = 0;
                 foreach (Tuple<int, int> cartItem in shoppingCart)
                 {
+                    int productID = cartItem.Item1;
+                    int quantity = cartItem.Item2;
+
                     hunting_equipment_storeDataSet.Products.Clear();
-                    productsTableAdapter.getProductByID(hunting_equipment_storeDataSet.Products, cartItem.Item1);
+                    productsTableAdapter.getProductByID(hunting_equipment_storeDataSet.Products, productID);
                     DataRow product = hunting_equipment_storeDataSet.Products.Rows[0];
 
-                    totalPrice += double.Parse(product["price"].ToString().Trim()) * cartItem.Item2;
-                    totalItems += cartItem.Item2;
-
-                    totalPriceNumberLabel.Text = totalPrice.ToString().Trim();
-                    totalItemsNumberLabel.Text = totalItems.ToString().Trim();
+                    totalPrice += double.Parse(product["price"].ToString().Trim()) * quantity;
+                    totalItems += quantity;
 
                     Panel card = new Panel()
                     {
@@ -464,7 +487,7 @@ namespace huntingEquipmentStore
                     {
                         picture.Image = Image.FromFile(@"..\\..\\Resources\placeholder.jpg");
                     }
-                    picture.Click += (s, f) => productDetails(product);
+                    picture.Click += (s, e) => productDetails(productID);
 
                     Label nameLabel = new Label()
                     {
@@ -476,11 +499,11 @@ namespace huntingEquipmentStore
                         Cursor = Cursors.Hand,
                         AutoSize = true
                     };
-                    nameLabel.Click += (s, f) => productDetails(product);
+                    nameLabel.Click += (s, e) => productDetails(productID);
 
                     Label amountUnitPriceLabel = new Label()
                     {
-                        Text = cartItem.Item2.ToString().Trim() + " x " + product["price"].ToString().Trim() + " $",
+                        Text = quantity.ToString().Trim() + " x " + product["price"].ToString().Trim() + " $",
                         Size = new Size((int)(card.Width * 0.15), (int)(card.Height * 0.24)),
                         Font = new Font("Microsoft Sans Serif", 20, FontStyle.Bold),
                         Location = new Point((int)(card.Width * 0.60), (int)(card.Height - card.Height * 0.2) / 2),
@@ -491,7 +514,7 @@ namespace huntingEquipmentStore
 
                     Label totalPriceLabel = new Label()
                     {
-                        Text = (double.Parse(product["price"].ToString().Trim()) * cartItem.Item2).ToString().Trim() + " $",
+                        Text = (double.Parse(product["price"].ToString().Trim()) * quantity).ToString().Trim() + " $",
                         Size = new Size((int)(card.Width * 0.15), (int)(card.Height * 0.24)),
                         Font = new Font("Microsoft Sans Serif", 20, FontStyle.Bold),
                         Location = new Point((int)(card.Width * 0.85), (int)(card.Height - card.Height * 0.2) / 2),
@@ -509,12 +532,118 @@ namespace huntingEquipmentStore
 
                     flowLayoutPanel2.Controls.Add(card);
                 }
+                totalPriceNumberLabel.Text = totalPrice.ToString().Trim();
+                totalItemsNumberLabel.Text = totalItems.ToString().Trim();
             }
         }
 
-        private void yourAccountToolStripMenuItem_Click(object sender, EventArgs e)
+        private void orderDetails(int orderID, float totalPrice)
         {
-            tabControl1.SelectedTab = ordersPage;
+            flowLayoutPanel4.Controls.Clear();
+
+            hunting_equipment_storeDataSet.Orders.Clear();
+            ordersTableAdapter.getOrderByID(hunting_equipment_storeDataSet.Orders, orderID);
+            DataRow order = hunting_equipment_storeDataSet.Orders.Rows[0];
+
+            tabControl1.SelectedTab = orderDetailsPage;
+            orderLabel.Text = "Order " + order["order_id"].ToString().Trim() + ", " + order["date"].ToString().Trim().Split(' ')[0];
+            orderLabel.Location = new Point((this.ClientSize.Width - orderLabel.Width) / 2, (int)(this.ClientSize.Height * 0.02));
+
+            hunting_equipment_storeDataSet.OrderDetails.Clear();
+            orderDetailsTableAdapter.getDetailsByOrderID(hunting_equipment_storeDataSet.OrderDetails, orderID);
+            DataTable details = hunting_equipment_storeDataSet.OrderDetails;
+
+            int totalQuantity = 0;
+
+            foreach (DataRow detail in details.Rows)
+            {
+                int productID = int.Parse(detail["product_id"].ToString().Trim());
+                int quantity = int.Parse(detail["quantity"].ToString().Trim());
+
+                totalQuantity += quantity;
+
+                hunting_equipment_storeDataSet.Products.Clear();
+                productsTableAdapter.getProductByID(hunting_equipment_storeDataSet.Products, productID);
+                DataRow product = hunting_equipment_storeDataSet.Products.Rows[0];
+
+                Panel card = new Panel()
+                {
+                    Size = new Size((int)(flowLayoutPanel4.Width * 0.95), (int)(Screen.PrimaryScreen.Bounds.Height * 0.1)),
+                    BorderStyle = BorderStyle.FixedSingle,
+                    Margin = new Padding(5),
+                    Padding = new Padding(10),
+                };
+
+                PictureBox picture = new PictureBox()
+                {
+                    Size = new Size((int)(card.Width * 0.2), (int)(card.Height * 0.8)),
+                    Location = new Point((int)(card.Width * 0.03), (int)(card.Height - card.Height * 0.8) / 2),
+                    SizeMode = PictureBoxSizeMode.Zoom,
+                    BackColor = Color.FromArgb(245, 245, 245),
+                    BorderStyle = BorderStyle.FixedSingle,
+                    Cursor = Cursors.Hand
+                };
+
+                string image = product["image"].ToString().Trim();
+
+                if (!string.IsNullOrEmpty(image))
+                {
+                    picture.Image = Image.FromFile(@"..\\..\\Resources\" + image);
+                }
+                else
+                {
+                    picture.Image = Image.FromFile(@"..\\..\\Resources\placeholder.jpg");
+                }
+                picture.Click += (s, e) => productDetails(productID);
+
+                Label nameLabel = new Label()
+                {
+                    Text = product["name"].ToString().Trim(),
+                    MaximumSize = new Size((int)(card.Width * 0.3), 0),
+                    Font = new Font("Microsoft Sans Serif", 20, FontStyle.Bold),
+                    ForeColor = Color.Beige,
+                    TextAlign = ContentAlignment.MiddleCenter,
+                    Cursor = Cursors.Hand,
+                    AutoSize = true
+                };
+                nameLabel.Click += (s, e) => productDetails(productID);
+
+                Label amountUnitPriceLabel = new Label()
+                {
+                    Text = quantity.ToString().Trim() + " x " + product["price"].ToString().Trim() + " $",
+                    Size = new Size((int)(card.Width * 0.15), (int)(card.Height * 0.24)),
+                    Font = new Font("Microsoft Sans Serif", 20, FontStyle.Bold),
+                    Location = new Point((int)(card.Width * 0.60), (int)(card.Height - card.Height * 0.2) / 2),
+                    ForeColor = Color.Beige,
+                    TextAlign = ContentAlignment.MiddleCenter,
+                    AutoSize = true,
+                };
+
+                Label totalPriceLabel = new Label()
+                {
+                    Text = (double.Parse(product["price"].ToString().Trim()) * quantity).ToString().Trim() + " $",
+                    Size = new Size((int)(card.Width * 0.15), (int)(card.Height * 0.24)),
+                    Font = new Font("Microsoft Sans Serif", 20, FontStyle.Bold),
+                    Location = new Point((int)(card.Width * 0.85), (int)(card.Height - card.Height * 0.2) / 2),
+                    ForeColor = Color.Beige,
+                    TextAlign = ContentAlignment.MiddleCenter,
+                    AutoSize = true,
+                };
+
+                card.Controls.Add(picture);
+                card.Controls.Add(nameLabel);
+                card.Controls.Add(amountUnitPriceLabel);
+                card.Controls.Add(totalPriceLabel);
+
+                nameLabel.Location = new Point((int)(card.Width * 0.25), (int)(card.Height - nameLabel.Height) / 2);
+
+                flowLayoutPanel4.Controls.Add(card); 
+
+                      
+            }
+
+            totalPriceNumberLabel2.Text = totalPrice.ToString()+ "$";
+            totalItemsNumberLabel2.Text = totalQuantity.ToString();
         }
 
         private void shopToolStripMenuItem_Click(object sender, EventArgs e)
@@ -554,7 +683,6 @@ namespace huntingEquipmentStore
             }
             else
             {
-
                 ordersTableAdapter.addOrder(int.Parse(customer["customer_id"].ToString().Trim()), DateTime.Now.ToString("dd/MM/yyyy"), totalPrice);
                 ordersTableAdapter.Update(hunting_equipment_storeDataSet);
                 ordersTableAdapter.Fill(hunting_equipment_storeDataSet.Orders);
@@ -569,6 +697,78 @@ namespace huntingEquipmentStore
                 shoppingCart.Clear();
                 fillShoppingCart(); 
             }
+        }
+
+        private void yourOrdersToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = yourOrdersPage;
+            flowLayoutPanel3.Controls.Clear();
+
+            hunting_equipment_storeDataSet.Orders.Clear();
+            ordersTableAdapter.getAllOrdersByCustomerID(hunting_equipment_storeDataSet.Orders, int.Parse(customer["customer_id"].ToString().Trim()));
+            DataTable orders = hunting_equipment_storeDataSet.Orders;
+
+            if (orders.Rows.Count == 0)
+            {
+                Panel card = new Panel()
+                {
+                    Size = new Size((int)(flowLayoutPanel3.Width * 0.95), (int)(Screen.PrimaryScreen.Bounds.Height * 0.05)),
+                    BorderStyle = BorderStyle.FixedSingle,
+                    Margin = new Padding(5),
+                    Padding = new Padding(10)
+                };
+
+                Label noOrdersLabel = new Label()
+                {
+                    Text = "No orders yet",
+                    Font = new Font("Microsoft Sans Serif", 26, FontStyle.Bold),
+                    ForeColor = Color.Beige,
+                    TextAlign = ContentAlignment.MiddleCenter,
+                    Cursor = Cursors.Hand,
+                    AutoSize = true
+                };
+                card.Controls.Add(noOrdersLabel);
+                noOrdersLabel.Location = new Point((card.Width - noOrdersLabel.Width) / 2, (card.Height - noOrdersLabel.Height) / 2);
+
+                flowLayoutPanel3.Controls.Add(card);    
+            }
+            else
+            {
+                foreach (DataRow order in orders.Rows)
+                {
+                    int orderID = int.Parse(order["order_id"].ToString().Trim());
+                    float totalPrice = float.Parse(order["total_price"].ToString().Trim());
+
+                    Panel card = new Panel()
+                    {
+                        Size = new Size((int)(flowLayoutPanel3.Width * 0.95), (int)(Screen.PrimaryScreen.Bounds.Height * 0.05)),
+                        BorderStyle = BorderStyle.FixedSingle,
+                        Margin = new Padding(5),
+                        Padding = new Padding(10)
+                    };
+
+                    Label orderLabel = new Label()
+                    {
+                        Text = "Order " + order["order_id"].ToString().Trim() + ", " + order["date"].ToString().Trim().Split(' ')[0] + ", " + order["total_price"].ToString().Trim() + "$",
+                        Font = new Font("Microsoft Sans Serif", 20, FontStyle.Bold),
+                        ForeColor = Color.Beige,
+                        TextAlign = ContentAlignment.MiddleCenter,
+                        Cursor = Cursors.Hand,
+                        AutoSize = true
+                    };
+                    orderLabel.Click += (s, f) => orderDetails(orderID, totalPrice);
+
+                    card.Controls.Add(orderLabel);
+                    orderLabel.Location = new Point((card.Width - orderLabel.Width) / 2, (card.Height - orderLabel.Height) / 2);
+
+                    flowLayoutPanel3.Controls.Add(card);
+                }
+            }
+        }
+
+        private void backOrderDetailsButton_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = yourOrdersPage;
         }
 
 
