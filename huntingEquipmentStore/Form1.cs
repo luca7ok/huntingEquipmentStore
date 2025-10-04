@@ -63,6 +63,9 @@ namespace huntingEquipmentStore
             totalItemsNumberLabel.Location = new Point((int)(this.Size.Width * 0.9), (int)(this.Size.Height * 0.15));
             totalPriceNumberLabel.Location = new Point((int)(this.Size.Width * 0.9), (int)(this.Size.Height * 0.25));
 
+            clearCartButton.Location = new Point((int)(this.Size.Width * 0.75), (int)(this.Size.Height * 0.35));
+            checkoutButton.Location = new Point((int)(this.Size.Width * 0.75), (int)(this.Size.Height * 0.45));
+
             tabControl1.Size = new Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
         }
 
@@ -379,6 +382,12 @@ namespace huntingEquipmentStore
         private void shoppingCartToolStripMenuItem_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedTab = cartPage;
+            fillShoppingCart();
+           
+        }
+
+        private void fillShoppingCart()
+        {
             flowLayoutPanel2.Controls.Clear();
             if (shoppingCart.Count == 0)
             {
@@ -392,20 +401,20 @@ namespace huntingEquipmentStore
                     Margin = new Padding(5),
                     Padding = new Padding(10),
                 };
-                
+
                 Label emptyLabel = new Label()
                 {
                     Text = "Shopping cart is empty",
                     Font = new Font("Microsoft Sans Serif", 24, FontStyle.Bold),
                     ForeColor = Color.Beige,
                     TextAlign = ContentAlignment.MiddleCenter,
-                    AutoSize = true            
+                    AutoSize = true
                 };
                 card.Controls.Add(emptyLabel);
                 emptyLabel.Location = new Point((card.Width - emptyLabel.Width) / 2, (card.Height - emptyLabel.Height) / 2);
 
                 flowLayoutPanel2.Controls.Add(card);
-                
+
             }
             else
             {
@@ -467,7 +476,7 @@ namespace huntingEquipmentStore
 
                     Label amountUnitPriceLabel = new Label()
                     {
-                        Text = cartItem.Item2.ToString().Trim() + " x " + product["price"].ToString().Trim() + " $" ,
+                        Text = cartItem.Item2.ToString().Trim() + " x " + product["price"].ToString().Trim() + " $",
                         Size = new Size((int)(card.Width * 0.15), (int)(card.Height * 0.24)),
                         Font = new Font("Microsoft Sans Serif", 20, FontStyle.Bold),
                         Location = new Point((int)(card.Width * 0.60), (int)(card.Height - card.Height * 0.2) / 2),
@@ -525,6 +534,13 @@ namespace huntingEquipmentStore
         private void backProductButton_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedTab = lastPage;
+        }
+
+        private void clearCartButton_Click(object sender, EventArgs e)
+        {
+            shoppingCart.Clear();
+            fillShoppingCart();
+
         }
 
 

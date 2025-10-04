@@ -53,6 +53,12 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.categoriesPage = new System.Windows.Forms.TabPage();
             this.cartPage = new System.Windows.Forms.TabPage();
+            this.totalPriceNumberLabel = new System.Windows.Forms.Label();
+            this.totalItemsNumberLabel = new System.Windows.Forms.Label();
+            this.totalPriceLabel = new System.Windows.Forms.Label();
+            this.totalItemsLabel = new System.Windows.Forms.Label();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.shoppingCartLabel = new System.Windows.Forms.Label();
             this.ordersPage = new System.Windows.Forms.TabPage();
             this.productPage = new System.Windows.Forms.TabPage();
             this.backProductButton = new System.Windows.Forms.Button();
@@ -66,12 +72,6 @@
             this.shoppingCartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.yourAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.shoppingCartLabel = new System.Windows.Forms.Label();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.totalItemsLabel = new System.Windows.Forms.Label();
-            this.totalPriceLabel = new System.Windows.Forms.Label();
-            this.totalItemsNumberLabel = new System.Windows.Forms.Label();
-            this.totalPriceNumberLabel = new System.Windows.Forms.Label();
             this.hunting_equipment_storeDataSet = new huntingEquipmentStore.hunting_equipment_storeDataSet();
             this.customersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.categoriesBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -87,6 +87,8 @@
             this.reviewsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.reviewsTableAdapter = new huntingEquipmentStore.hunting_equipment_storeDataSetTableAdapters.ReviewsTableAdapter();
             this.categoriesBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
+            this.clearCartButton = new System.Windows.Forms.Button();
+            this.checkoutButton = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.loginPage.SuspendLayout();
             this.signupPage.SuspendLayout();
@@ -405,6 +407,8 @@
             // cartPage
             // 
             this.cartPage.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.cartPage.Controls.Add(this.checkoutButton);
+            this.cartPage.Controls.Add(this.clearCartButton);
             this.cartPage.Controls.Add(this.totalPriceNumberLabel);
             this.cartPage.Controls.Add(this.totalItemsNumberLabel);
             this.cartPage.Controls.Add(this.totalPriceLabel);
@@ -417,6 +421,72 @@
             this.cartPage.Size = new System.Drawing.Size(1525, 725);
             this.cartPage.TabIndex = 4;
             this.cartPage.Text = "cartPage";
+            // 
+            // totalPriceNumberLabel
+            // 
+            this.totalPriceNumberLabel.AutoSize = true;
+            this.totalPriceNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalPriceNumberLabel.ForeColor = System.Drawing.Color.Beige;
+            this.totalPriceNumberLabel.Location = new System.Drawing.Point(1293, 237);
+            this.totalPriceNumberLabel.Name = "totalPriceNumberLabel";
+            this.totalPriceNumberLabel.Size = new System.Drawing.Size(101, 33);
+            this.totalPriceNumberLabel.TabIndex = 6;
+            this.totalPriceNumberLabel.Text = "0.00 $";
+            // 
+            // totalItemsNumberLabel
+            // 
+            this.totalItemsNumberLabel.AutoSize = true;
+            this.totalItemsNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalItemsNumberLabel.ForeColor = System.Drawing.Color.Beige;
+            this.totalItemsNumberLabel.Location = new System.Drawing.Point(1293, 174);
+            this.totalItemsNumberLabel.Name = "totalItemsNumberLabel";
+            this.totalItemsNumberLabel.Size = new System.Drawing.Size(32, 33);
+            this.totalItemsNumberLabel.TabIndex = 5;
+            this.totalItemsNumberLabel.Text = "0";
+            // 
+            // totalPriceLabel
+            // 
+            this.totalPriceLabel.AutoSize = true;
+            this.totalPriceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalPriceLabel.ForeColor = System.Drawing.Color.Beige;
+            this.totalPriceLabel.Location = new System.Drawing.Point(1085, 237);
+            this.totalPriceLabel.Name = "totalPriceLabel";
+            this.totalPriceLabel.Size = new System.Drawing.Size(166, 33);
+            this.totalPriceLabel.TabIndex = 4;
+            this.totalPriceLabel.Text = "Total Price";
+            // 
+            // totalItemsLabel
+            // 
+            this.totalItemsLabel.AutoSize = true;
+            this.totalItemsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalItemsLabel.ForeColor = System.Drawing.Color.Beige;
+            this.totalItemsLabel.Location = new System.Drawing.Point(1085, 174);
+            this.totalItemsLabel.Name = "totalItemsLabel";
+            this.totalItemsLabel.Size = new System.Drawing.Size(171, 33);
+            this.totalItemsLabel.TabIndex = 3;
+            this.totalItemsLabel.Text = "Total Items";
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.AutoScroll = true;
+            this.flowLayoutPanel2.AutoScrollMargin = new System.Drawing.Size(0, 20);
+            this.flowLayoutPanel2.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(102, 174);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(611, 436);
+            this.flowLayoutPanel2.TabIndex = 2;
+            // 
+            // shoppingCartLabel
+            // 
+            this.shoppingCartLabel.AutoSize = true;
+            this.shoppingCartLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.shoppingCartLabel.ForeColor = System.Drawing.Color.Beige;
+            this.shoppingCartLabel.Location = new System.Drawing.Point(469, 12);
+            this.shoppingCartLabel.Name = "shoppingCartLabel";
+            this.shoppingCartLabel.Size = new System.Drawing.Size(443, 73);
+            this.shoppingCartLabel.TabIndex = 1;
+            this.shoppingCartLabel.Text = "Shopping Cart";
+            this.shoppingCartLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // ordersPage
             // 
@@ -566,72 +636,6 @@
             this.logoutToolStripMenuItem.Text = "Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
-            // shoppingCartLabel
-            // 
-            this.shoppingCartLabel.AutoSize = true;
-            this.shoppingCartLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.shoppingCartLabel.ForeColor = System.Drawing.Color.Beige;
-            this.shoppingCartLabel.Location = new System.Drawing.Point(469, 12);
-            this.shoppingCartLabel.Name = "shoppingCartLabel";
-            this.shoppingCartLabel.Size = new System.Drawing.Size(443, 73);
-            this.shoppingCartLabel.TabIndex = 1;
-            this.shoppingCartLabel.Text = "Shopping Cart";
-            this.shoppingCartLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // flowLayoutPanel2
-            // 
-            this.flowLayoutPanel2.AutoScroll = true;
-            this.flowLayoutPanel2.AutoScrollMargin = new System.Drawing.Size(0, 20);
-            this.flowLayoutPanel2.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(102, 174);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(611, 436);
-            this.flowLayoutPanel2.TabIndex = 2;
-            // 
-            // totalItemsLabel
-            // 
-            this.totalItemsLabel.AutoSize = true;
-            this.totalItemsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalItemsLabel.ForeColor = System.Drawing.Color.Beige;
-            this.totalItemsLabel.Location = new System.Drawing.Point(1085, 174);
-            this.totalItemsLabel.Name = "totalItemsLabel";
-            this.totalItemsLabel.Size = new System.Drawing.Size(171, 33);
-            this.totalItemsLabel.TabIndex = 3;
-            this.totalItemsLabel.Text = "Total Items";
-            // 
-            // totalPriceLabel
-            // 
-            this.totalPriceLabel.AutoSize = true;
-            this.totalPriceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalPriceLabel.ForeColor = System.Drawing.Color.Beige;
-            this.totalPriceLabel.Location = new System.Drawing.Point(1085, 237);
-            this.totalPriceLabel.Name = "totalPriceLabel";
-            this.totalPriceLabel.Size = new System.Drawing.Size(166, 33);
-            this.totalPriceLabel.TabIndex = 4;
-            this.totalPriceLabel.Text = "Total Price";
-            // 
-            // totalItemsNumberLabel
-            // 
-            this.totalItemsNumberLabel.AutoSize = true;
-            this.totalItemsNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalItemsNumberLabel.ForeColor = System.Drawing.Color.Beige;
-            this.totalItemsNumberLabel.Location = new System.Drawing.Point(1293, 174);
-            this.totalItemsNumberLabel.Name = "totalItemsNumberLabel";
-            this.totalItemsNumberLabel.Size = new System.Drawing.Size(32, 33);
-            this.totalItemsNumberLabel.TabIndex = 5;
-            this.totalItemsNumberLabel.Text = "0";
-            // 
-            // totalPriceNumberLabel
-            // 
-            this.totalPriceNumberLabel.AutoSize = true;
-            this.totalPriceNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalPriceNumberLabel.ForeColor = System.Drawing.Color.Beige;
-            this.totalPriceNumberLabel.Location = new System.Drawing.Point(1293, 237);
-            this.totalPriceNumberLabel.Name = "totalPriceNumberLabel";
-            this.totalPriceNumberLabel.Size = new System.Drawing.Size(101, 33);
-            this.totalPriceNumberLabel.TabIndex = 6;
-            this.totalPriceNumberLabel.Text = "0.00 $";
-            // 
             // hunting_equipment_storeDataSet
             // 
             this.hunting_equipment_storeDataSet.DataSetName = "hunting_equipment_storeDataSet";
@@ -706,6 +710,33 @@
             // 
             this.categoriesBindingSource3.DataMember = "Categories";
             this.categoriesBindingSource3.DataSource = this.hunting_equipment_storeDataSet;
+            // 
+            // clearCartButton
+            // 
+            this.clearCartButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.clearCartButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.clearCartButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clearCartButton.ForeColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.clearCartButton.Location = new System.Drawing.Point(1091, 359);
+            this.clearCartButton.Name = "clearCartButton";
+            this.clearCartButton.Size = new System.Drawing.Size(303, 56);
+            this.clearCartButton.TabIndex = 7;
+            this.clearCartButton.Text = "Clear cart";
+            this.clearCartButton.UseVisualStyleBackColor = false;
+            this.clearCartButton.Click += new System.EventHandler(this.clearCartButton_Click);
+            // 
+            // checkoutButton
+            // 
+            this.checkoutButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.checkoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.checkoutButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkoutButton.ForeColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.checkoutButton.Location = new System.Drawing.Point(1091, 500);
+            this.checkoutButton.Name = "checkoutButton";
+            this.checkoutButton.Size = new System.Drawing.Size(303, 56);
+            this.checkoutButton.TabIndex = 8;
+            this.checkoutButton.Text = "Checkout";
+            this.checkoutButton.UseVisualStyleBackColor = false;
             // 
             // Form1
             // 
@@ -806,6 +837,8 @@
         private System.Windows.Forms.Label totalPriceNumberLabel;
         private System.Windows.Forms.Label totalItemsNumberLabel;
         private System.Windows.Forms.Label totalPriceLabel;
+        private System.Windows.Forms.Button clearCartButton;
+        private System.Windows.Forms.Button checkoutButton;
 
     }
 }
