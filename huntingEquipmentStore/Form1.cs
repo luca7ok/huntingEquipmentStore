@@ -76,6 +76,8 @@ namespace huntingEquipmentStore
 
             yourOrdersLabel.Location = new Point((this.ClientSize.Width - yourOrdersLabel.Width) / 2, (int)(this.ClientSize.Height * 0.02));
 
+            categoriesLabel.Location = new Point((this.ClientSize.Width - categoriesLabel.Width) / 2, (int)(this.ClientSize.Height * 0.02));
+
             tabControl1.Size = new Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
 
             flowLayoutPanel4.Size = new Size((int)(this.Size.Width * 0.5), (int)(this.Size.Height * 0.7));
@@ -85,6 +87,17 @@ namespace huntingEquipmentStore
             totalPriceLabel2.Location = new Point((int)(this.Size.Width * 0.78), (int)(this.Size.Height * 0.25));
             totalItemsNumberLabel2.Location = new Point((int)(this.Size.Width * 0.9), (int)(this.Size.Height * 0.15));
             totalPriceNumberLabel2.Location = new Point((int)(this.Size.Width * 0.9), (int)(this.Size.Height * 0.25));
+
+            pictureBoxCategories1.Location = new Point((int)(this.Size.Width * 0.2), (int)(this.Size.Height * 0.15));
+            pictureBoxCategories2.Location = new Point((int)(this.Size.Width - pictureBoxCategories2.Width - 0.2 * this.Size.Width), (int)(this.Size.Height * 0.15));
+            pictureBoxCategories3.Location = new Point((int)(this.Size.Width * 0.2), (int)(this.Size.Height * 0.5));
+            pictureBoxCategories4.Location = new Point((int)(this.Size.Width - pictureBoxCategories4.Width - 0.2 * this.Size.Width), (int)(this.Size.Height * 0.5));
+
+
+            categoryLabel1.Location = new Point((int)(pictureBoxCategories1.Location.X + (pictureBoxCategories1.Width - categoryLabel1.Width) / 2), (int)(this.Size.Height * 0.35));
+            categoryLabel2.Location = new Point((int)(pictureBoxCategories2.Location.X + (pictureBoxCategories2.Width - categoryLabel2.Width) / 2), (int)(this.Size.Height * 0.35));
+            categoryLabel3.Location = new Point((int)(pictureBoxCategories3.Location.X + (pictureBoxCategories3.Width - categoryLabel3.Width) / 2), (int)(this.Size.Height * 0.7));
+            categoryLabel4.Location = new Point((int)(pictureBoxCategories4.Location.X + (pictureBoxCategories4.Width - categoryLabel4.Width) / 2), (int)(this.Size.Height * 0.7));
         }
 
 

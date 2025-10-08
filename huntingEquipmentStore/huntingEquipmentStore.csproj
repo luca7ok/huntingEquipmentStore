@@ -85,6 +85,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.config" />
     <None Include="hunting_equipment_storeDataSet.xsc">
@@ -118,9 +119,13 @@
     </Content>
     <Content Include="Resources\alphaburly.jpeg" />
     <Content Include="Resources\ameristripblind.jpg" />
+    <Content Include="Resources\clothes_category.png" />
     <Content Include="Resources\dannerpronghorn.png" />
     <Content Include="Resources\doublebullblind.jpg" />
+    <Content Include="Resources\firearms_category.png" />
     <Content Include="Resources\firstlitekilnhoody.jpeg" />
+    <Content Include="Resources\footwear_category.jpeg" />
+    <Content Include="Resources\gear_category.jpg" />
     <Content Include="Resources\irishvaprtreck.jpeg" />
     <Content Include="Resources\placeholder.jpg" />
     <Content Include="Resources\planotacklebox.png" />

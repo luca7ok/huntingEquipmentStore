@@ -38,8 +38,9 @@ namespace huntingEquipmentStore.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.\\SQLEXPRESS;AttachDbFilename=|DataDirectory|\\hunting_equipment_store" +
-            ".mdf;Integrated Security=True;Connect Timeout=30;User Instance=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.\\SQLEXPRESS;AttachDbFilename=C:\\.richbank\\c#\\huntingEquipmentStore\\h" +
+            "untingEquipmentStore\\hunting_equipment_store.mdf;Integrated Security=True;Connec" +
+            "t Timeout=30;User Instance=True")]
         public string hunting_equipment_storeConnectionString1 {
             get {
                 return ((string)(this["hunting_equipment_storeConnectionString1"]));
