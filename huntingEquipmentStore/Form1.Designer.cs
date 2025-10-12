@@ -52,6 +52,15 @@
             this.shopPage = new System.Windows.Forms.TabPage();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.categoriesPage = new System.Windows.Forms.TabPage();
+            this.categoryLabel3 = new System.Windows.Forms.Label();
+            this.pictureBoxCategories3 = new System.Windows.Forms.PictureBox();
+            this.categoryLabel1 = new System.Windows.Forms.Label();
+            this.pictureBoxCategories1 = new System.Windows.Forms.PictureBox();
+            this.categoryLabel2 = new System.Windows.Forms.Label();
+            this.pictureBoxCategories2 = new System.Windows.Forms.PictureBox();
+            this.categoryLabel4 = new System.Windows.Forms.Label();
+            this.pictureBoxCategories4 = new System.Windows.Forms.PictureBox();
+            this.categoriesLabel = new System.Windows.Forms.Label();
             this.cartPage = new System.Windows.Forms.TabPage();
             this.checkoutButton = new System.Windows.Forms.Button();
             this.clearCartButton = new System.Windows.Forms.Button();
@@ -69,6 +78,7 @@
             this.productDescriptionLabel = new System.Windows.Forms.Label();
             this.productPriceLabel = new System.Windows.Forms.Label();
             this.productNameLabel = new System.Windows.Forms.Label();
+            this.productPicture = new System.Windows.Forms.PictureBox();
             this.orderDetailsPage = new System.Windows.Forms.TabPage();
             this.totalPriceNumberLabel2 = new System.Windows.Forms.Label();
             this.totalItemsNumberLabel2 = new System.Windows.Forms.Label();
@@ -101,24 +111,24 @@
             this.ordersBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.orderDetailsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.orderDetailsTableAdapter = new huntingEquipmentStore.hunting_equipment_storeDataSetTableAdapters.OrderDetailsTableAdapter();
-            this.categoriesLabel = new System.Windows.Forms.Label();
-            this.categoryLabel4 = new System.Windows.Forms.Label();
-            this.categoryLabel2 = new System.Windows.Forms.Label();
-            this.categoryLabel1 = new System.Windows.Forms.Label();
-            this.categoryLabel3 = new System.Windows.Forms.Label();
-            this.pictureBoxCategories3 = new System.Windows.Forms.PictureBox();
-            this.pictureBoxCategories1 = new System.Windows.Forms.PictureBox();
-            this.pictureBoxCategories2 = new System.Windows.Forms.PictureBox();
-            this.pictureBoxCategories4 = new System.Windows.Forms.PictureBox();
-            this.productPicture = new System.Windows.Forms.PictureBox();
+            this.categoryPage = new System.Windows.Forms.TabPage();
+            this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
+            this.backCategoryButton = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.categoryLabel = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.loginPage.SuspendLayout();
             this.signupPage.SuspendLayout();
             this.shopPage.SuspendLayout();
             this.categoriesPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCategories3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCategories1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCategories2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCategories4)).BeginInit();
             this.cartPage.SuspendLayout();
             this.yourOrdersPage.SuspendLayout();
             this.productPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.productPicture)).BeginInit();
             this.orderDetailsPage.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hunting_equipment_storeDataSet)).BeginInit();
@@ -132,11 +142,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.categoriesBindingSource3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderDetailsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCategories3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCategories1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCategories2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCategories4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productPicture)).BeginInit();
+            this.categoryPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -152,6 +158,7 @@
             this.tabControl1.Controls.Add(this.yourOrdersPage);
             this.tabControl1.Controls.Add(this.productPage);
             this.tabControl1.Controls.Add(this.orderDetailsPage);
+            this.tabControl1.Controls.Add(this.categoryPage);
             this.tabControl1.Location = new System.Drawing.Point(-10, 38);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -445,6 +452,122 @@
             this.categoriesPage.TabIndex = 3;
             this.categoriesPage.Text = "categoriesPage";
             // 
+            // categoryLabel3
+            // 
+            this.categoryLabel3.AutoSize = true;
+            this.categoryLabel3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.categoryLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.categoryLabel3.ForeColor = System.Drawing.Color.Beige;
+            this.categoryLabel3.Location = new System.Drawing.Point(320, 668);
+            this.categoryLabel3.Name = "categoryLabel3";
+            this.categoryLabel3.Size = new System.Drawing.Size(140, 33);
+            this.categoryLabel3.TabIndex = 11;
+            this.categoryLabel3.Text = "Firearms";
+            this.categoryLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBoxCategories3
+            // 
+            this.pictureBoxCategories3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pictureBoxCategories3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxCategories3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxCategories3.Image = global::huntingEquipmentStore.Properties.Resources.firearms_category;
+            this.pictureBoxCategories3.Location = new System.Drawing.Point(244, 450);
+            this.pictureBoxCategories3.Name = "pictureBoxCategories3";
+            this.pictureBoxCategories3.Size = new System.Drawing.Size(298, 183);
+            this.pictureBoxCategories3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxCategories3.TabIndex = 10;
+            this.pictureBoxCategories3.TabStop = false;
+            // 
+            // categoryLabel1
+            // 
+            this.categoryLabel1.AutoSize = true;
+            this.categoryLabel1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.categoryLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.categoryLabel1.ForeColor = System.Drawing.Color.Beige;
+            this.categoryLabel1.Location = new System.Drawing.Point(320, 353);
+            this.categoryLabel1.Name = "categoryLabel1";
+            this.categoryLabel1.Size = new System.Drawing.Size(121, 33);
+            this.categoryLabel1.TabIndex = 9;
+            this.categoryLabel1.Text = "Clothes";
+            this.categoryLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBoxCategories1
+            // 
+            this.pictureBoxCategories1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pictureBoxCategories1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxCategories1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxCategories1.Image = global::huntingEquipmentStore.Properties.Resources.clothes_category;
+            this.pictureBoxCategories1.Location = new System.Drawing.Point(244, 155);
+            this.pictureBoxCategories1.Name = "pictureBoxCategories1";
+            this.pictureBoxCategories1.Size = new System.Drawing.Size(298, 183);
+            this.pictureBoxCategories1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxCategories1.TabIndex = 8;
+            this.pictureBoxCategories1.TabStop = false;
+            // 
+            // categoryLabel2
+            // 
+            this.categoryLabel2.AutoSize = true;
+            this.categoryLabel2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.categoryLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.categoryLabel2.ForeColor = System.Drawing.Color.Beige;
+            this.categoryLabel2.Location = new System.Drawing.Point(1069, 367);
+            this.categoryLabel2.Name = "categoryLabel2";
+            this.categoryLabel2.Size = new System.Drawing.Size(144, 33);
+            this.categoryLabel2.TabIndex = 7;
+            this.categoryLabel2.Text = "Footwear";
+            this.categoryLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBoxCategories2
+            // 
+            this.pictureBoxCategories2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pictureBoxCategories2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxCategories2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxCategories2.Image = global::huntingEquipmentStore.Properties.Resources.footwear_category;
+            this.pictureBoxCategories2.Location = new System.Drawing.Point(988, 155);
+            this.pictureBoxCategories2.Name = "pictureBoxCategories2";
+            this.pictureBoxCategories2.Size = new System.Drawing.Size(298, 183);
+            this.pictureBoxCategories2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxCategories2.TabIndex = 6;
+            this.pictureBoxCategories2.TabStop = false;
+            // 
+            // categoryLabel4
+            // 
+            this.categoryLabel4.AutoSize = true;
+            this.categoryLabel4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.categoryLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.categoryLabel4.ForeColor = System.Drawing.Color.Beige;
+            this.categoryLabel4.Location = new System.Drawing.Point(982, 668);
+            this.categoryLabel4.Name = "categoryLabel4";
+            this.categoryLabel4.Size = new System.Drawing.Size(320, 33);
+            this.categoryLabel4.TabIndex = 5;
+            this.categoryLabel4.Text = "Gear and accessories";
+            this.categoryLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBoxCategories4
+            // 
+            this.pictureBoxCategories4.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pictureBoxCategories4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxCategories4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxCategories4.Image = global::huntingEquipmentStore.Properties.Resources.gear_category;
+            this.pictureBoxCategories4.Location = new System.Drawing.Point(988, 450);
+            this.pictureBoxCategories4.Name = "pictureBoxCategories4";
+            this.pictureBoxCategories4.Size = new System.Drawing.Size(298, 183);
+            this.pictureBoxCategories4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxCategories4.TabIndex = 4;
+            this.pictureBoxCategories4.TabStop = false;
+            // 
+            // categoriesLabel
+            // 
+            this.categoriesLabel.AutoSize = true;
+            this.categoriesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.categoriesLabel.ForeColor = System.Drawing.Color.Beige;
+            this.categoriesLabel.Location = new System.Drawing.Point(536, 30);
+            this.categoriesLabel.Name = "categoriesLabel";
+            this.categoriesLabel.Size = new System.Drawing.Size(343, 73);
+            this.categoriesLabel.TabIndex = 3;
+            this.categoriesLabel.Text = "Categories";
+            this.categoriesLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // cartPage
             // 
             this.cartPage.BackColor = System.Drawing.Color.DarkSlateGray;
@@ -655,6 +778,17 @@
             this.productNameLabel.TabIndex = 1;
             this.productNameLabel.Text = "label1";
             this.productNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // productPicture
+            // 
+            this.productPicture.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.productPicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.productPicture.Location = new System.Drawing.Point(498, 41);
+            this.productPicture.Name = "productPicture";
+            this.productPicture.Size = new System.Drawing.Size(475, 280);
+            this.productPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.productPicture.TabIndex = 0;
+            this.productPicture.TabStop = false;
             // 
             // orderDetailsPage
             // 
@@ -904,124 +1038,66 @@
             // 
             this.orderDetailsTableAdapter.ClearBeforeFill = true;
             // 
-            // categoriesLabel
+            // categoryPage
             // 
-            this.categoriesLabel.AutoSize = true;
-            this.categoriesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.categoriesLabel.ForeColor = System.Drawing.Color.Beige;
-            this.categoriesLabel.Location = new System.Drawing.Point(536, 30);
-            this.categoriesLabel.Name = "categoriesLabel";
-            this.categoriesLabel.Size = new System.Drawing.Size(343, 73);
-            this.categoriesLabel.TabIndex = 3;
-            this.categoriesLabel.Text = "Categories";
-            this.categoriesLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.categoryPage.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.categoryPage.Controls.Add(this.categoryLabel);
+            this.categoryPage.Controls.Add(this.flowLayoutPanel5);
+            this.categoryPage.Controls.Add(this.backCategoryButton);
+            this.categoryPage.Controls.Add(this.label5);
+            this.categoryPage.Location = new System.Drawing.Point(4, 22);
+            this.categoryPage.Name = "categoryPage";
+            this.categoryPage.Padding = new System.Windows.Forms.Padding(3);
+            this.categoryPage.Size = new System.Drawing.Size(1525, 725);
+            this.categoryPage.TabIndex = 8;
+            this.categoryPage.Text = "categoryPage";
             // 
-            // categoryLabel4
+            // flowLayoutPanel5
             // 
-            this.categoryLabel4.AutoSize = true;
-            this.categoryLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.categoryLabel4.ForeColor = System.Drawing.Color.Beige;
-            this.categoryLabel4.Location = new System.Drawing.Point(982, 668);
-            this.categoryLabel4.Name = "categoryLabel4";
-            this.categoryLabel4.Size = new System.Drawing.Size(320, 33);
-            this.categoryLabel4.TabIndex = 5;
-            this.categoryLabel4.Text = "Gear and accessories";
-            this.categoryLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.flowLayoutPanel5.AutoScroll = true;
+            this.flowLayoutPanel5.AutoScrollMargin = new System.Drawing.Size(0, 20);
+            this.flowLayoutPanel5.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.flowLayoutPanel5.Location = new System.Drawing.Point(457, 144);
+            this.flowLayoutPanel5.Name = "flowLayoutPanel5";
+            this.flowLayoutPanel5.Size = new System.Drawing.Size(611, 436);
+            this.flowLayoutPanel5.TabIndex = 6;
             // 
-            // categoryLabel2
+            // backCategoryButton
             // 
-            this.categoryLabel2.AutoSize = true;
-            this.categoryLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.categoryLabel2.ForeColor = System.Drawing.Color.Beige;
-            this.categoryLabel2.Location = new System.Drawing.Point(1069, 367);
-            this.categoryLabel2.Name = "categoryLabel2";
-            this.categoryLabel2.Size = new System.Drawing.Size(144, 33);
-            this.categoryLabel2.TabIndex = 7;
-            this.categoryLabel2.Text = "Footwear";
-            this.categoryLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.backCategoryButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.backCategoryButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.backCategoryButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.backCategoryButton.ForeColor = System.Drawing.Color.Beige;
+            this.backCategoryButton.Location = new System.Drawing.Point(31, 630);
+            this.backCategoryButton.Name = "backCategoryButton";
+            this.backCategoryButton.Size = new System.Drawing.Size(158, 68);
+            this.backCategoryButton.TabIndex = 5;
+            this.backCategoryButton.Text = "Back";
+            this.backCategoryButton.UseVisualStyleBackColor = false;
+            this.backCategoryButton.Click += new System.EventHandler(this.backCategoryButton_Click);
             // 
-            // categoryLabel1
+            // label5
             // 
-            this.categoryLabel1.AutoSize = true;
-            this.categoryLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.categoryLabel1.ForeColor = System.Drawing.Color.Beige;
-            this.categoryLabel1.Location = new System.Drawing.Point(320, 353);
-            this.categoryLabel1.Name = "categoryLabel1";
-            this.categoryLabel1.Size = new System.Drawing.Size(121, 33);
-            this.categoryLabel1.TabIndex = 9;
-            this.categoryLabel1.Text = "Clothes";
-            this.categoryLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Beige;
+            this.label5.Location = new System.Drawing.Point(549, 40);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(0, 73);
+            this.label5.TabIndex = 3;
+            this.label5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // categoryLabel3
+            // categoryLabel
             // 
-            this.categoryLabel3.AutoSize = true;
-            this.categoryLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.categoryLabel3.ForeColor = System.Drawing.Color.Beige;
-            this.categoryLabel3.Location = new System.Drawing.Point(320, 668);
-            this.categoryLabel3.Name = "categoryLabel3";
-            this.categoryLabel3.Size = new System.Drawing.Size(140, 33);
-            this.categoryLabel3.TabIndex = 11;
-            this.categoryLabel3.Text = "Firearms";
-            this.categoryLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pictureBoxCategories3
-            // 
-            this.pictureBoxCategories3.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.pictureBoxCategories3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxCategories3.Image = global::huntingEquipmentStore.Properties.Resources.firearms_category;
-            this.pictureBoxCategories3.Location = new System.Drawing.Point(244, 450);
-            this.pictureBoxCategories3.Name = "pictureBoxCategories3";
-            this.pictureBoxCategories3.Size = new System.Drawing.Size(298, 183);
-            this.pictureBoxCategories3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxCategories3.TabIndex = 10;
-            this.pictureBoxCategories3.TabStop = false;
-            // 
-            // pictureBoxCategories1
-            // 
-            this.pictureBoxCategories1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.pictureBoxCategories1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxCategories1.Image = global::huntingEquipmentStore.Properties.Resources.clothes_category;
-            this.pictureBoxCategories1.Location = new System.Drawing.Point(244, 155);
-            this.pictureBoxCategories1.Name = "pictureBoxCategories1";
-            this.pictureBoxCategories1.Size = new System.Drawing.Size(298, 183);
-            this.pictureBoxCategories1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxCategories1.TabIndex = 8;
-            this.pictureBoxCategories1.TabStop = false;
-            // 
-            // pictureBoxCategories2
-            // 
-            this.pictureBoxCategories2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.pictureBoxCategories2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxCategories2.Image = global::huntingEquipmentStore.Properties.Resources.footwear_category;
-            this.pictureBoxCategories2.Location = new System.Drawing.Point(988, 155);
-            this.pictureBoxCategories2.Name = "pictureBoxCategories2";
-            this.pictureBoxCategories2.Size = new System.Drawing.Size(298, 183);
-            this.pictureBoxCategories2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxCategories2.TabIndex = 6;
-            this.pictureBoxCategories2.TabStop = false;
-            // 
-            // pictureBoxCategories4
-            // 
-            this.pictureBoxCategories4.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.pictureBoxCategories4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxCategories4.Image = global::huntingEquipmentStore.Properties.Resources.gear_category;
-            this.pictureBoxCategories4.Location = new System.Drawing.Point(988, 450);
-            this.pictureBoxCategories4.Name = "pictureBoxCategories4";
-            this.pictureBoxCategories4.Size = new System.Drawing.Size(298, 183);
-            this.pictureBoxCategories4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxCategories4.TabIndex = 4;
-            this.pictureBoxCategories4.TabStop = false;
-            // 
-            // productPicture
-            // 
-            this.productPicture.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.productPicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.productPicture.Location = new System.Drawing.Point(498, 41);
-            this.productPicture.Name = "productPicture";
-            this.productPicture.Size = new System.Drawing.Size(475, 280);
-            this.productPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.productPicture.TabIndex = 0;
-            this.productPicture.TabStop = false;
+            this.categoryLabel.AutoSize = true;
+            this.categoryLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.categoryLabel.ForeColor = System.Drawing.Color.Beige;
+            this.categoryLabel.Location = new System.Drawing.Point(577, 29);
+            this.categoryLabel.Name = "categoryLabel";
+            this.categoryLabel.Size = new System.Drawing.Size(367, 73);
+            this.categoryLabel.TabIndex = 11;
+            this.categoryLabel.Text = "Your orders";
+            this.categoryLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // Form1
             // 
@@ -1043,12 +1119,17 @@
             this.shopPage.ResumeLayout(false);
             this.categoriesPage.ResumeLayout(false);
             this.categoriesPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCategories3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCategories1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCategories2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCategories4)).EndInit();
             this.cartPage.ResumeLayout(false);
             this.cartPage.PerformLayout();
             this.yourOrdersPage.ResumeLayout(false);
             this.yourOrdersPage.PerformLayout();
             this.productPage.ResumeLayout(false);
             this.productPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.productPicture)).EndInit();
             this.orderDetailsPage.ResumeLayout(false);
             this.orderDetailsPage.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
@@ -1064,11 +1145,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.categoriesBindingSource3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderDetailsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCategories3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCategories1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCategories2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCategories4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productPicture)).EndInit();
+            this.categoryPage.ResumeLayout(false);
+            this.categoryPage.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1158,6 +1236,11 @@
         private System.Windows.Forms.PictureBox pictureBoxCategories2;
         private System.Windows.Forms.Label categoryLabel4;
         private System.Windows.Forms.PictureBox pictureBoxCategories4;
+        private System.Windows.Forms.TabPage categoryPage;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
+        private System.Windows.Forms.Button backCategoryButton;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label categoryLabel;
 
     }
 }

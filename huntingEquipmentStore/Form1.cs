@@ -57,6 +57,9 @@ namespace huntingEquipmentStore
             backOrderDetailsButton.Size = new Size((int)(this.ClientSize.Width * 0.08), (int)(this.ClientSize.Height * 0.08));
             backOrderDetailsButton.Location = new Point((int)(this.ClientSize.Width * 0.02), (int)(this.ClientSize.Height * 0.85));
 
+            backCategoryButton.Size = new Size((int)(this.ClientSize.Width * 0.08), (int)(this.ClientSize.Height * 0.08));
+            backCategoryButton.Location = new Point((int)(this.ClientSize.Width * 0.02), (int)(this.ClientSize.Height * 0.85));
+
             flowLayoutPanel1.Location = new Point((this.ClientSize.Width - flowLayoutPanel1.Width) / 2, (int)(this.ClientSize.Height * 0.1));
             flowLayoutPanel1.Size = new Size((int)(Screen.PrimaryScreen.Bounds.Width * 0.9 * 0.7), (int)(Screen.PrimaryScreen.Bounds.Height * 0.75 * 0.7));
 
@@ -83,21 +86,32 @@ namespace huntingEquipmentStore
             flowLayoutPanel4.Size = new Size((int)(this.Size.Width * 0.5), (int)(this.Size.Height * 0.7));
             flowLayoutPanel4.Location = new Point((int)(this.Size.Width - flowLayoutPanel4.Width) / 2, (int)(this.Size.Height * 0.15));
 
+            flowLayoutPanel5.Size = new Size((int)(this.Size.Width * 0.5), (int)(this.Size.Height * 0.7));
+            flowLayoutPanel5.Location = new Point((int)(this.Size.Width - flowLayoutPanel4.Width) / 2, (int)(this.Size.Height * 0.15));
+
             totalItemsLabel2.Location = new Point((int)(this.Size.Width * 0.78), (int)(this.Size.Height * 0.15));
             totalPriceLabel2.Location = new Point((int)(this.Size.Width * 0.78), (int)(this.Size.Height * 0.25));
             totalItemsNumberLabel2.Location = new Point((int)(this.Size.Width * 0.9), (int)(this.Size.Height * 0.15));
             totalPriceNumberLabel2.Location = new Point((int)(this.Size.Width * 0.9), (int)(this.Size.Height * 0.25));
 
             pictureBoxCategories1.Location = new Point((int)(this.Size.Width * 0.2), (int)(this.Size.Height * 0.15));
+            pictureBoxCategories1.Click += (s, f) => categoryProducts(2);
             pictureBoxCategories2.Location = new Point((int)(this.Size.Width - pictureBoxCategories2.Width - 0.2 * this.Size.Width), (int)(this.Size.Height * 0.15));
+            pictureBoxCategories2.Click += (s, f) => categoryProducts(3);
             pictureBoxCategories3.Location = new Point((int)(this.Size.Width * 0.2), (int)(this.Size.Height * 0.5));
+            pictureBoxCategories3.Click += (s, f) => categoryProducts(1);
             pictureBoxCategories4.Location = new Point((int)(this.Size.Width - pictureBoxCategories4.Width - 0.2 * this.Size.Width), (int)(this.Size.Height * 0.5));
+            pictureBoxCategories4.Click += (s, f) => categoryProducts(4);
 
 
             categoryLabel1.Location = new Point((int)(pictureBoxCategories1.Location.X + (pictureBoxCategories1.Width - categoryLabel1.Width) / 2), (int)(this.Size.Height * 0.35));
+            categoryLabel1.Click += (s, f) => categoryProducts(2);
             categoryLabel2.Location = new Point((int)(pictureBoxCategories2.Location.X + (pictureBoxCategories2.Width - categoryLabel2.Width) / 2), (int)(this.Size.Height * 0.35));
+            categoryLabel2.Click += (s, f) => categoryProducts(3);
             categoryLabel3.Location = new Point((int)(pictureBoxCategories3.Location.X + (pictureBoxCategories3.Width - categoryLabel3.Width) / 2), (int)(this.Size.Height * 0.7));
+            categoryLabel3.Click += (s, f) => categoryProducts(1);
             categoryLabel4.Location = new Point((int)(pictureBoxCategories4.Location.X + (pictureBoxCategories4.Width - categoryLabel4.Width) / 2), (int)(this.Size.Height * 0.7));
+            categoryLabel4.Click += (s, f) => categoryProducts(4);
         }
 
 
@@ -779,9 +793,99 @@ namespace huntingEquipmentStore
             }
         }
 
+        private void categoryProducts(int categoryID)
+        {
+            flowLayoutPanel5.Controls.Clear();
+
+            tabControl1.SelectedTab = categoryPage;
+            hunting_equipment_storeDataSet.Categories.Clear();
+            categoriesTableAdapter.getCategoryByID(hunting_equipment_storeDataSet.Categories, categoryID);
+            DataRow category = hunting_equipment_storeDataSet.Categories.Rows[0];
+
+            categoryLabel.Text = category["name"].ToString().Trim();
+            categoryLabel.Location = new Point((this.ClientSize.Width - categoryLabel.Width) / 2, (int)(this.ClientSize.Height * 0.02));
+
+            hunting_equipment_storeDataSet.Products.Clear();
+            productsTableAdapter.getProductsByCategory(hunting_equipment_storeDataSet.Products, categoryID);
+            DataTable products = hunting_equipment_storeDataSet.Products;
+
+            foreach (DataRow product in products.Rows)
+            {
+                int productID = int.Parse(product["product_id"].ToString().Trim());
+
+                Panel card = new Panel()
+                {
+                    Size = new Size((int)(flowLayoutPanel4.Width * 0.95), (int)(Screen.PrimaryScreen.Bounds.Height * 0.1)),
+                    BorderStyle = BorderStyle.FixedSingle,
+                    Margin = new Padding(5),
+                    Padding = new Padding(10),
+                };
+
+                PictureBox picture = new PictureBox()
+                {
+                    Size = new Size((int)(card.Width * 0.2), (int)(card.Height * 0.8)),
+                    Location = new Point((int)(card.Width * 0.03), (int)(card.Height - card.Height * 0.8) / 2),
+                    SizeMode = PictureBoxSizeMode.Zoom,
+                    BackColor = Color.FromArgb(245, 245, 245),
+                    BorderStyle = BorderStyle.FixedSingle,
+                    Cursor = Cursors.Hand
+                };
+
+                Label priceLabel = new Label()
+                {
+                    Text = product["price"].ToString().Trim() + " $",
+                    Size = new Size((int)(card.Width * 0.15), (int)(card.Height * 0.24)),
+                    Font = new Font("Microsoft Sans Serif", 20, FontStyle.Bold),
+                    Location = new Point((int)(card.Width * 0.8), (int)(card.Height - card.Height * 0.2) / 2),
+                    ForeColor = Color.Beige,
+                    TextAlign = ContentAlignment.MiddleCenter,
+                    AutoSize = true,
+                };
+
+                string image = product["image"].ToString().Trim();
+
+                if (!string.IsNullOrEmpty(image))
+                {
+                    picture.Image = Image.FromFile(@"..\\..\\Resources\" + image);
+                }
+                else
+                {
+                    picture.Image = Image.FromFile(@"..\\..\\Resources\placeholder.jpg");
+                }
+                picture.Click += (s, e) => productDetails(productID);
+
+                Label nameLabel = new Label()
+                {
+                    Text = product["name"].ToString().Trim(),
+                    MaximumSize = new Size((int)(card.Width * 0.3), 0),
+                    Font = new Font("Microsoft Sans Serif", 20, FontStyle.Bold),
+                    ForeColor = Color.Beige,
+                    TextAlign = ContentAlignment.MiddleCenter,
+                    Cursor = Cursors.Hand,
+                    AutoSize = true
+                };
+                nameLabel.Click += (s, e) => productDetails(productID);
+
+                card.Controls.Add(picture);
+                card.Controls.Add(nameLabel);
+                card.Controls.Add(priceLabel);
+
+                nameLabel.Location = new Point((int)(card.Width * 0.25), (int)(card.Height - nameLabel.Height) / 2);
+
+                flowLayoutPanel5.Controls.Add(card);
+
+
+            }
+        }
+
         private void backOrderDetailsButton_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedTab = yourOrdersPage;
+        }
+
+        private void backCategoryButton_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = categoriesPage;
         }
 
 
