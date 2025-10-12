@@ -87,6 +87,11 @@
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.backOrderDetailsButton = new System.Windows.Forms.Button();
             this.orderLabel = new System.Windows.Forms.Label();
+            this.categoryPage = new System.Windows.Forms.TabPage();
+            this.categoryLabel = new System.Windows.Forms.Label();
+            this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
+            this.backCategoryButton = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.shopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.categoriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -111,11 +116,8 @@
             this.ordersBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.orderDetailsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.orderDetailsTableAdapter = new huntingEquipmentStore.hunting_equipment_storeDataSetTableAdapters.OrderDetailsTableAdapter();
-            this.categoryPage = new System.Windows.Forms.TabPage();
-            this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
-            this.backCategoryButton = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.categoryLabel = new System.Windows.Forms.Label();
+            this.sortByPriceButton = new System.Windows.Forms.Button();
+            this.sortByNameButton = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.loginPage.SuspendLayout();
             this.signupPage.SuspendLayout();
@@ -130,6 +132,7 @@
             this.productPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productPicture)).BeginInit();
             this.orderDetailsPage.SuspendLayout();
+            this.categoryPage.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hunting_equipment_storeDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).BeginInit();
@@ -142,7 +145,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.categoriesBindingSource3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderDetailsBindingSource)).BeginInit();
-            this.categoryPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -159,10 +161,10 @@
             this.tabControl1.Controls.Add(this.productPage);
             this.tabControl1.Controls.Add(this.orderDetailsPage);
             this.tabControl1.Controls.Add(this.categoryPage);
-            this.tabControl1.Location = new System.Drawing.Point(-10, 38);
+            this.tabControl1.Location = new System.Drawing.Point(-10, -27);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1533, 751);
+            this.tabControl1.Size = new System.Drawing.Size(1533, 816);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
@@ -181,7 +183,7 @@
             this.loginPage.Location = new System.Drawing.Point(4, 22);
             this.loginPage.Name = "loginPage";
             this.loginPage.Padding = new System.Windows.Forms.Padding(3);
-            this.loginPage.Size = new System.Drawing.Size(1525, 725);
+            this.loginPage.Size = new System.Drawing.Size(1525, 751);
             this.loginPage.TabIndex = 0;
             this.loginPage.Text = "loginPage";
             // 
@@ -299,7 +301,7 @@
             this.signupPage.Location = new System.Drawing.Point(4, 22);
             this.signupPage.Name = "signupPage";
             this.signupPage.Padding = new System.Windows.Forms.Padding(3);
-            this.signupPage.Size = new System.Drawing.Size(1525, 725);
+            this.signupPage.Size = new System.Drawing.Size(1525, 751);
             this.signupPage.TabIndex = 1;
             this.signupPage.Text = "signupPage";
             // 
@@ -415,11 +417,13 @@
             // shopPage
             // 
             this.shopPage.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.shopPage.Controls.Add(this.sortByNameButton);
+            this.shopPage.Controls.Add(this.sortByPriceButton);
             this.shopPage.Controls.Add(this.flowLayoutPanel1);
             this.shopPage.Location = new System.Drawing.Point(4, 22);
             this.shopPage.Name = "shopPage";
             this.shopPage.Padding = new System.Windows.Forms.Padding(3);
-            this.shopPage.Size = new System.Drawing.Size(1525, 725);
+            this.shopPage.Size = new System.Drawing.Size(1525, 790);
             this.shopPage.TabIndex = 2;
             this.shopPage.Text = "shopPage";
             // 
@@ -448,7 +452,7 @@
             this.categoriesPage.Location = new System.Drawing.Point(4, 22);
             this.categoriesPage.Name = "categoriesPage";
             this.categoriesPage.Padding = new System.Windows.Forms.Padding(3);
-            this.categoriesPage.Size = new System.Drawing.Size(1525, 725);
+            this.categoriesPage.Size = new System.Drawing.Size(1525, 751);
             this.categoriesPage.TabIndex = 3;
             this.categoriesPage.Text = "categoriesPage";
             // 
@@ -582,7 +586,7 @@
             this.cartPage.Location = new System.Drawing.Point(4, 22);
             this.cartPage.Name = "cartPage";
             this.cartPage.Padding = new System.Windows.Forms.Padding(3);
-            this.cartPage.Size = new System.Drawing.Size(1525, 725);
+            this.cartPage.Size = new System.Drawing.Size(1525, 751);
             this.cartPage.TabIndex = 4;
             this.cartPage.Text = "cartPage";
             // 
@@ -688,7 +692,7 @@
             this.yourOrdersPage.Location = new System.Drawing.Point(4, 22);
             this.yourOrdersPage.Name = "yourOrdersPage";
             this.yourOrdersPage.Padding = new System.Windows.Forms.Padding(3);
-            this.yourOrdersPage.Size = new System.Drawing.Size(1525, 725);
+            this.yourOrdersPage.Size = new System.Drawing.Size(1525, 751);
             this.yourOrdersPage.TabIndex = 5;
             this.yourOrdersPage.Text = "yourOrdersPage";
             // 
@@ -725,7 +729,7 @@
             this.productPage.Location = new System.Drawing.Point(4, 22);
             this.productPage.Name = "productPage";
             this.productPage.Padding = new System.Windows.Forms.Padding(3);
-            this.productPage.Size = new System.Drawing.Size(1525, 725);
+            this.productPage.Size = new System.Drawing.Size(1525, 751);
             this.productPage.TabIndex = 6;
             this.productPage.Text = "productPage";
             // 
@@ -803,7 +807,7 @@
             this.orderDetailsPage.Location = new System.Drawing.Point(4, 22);
             this.orderDetailsPage.Name = "orderDetailsPage";
             this.orderDetailsPage.Padding = new System.Windows.Forms.Padding(3);
-            this.orderDetailsPage.Size = new System.Drawing.Size(1525, 725);
+            this.orderDetailsPage.Size = new System.Drawing.Size(1525, 751);
             this.orderDetailsPage.TabIndex = 7;
             this.orderDetailsPage.Text = "orderDetailsPage";
             // 
@@ -885,6 +889,67 @@
             this.orderLabel.Size = new System.Drawing.Size(0, 73);
             this.orderLabel.TabIndex = 3;
             this.orderLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // categoryPage
+            // 
+            this.categoryPage.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.categoryPage.Controls.Add(this.categoryLabel);
+            this.categoryPage.Controls.Add(this.flowLayoutPanel5);
+            this.categoryPage.Controls.Add(this.backCategoryButton);
+            this.categoryPage.Controls.Add(this.label5);
+            this.categoryPage.Location = new System.Drawing.Point(4, 22);
+            this.categoryPage.Name = "categoryPage";
+            this.categoryPage.Padding = new System.Windows.Forms.Padding(3);
+            this.categoryPage.Size = new System.Drawing.Size(1525, 751);
+            this.categoryPage.TabIndex = 8;
+            this.categoryPage.Text = "categoryPage";
+            // 
+            // categoryLabel
+            // 
+            this.categoryLabel.AutoSize = true;
+            this.categoryLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.categoryLabel.ForeColor = System.Drawing.Color.Beige;
+            this.categoryLabel.Location = new System.Drawing.Point(577, 29);
+            this.categoryLabel.Name = "categoryLabel";
+            this.categoryLabel.Size = new System.Drawing.Size(367, 73);
+            this.categoryLabel.TabIndex = 11;
+            this.categoryLabel.Text = "Your orders";
+            this.categoryLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // flowLayoutPanel5
+            // 
+            this.flowLayoutPanel5.AutoScroll = true;
+            this.flowLayoutPanel5.AutoScrollMargin = new System.Drawing.Size(0, 20);
+            this.flowLayoutPanel5.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.flowLayoutPanel5.Location = new System.Drawing.Point(457, 144);
+            this.flowLayoutPanel5.Name = "flowLayoutPanel5";
+            this.flowLayoutPanel5.Size = new System.Drawing.Size(611, 436);
+            this.flowLayoutPanel5.TabIndex = 6;
+            // 
+            // backCategoryButton
+            // 
+            this.backCategoryButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.backCategoryButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.backCategoryButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.backCategoryButton.ForeColor = System.Drawing.Color.Beige;
+            this.backCategoryButton.Location = new System.Drawing.Point(31, 630);
+            this.backCategoryButton.Name = "backCategoryButton";
+            this.backCategoryButton.Size = new System.Drawing.Size(158, 68);
+            this.backCategoryButton.TabIndex = 5;
+            this.backCategoryButton.Text = "Back";
+            this.backCategoryButton.UseVisualStyleBackColor = false;
+            this.backCategoryButton.Click += new System.EventHandler(this.backCategoryButton_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Beige;
+            this.label5.Location = new System.Drawing.Point(549, 40);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(0, 73);
+            this.label5.TabIndex = 3;
+            this.label5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // menuStrip1
             // 
@@ -1038,66 +1103,33 @@
             // 
             this.orderDetailsTableAdapter.ClearBeforeFill = true;
             // 
-            // categoryPage
+            // sortByPriceButton
             // 
-            this.categoryPage.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.categoryPage.Controls.Add(this.categoryLabel);
-            this.categoryPage.Controls.Add(this.flowLayoutPanel5);
-            this.categoryPage.Controls.Add(this.backCategoryButton);
-            this.categoryPage.Controls.Add(this.label5);
-            this.categoryPage.Location = new System.Drawing.Point(4, 22);
-            this.categoryPage.Name = "categoryPage";
-            this.categoryPage.Padding = new System.Windows.Forms.Padding(3);
-            this.categoryPage.Size = new System.Drawing.Size(1525, 725);
-            this.categoryPage.TabIndex = 8;
-            this.categoryPage.Text = "categoryPage";
+            this.sortByPriceButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.sortByPriceButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.sortByPriceButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sortByPriceButton.ForeColor = System.Drawing.Color.Beige;
+            this.sortByPriceButton.Location = new System.Drawing.Point(1356, 32);
+            this.sortByPriceButton.Name = "sortByPriceButton";
+            this.sortByPriceButton.Size = new System.Drawing.Size(155, 47);
+            this.sortByPriceButton.TabIndex = 5;
+            this.sortByPriceButton.Text = "Sort by price";
+            this.sortByPriceButton.UseVisualStyleBackColor = false;
+            this.sortByPriceButton.Click += new System.EventHandler(this.sortByPriceButton_Click);
             // 
-            // flowLayoutPanel5
+            // sortByNameButton
             // 
-            this.flowLayoutPanel5.AutoScroll = true;
-            this.flowLayoutPanel5.AutoScrollMargin = new System.Drawing.Size(0, 20);
-            this.flowLayoutPanel5.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.flowLayoutPanel5.Location = new System.Drawing.Point(457, 144);
-            this.flowLayoutPanel5.Name = "flowLayoutPanel5";
-            this.flowLayoutPanel5.Size = new System.Drawing.Size(611, 436);
-            this.flowLayoutPanel5.TabIndex = 6;
-            // 
-            // backCategoryButton
-            // 
-            this.backCategoryButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.backCategoryButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.backCategoryButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.backCategoryButton.ForeColor = System.Drawing.Color.Beige;
-            this.backCategoryButton.Location = new System.Drawing.Point(31, 630);
-            this.backCategoryButton.Name = "backCategoryButton";
-            this.backCategoryButton.Size = new System.Drawing.Size(158, 68);
-            this.backCategoryButton.TabIndex = 5;
-            this.backCategoryButton.Text = "Back";
-            this.backCategoryButton.UseVisualStyleBackColor = false;
-            this.backCategoryButton.Click += new System.EventHandler(this.backCategoryButton_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Beige;
-            this.label5.Location = new System.Drawing.Point(549, 40);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(0, 73);
-            this.label5.TabIndex = 3;
-            this.label5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // categoryLabel
-            // 
-            this.categoryLabel.AutoSize = true;
-            this.categoryLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.categoryLabel.ForeColor = System.Drawing.Color.Beige;
-            this.categoryLabel.Location = new System.Drawing.Point(577, 29);
-            this.categoryLabel.Name = "categoryLabel";
-            this.categoryLabel.Size = new System.Drawing.Size(367, 73);
-            this.categoryLabel.TabIndex = 11;
-            this.categoryLabel.Text = "Your orders";
-            this.categoryLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.sortByNameButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.sortByNameButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.sortByNameButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sortByNameButton.ForeColor = System.Drawing.Color.Beige;
+            this.sortByNameButton.Location = new System.Drawing.Point(1151, 32);
+            this.sortByNameButton.Name = "sortByNameButton";
+            this.sortByNameButton.Size = new System.Drawing.Size(155, 47);
+            this.sortByNameButton.TabIndex = 6;
+            this.sortByNameButton.Text = "Sort by name";
+            this.sortByNameButton.UseVisualStyleBackColor = false;
+            this.sortByNameButton.Click += new System.EventHandler(this.sortByNameButton_Click);
             // 
             // Form1
             // 
@@ -1132,6 +1164,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.productPicture)).EndInit();
             this.orderDetailsPage.ResumeLayout(false);
             this.orderDetailsPage.PerformLayout();
+            this.categoryPage.ResumeLayout(false);
+            this.categoryPage.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hunting_equipment_storeDataSet)).EndInit();
@@ -1145,8 +1179,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.categoriesBindingSource3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderDetailsBindingSource)).EndInit();
-            this.categoryPage.ResumeLayout(false);
-            this.categoryPage.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1241,6 +1273,8 @@
         private System.Windows.Forms.Button backCategoryButton;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label categoryLabel;
+        private System.Windows.Forms.Button sortByNameButton;
+        private System.Windows.Forms.Button sortByPriceButton;
 
     }
 }

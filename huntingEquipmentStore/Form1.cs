@@ -52,66 +52,72 @@ namespace huntingEquipmentStore
             productDescriptionLabel.MaximumSize = new Size(productPicture.Size.Width, 0);
 
             backProductButton.Size = new Size((int)(this.ClientSize.Width * 0.08), (int)(this.ClientSize.Height * 0.08));
-            backProductButton.Location = new Point((int)(this.ClientSize.Width * 0.02), (int)(this.ClientSize.Height * 0.85));
+            backProductButton.Location = new Point((int)(this.ClientSize.Width * 0.02), (int)(this.ClientSize.Height * 0.9));
 
             backOrderDetailsButton.Size = new Size((int)(this.ClientSize.Width * 0.08), (int)(this.ClientSize.Height * 0.08));
-            backOrderDetailsButton.Location = new Point((int)(this.ClientSize.Width * 0.02), (int)(this.ClientSize.Height * 0.85));
+            backOrderDetailsButton.Location = new Point((int)(this.ClientSize.Width * 0.02), (int)(this.ClientSize.Height * 0.9));
 
             backCategoryButton.Size = new Size((int)(this.ClientSize.Width * 0.08), (int)(this.ClientSize.Height * 0.08));
-            backCategoryButton.Location = new Point((int)(this.ClientSize.Width * 0.02), (int)(this.ClientSize.Height * 0.85));
+            backCategoryButton.Location = new Point((int)(this.ClientSize.Width * 0.02), (int)(this.ClientSize.Height * 0.9));
 
-            flowLayoutPanel1.Location = new Point((this.ClientSize.Width - flowLayoutPanel1.Width) / 2, (int)(this.ClientSize.Height * 0.1));
+            flowLayoutPanel1.Location = new Point((this.ClientSize.Width - flowLayoutPanel1.Width) / 2, (int)(this.ClientSize.Height * 0.15));
             flowLayoutPanel1.Size = new Size((int)(Screen.PrimaryScreen.Bounds.Width * 0.9 * 0.7), (int)(Screen.PrimaryScreen.Bounds.Height * 0.75 * 0.7));
 
             flowLayoutPanel2.Size = new Size((int)(this.Size.Width * 0.6), (int)(this.Size.Height * 0.7));
-            flowLayoutPanel2.Location = new Point((int)(this.Size.Width * 0.05), (int)(this.Size.Height * 0.15));
+            flowLayoutPanel2.Location = new Point((int)(this.Size.Width * 0.05), (int)(this.Size.Height * 0.2));
 
-            totalItemsLabel.Location = new Point((int)(this.Size.Width * 0.75), (int)(this.Size.Height * 0.15));
-            totalPriceLabel.Location = new Point((int)(this.Size.Width * 0.75), (int)(this.Size.Height * 0.25));
-            totalItemsNumberLabel.Location = new Point((int)(this.Size.Width * 0.9), (int)(this.Size.Height * 0.15));
-            totalPriceNumberLabel.Location = new Point((int)(this.Size.Width * 0.9), (int)(this.Size.Height * 0.25));
+            totalItemsLabel.Location = new Point((int)(this.Size.Width * 0.75), (int)(this.Size.Height * 0.2));
+            totalPriceLabel.Location = new Point((int)(this.Size.Width * 0.75), (int)(this.Size.Height * 0.3));
+            totalItemsNumberLabel.Location = new Point((int)(this.Size.Width * 0.9), (int)(this.Size.Height * 0.2));
+            totalPriceNumberLabel.Location = new Point((int)(this.Size.Width * 0.9), (int)(this.Size.Height * 0.3));
 
-            clearCartButton.Location = new Point((int)(this.Size.Width * 0.75), (int)(this.Size.Height * 0.35));
-            checkoutButton.Location = new Point((int)(this.Size.Width * 0.75), (int)(this.Size.Height * 0.45));
+            clearCartButton.Location = new Point((int)(this.Size.Width * 0.75), (int)(this.Size.Height * 0.4));
+            checkoutButton.Location = new Point((int)(this.Size.Width * 0.75), (int)(this.Size.Height * 0.5));
 
             flowLayoutPanel3.Size = new Size((int)(this.Size.Width * 0.4), (int)(this.Size.Height * 0.7));
-            flowLayoutPanel3.Location = new Point((int)(this.Size.Width - flowLayoutPanel3.Width)/2, (int)(this.Size.Height * 0.15));
+            flowLayoutPanel3.Location = new Point((int)(this.Size.Width - flowLayoutPanel3.Width)/2, (int)(this.Size.Height * 0.2));
 
-            yourOrdersLabel.Location = new Point((this.ClientSize.Width - yourOrdersLabel.Width) / 2, (int)(this.ClientSize.Height * 0.02));
+            yourOrdersLabel.Location = new Point((this.ClientSize.Width - yourOrdersLabel.Width) / 2, (int)(this.ClientSize.Height * 0.07));
 
-            categoriesLabel.Location = new Point((this.ClientSize.Width - categoriesLabel.Width) / 2, (int)(this.ClientSize.Height * 0.02));
+            categoriesLabel.Location = new Point((this.ClientSize.Width - categoriesLabel.Width) / 2, (int)(this.ClientSize.Height * 0.07));
+
+            shoppingCartLabel.Location = new Point((this.ClientSize.Width - shoppingCartLabel.Width) / 2, (int)(this.ClientSize.Height * 0.07));
 
             tabControl1.Size = new Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
 
             flowLayoutPanel4.Size = new Size((int)(this.Size.Width * 0.5), (int)(this.Size.Height * 0.7));
-            flowLayoutPanel4.Location = new Point((int)(this.Size.Width - flowLayoutPanel4.Width) / 2, (int)(this.Size.Height * 0.15));
+            flowLayoutPanel4.Location = new Point((int)(this.Size.Width - flowLayoutPanel4.Width) / 2, (int)(this.Size.Height * 0.2));
 
             flowLayoutPanel5.Size = new Size((int)(this.Size.Width * 0.5), (int)(this.Size.Height * 0.7));
-            flowLayoutPanel5.Location = new Point((int)(this.Size.Width - flowLayoutPanel4.Width) / 2, (int)(this.Size.Height * 0.15));
+            flowLayoutPanel5.Location = new Point((int)(this.Size.Width - flowLayoutPanel4.Width) / 2, (int)(this.Size.Height * 0.2));
 
-            totalItemsLabel2.Location = new Point((int)(this.Size.Width * 0.78), (int)(this.Size.Height * 0.15));
-            totalPriceLabel2.Location = new Point((int)(this.Size.Width * 0.78), (int)(this.Size.Height * 0.25));
-            totalItemsNumberLabel2.Location = new Point((int)(this.Size.Width * 0.9), (int)(this.Size.Height * 0.15));
-            totalPriceNumberLabel2.Location = new Point((int)(this.Size.Width * 0.9), (int)(this.Size.Height * 0.25));
+            totalItemsLabel2.Location = new Point((int)(this.Size.Width * 0.78), (int)(this.Size.Height * 0.2));
+            totalPriceLabel2.Location = new Point((int)(this.Size.Width * 0.78), (int)(this.Size.Height * 0.3));
+            totalItemsNumberLabel2.Location = new Point((int)(this.Size.Width * 0.9), (int)(this.Size.Height * 0.2));
+            totalPriceNumberLabel2.Location = new Point((int)(this.Size.Width * 0.9), (int)(this.Size.Height * 0.3));
 
-            pictureBoxCategories1.Location = new Point((int)(this.Size.Width * 0.2), (int)(this.Size.Height * 0.15));
+            pictureBoxCategories1.Location = new Point((int)(this.Size.Width * 0.2), (int)(this.Size.Height * 0.2));
             pictureBoxCategories1.Click += (s, f) => categoryProducts(2);
-            pictureBoxCategories2.Location = new Point((int)(this.Size.Width - pictureBoxCategories2.Width - 0.2 * this.Size.Width), (int)(this.Size.Height * 0.15));
+            pictureBoxCategories2.Location = new Point((int)(this.Size.Width - pictureBoxCategories2.Width - 0.2 * this.Size.Width), (int)(this.Size.Height * 0.2));
             pictureBoxCategories2.Click += (s, f) => categoryProducts(3);
-            pictureBoxCategories3.Location = new Point((int)(this.Size.Width * 0.2), (int)(this.Size.Height * 0.5));
+            pictureBoxCategories3.Location = new Point((int)(this.Size.Width * 0.2), (int)(this.Size.Height * 0.55));
             pictureBoxCategories3.Click += (s, f) => categoryProducts(1);
-            pictureBoxCategories4.Location = new Point((int)(this.Size.Width - pictureBoxCategories4.Width - 0.2 * this.Size.Width), (int)(this.Size.Height * 0.5));
+            pictureBoxCategories4.Location = new Point((int)(this.Size.Width - pictureBoxCategories4.Width - 0.2 * this.Size.Width), (int)(this.Size.Height * 0.55));
             pictureBoxCategories4.Click += (s, f) => categoryProducts(4);
 
 
-            categoryLabel1.Location = new Point((int)(pictureBoxCategories1.Location.X + (pictureBoxCategories1.Width - categoryLabel1.Width) / 2), (int)(this.Size.Height * 0.35));
+            categoryLabel1.Location = new Point((int)(pictureBoxCategories1.Location.X + (pictureBoxCategories1.Width - categoryLabel1.Width) / 2), (int)(this.Size.Height * 0.4));
             categoryLabel1.Click += (s, f) => categoryProducts(2);
-            categoryLabel2.Location = new Point((int)(pictureBoxCategories2.Location.X + (pictureBoxCategories2.Width - categoryLabel2.Width) / 2), (int)(this.Size.Height * 0.35));
+            categoryLabel2.Location = new Point((int)(pictureBoxCategories2.Location.X + (pictureBoxCategories2.Width - categoryLabel2.Width) / 2), (int)(this.Size.Height * 0.4));
             categoryLabel2.Click += (s, f) => categoryProducts(3);
-            categoryLabel3.Location = new Point((int)(pictureBoxCategories3.Location.X + (pictureBoxCategories3.Width - categoryLabel3.Width) / 2), (int)(this.Size.Height * 0.7));
+            categoryLabel3.Location = new Point((int)(pictureBoxCategories3.Location.X + (pictureBoxCategories3.Width - categoryLabel3.Width) / 2), (int)(this.Size.Height * 0.75));
             categoryLabel3.Click += (s, f) => categoryProducts(1);
-            categoryLabel4.Location = new Point((int)(pictureBoxCategories4.Location.X + (pictureBoxCategories4.Width - categoryLabel4.Width) / 2), (int)(this.Size.Height * 0.7));
+            categoryLabel4.Location = new Point((int)(pictureBoxCategories4.Location.X + (pictureBoxCategories4.Width - categoryLabel4.Width) / 2), (int)(this.Size.Height * 0.75));
             categoryLabel4.Click += (s, f) => categoryProducts(4);
+
+            sortByPriceButton.Location = new Point((int)(flowLayoutPanel1.Location.X + Screen.PrimaryScreen.Bounds.Width * 0.2 * 3 + 22 - sortByPriceButton.Width), (int)(this.ClientSize.Height * 0.07));
+            sortByNameButton.Location = new Point((int)(sortByPriceButton.Location.X - sortByNameButton.Width - 25), (int)(this.ClientSize.Height * 0.07));
+
         }
 
 
@@ -135,8 +141,6 @@ namespace huntingEquipmentStore
         {
             flowLayoutPanel1.Controls.Clear();
 
-            hunting_equipment_storeDataSet.Products.Clear();
-            productsTableAdapter.getAllProducts(hunting_equipment_storeDataSet.Products);
             DataTable products = hunting_equipment_storeDataSet.Products;
 
             foreach (DataRow product in products.Rows)
@@ -372,6 +376,10 @@ namespace huntingEquipmentStore
                     if (customerTable.Rows.Count > 0)
                     {
                         tabControl1.SelectedTab = shopPage;
+
+                        hunting_equipment_storeDataSet.Products.Clear();
+                        productsTableAdapter.getAllProducts(hunting_equipment_storeDataSet.Products);
+
                         createFlowLayoutPanel();
                         menuStrip1.Visible = true;
                         customer = hunting_equipment_storeDataSet.Customers.Rows[0];
@@ -574,7 +582,7 @@ namespace huntingEquipmentStore
 
             tabControl1.SelectedTab = orderDetailsPage;
             orderLabel.Text = "Order " + order["order_id"].ToString().Trim() + ", " + order["date"].ToString().Trim().Split(' ')[0];
-            orderLabel.Location = new Point((this.ClientSize.Width - orderLabel.Width) / 2, (int)(this.ClientSize.Height * 0.02));
+            orderLabel.Location = new Point((this.ClientSize.Width - orderLabel.Width) / 2, (int)(this.ClientSize.Height * 0.07));
 
             hunting_equipment_storeDataSet.OrderDetails.Clear();
             orderDetailsTableAdapter.getDetailsByOrderID(hunting_equipment_storeDataSet.OrderDetails, orderID);
@@ -676,6 +684,8 @@ namespace huntingEquipmentStore
         private void shopToolStripMenuItem_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedTab = shopPage;
+            hunting_equipment_storeDataSet.Products.Clear();
+            productsTableAdapter.getAllProducts(hunting_equipment_storeDataSet.Products);
             createFlowLayoutPanel();
         }
 
@@ -803,7 +813,7 @@ namespace huntingEquipmentStore
             DataRow category = hunting_equipment_storeDataSet.Categories.Rows[0];
 
             categoryLabel.Text = category["name"].ToString().Trim();
-            categoryLabel.Location = new Point((this.ClientSize.Width - categoryLabel.Width) / 2, (int)(this.ClientSize.Height * 0.02));
+            categoryLabel.Location = new Point((this.ClientSize.Width - categoryLabel.Width) / 2, (int)(this.ClientSize.Height * 0.07));
 
             hunting_equipment_storeDataSet.Products.Clear();
             productsTableAdapter.getProductsByCategory(hunting_equipment_storeDataSet.Products, categoryID);
@@ -873,8 +883,6 @@ namespace huntingEquipmentStore
                 nameLabel.Location = new Point((int)(card.Width * 0.25), (int)(card.Height - nameLabel.Height) / 2);
 
                 flowLayoutPanel5.Controls.Add(card);
-
-
             }
         }
 
@@ -886,6 +894,20 @@ namespace huntingEquipmentStore
         private void backCategoryButton_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedTab = categoriesPage;
+        }
+
+        private void sortByPriceButton_Click(object sender, EventArgs e)
+        {
+            hunting_equipment_storeDataSet.Products.Clear();
+            productsTableAdapter.getProductsOrderedByPrice(hunting_equipment_storeDataSet.Products);
+            createFlowLayoutPanel();
+        }
+
+        private void sortByNameButton_Click(object sender, EventArgs e)
+        {
+            hunting_equipment_storeDataSet.Products.Clear();
+            productsTableAdapter.getProductsOrderedByName(hunting_equipment_storeDataSet.Products);
+            createFlowLayoutPanel();
         }
 
 
