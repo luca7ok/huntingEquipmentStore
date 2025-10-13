@@ -288,9 +288,11 @@ namespace huntingEquipmentStore
 
         private void productDetails(int productID)
         {
-            hunting_equipment_storeDataSet.Products.Clear();
-            productsTableAdapter.getProductByID(hunting_equipment_storeDataSet.Products, productID);
-            DataRow product = hunting_equipment_storeDataSet.Products.Rows[0];
+            hunting_equipment_storeDataSet.ProductsDataTable tempProductsTable = new hunting_equipment_storeDataSet.ProductsDataTable();
+
+            tempProductsTable.Clear();
+            productsTableAdapter.getProductByID(tempProductsTable, productID);
+            DataRow product = tempProductsTable.Rows[0];
 
             richTextBox1.Clear();
             ratingNumericUpDown.Value = 5;
@@ -742,7 +744,7 @@ namespace huntingEquipmentStore
             }
             else
             {
-                ordersTableAdapter.addOrder(int.Parse(currentCustomer["customer_id"].ToString().Trim()), DateTime.Now.ToString("dd/MM/yyyy"), totalPrice);
+                ordersTableAdapter.addOrder(int.Parse(currentCustomer["customer_id"].ToString().Trim()), DateTime.Now.ToString(), totalPrice);
                 ordersTableAdapter.Update(hunting_equipment_storeDataSet);
                 ordersTableAdapter.Fill(hunting_equipment_storeDataSet.Orders);
 
@@ -997,7 +999,6 @@ namespace huntingEquipmentStore
                         Font = new Font("Microsoft Sans Serif", 26, FontStyle.Bold),
                         ForeColor = Color.Beige,
                         TextAlign = ContentAlignment.MiddleCenter,
-                        Cursor = Cursors.Hand,
                         AutoSize = true
                     };
 
@@ -1007,7 +1008,6 @@ namespace huntingEquipmentStore
                         Font = new Font("Microsoft Sans Serif", 26, FontStyle.Bold),
                         ForeColor = Color.Beige,
                         TextAlign = ContentAlignment.MiddleCenter,
-                        Cursor = Cursors.Hand,
                         AutoSize = true
                     };
                     card.Controls.Add(userLabel);
