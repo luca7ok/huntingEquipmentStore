@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabControl = new System.Windows.Forms.TabControl();
             this.loginPage = new System.Windows.Forms.TabPage();
             this.createAccountLabel = new System.Windows.Forms.Label();
             this.createAccountButton = new System.Windows.Forms.Button();
@@ -50,6 +50,8 @@
             this.fullnameSignupTextBox = new System.Windows.Forms.TextBox();
             this.signupPageLabel = new System.Windows.Forms.Label();
             this.shopPage = new System.Windows.Forms.TabPage();
+            this.sortByNameButton = new System.Windows.Forms.Button();
+            this.sortByPriceButton = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.categoriesPage = new System.Windows.Forms.TabPage();
             this.categoryLabel3 = new System.Windows.Forms.Label();
@@ -74,6 +76,7 @@
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.yourOrdersLabel = new System.Windows.Forms.Label();
             this.productPage = new System.Windows.Forms.TabPage();
+            this.viewReviewButton = new System.Windows.Forms.Button();
             this.backProductButton = new System.Windows.Forms.Button();
             this.productDescriptionLabel = new System.Windows.Forms.Label();
             this.productPriceLabel = new System.Windows.Forms.Label();
@@ -92,6 +95,11 @@
             this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
             this.backCategoryButton = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
+            this.reviewsPage = new System.Windows.Forms.TabPage();
+            this.reviewsLabel = new System.Windows.Forms.Label();
+            this.flowLayoutPanel6 = new System.Windows.Forms.FlowLayoutPanel();
+            this.backReviewsButton = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.shopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.categoriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -116,9 +124,11 @@
             this.ordersBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.orderDetailsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.orderDetailsTableAdapter = new huntingEquipmentStore.hunting_equipment_storeDataSetTableAdapters.OrderDetailsTableAdapter();
-            this.sortByPriceButton = new System.Windows.Forms.Button();
-            this.sortByNameButton = new System.Windows.Forms.Button();
-            this.tabControl1.SuspendLayout();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.addReviewButton = new System.Windows.Forms.Button();
+            this.ratingNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.ratingLabel = new System.Windows.Forms.Label();
+            this.tabControl.SuspendLayout();
             this.loginPage.SuspendLayout();
             this.signupPage.SuspendLayout();
             this.shopPage.SuspendLayout();
@@ -133,6 +143,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.productPicture)).BeginInit();
             this.orderDetailsPage.SuspendLayout();
             this.categoryPage.SuspendLayout();
+            this.reviewsPage.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hunting_equipment_storeDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).BeginInit();
@@ -145,28 +156,30 @@
             ((System.ComponentModel.ISupportInitialize)(this.categoriesBindingSource3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderDetailsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ratingNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // tabControl
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.tabControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControl1.Controls.Add(this.loginPage);
-            this.tabControl1.Controls.Add(this.signupPage);
-            this.tabControl1.Controls.Add(this.shopPage);
-            this.tabControl1.Controls.Add(this.categoriesPage);
-            this.tabControl1.Controls.Add(this.cartPage);
-            this.tabControl1.Controls.Add(this.yourOrdersPage);
-            this.tabControl1.Controls.Add(this.productPage);
-            this.tabControl1.Controls.Add(this.orderDetailsPage);
-            this.tabControl1.Controls.Add(this.categoryPage);
-            this.tabControl1.Location = new System.Drawing.Point(-10, -27);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1533, 816);
-            this.tabControl1.TabIndex = 0;
-            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
+            this.tabControl.Controls.Add(this.loginPage);
+            this.tabControl.Controls.Add(this.signupPage);
+            this.tabControl.Controls.Add(this.shopPage);
+            this.tabControl.Controls.Add(this.categoriesPage);
+            this.tabControl.Controls.Add(this.cartPage);
+            this.tabControl.Controls.Add(this.yourOrdersPage);
+            this.tabControl.Controls.Add(this.productPage);
+            this.tabControl.Controls.Add(this.orderDetailsPage);
+            this.tabControl.Controls.Add(this.categoryPage);
+            this.tabControl.Controls.Add(this.reviewsPage);
+            this.tabControl.Location = new System.Drawing.Point(-10, 12);
+            this.tabControl.Name = "tabControl";
+            this.tabControl.SelectedIndex = 0;
+            this.tabControl.Size = new System.Drawing.Size(1533, 777);
+            this.tabControl.TabIndex = 0;
+            this.tabControl.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // loginPage
             // 
@@ -423,9 +436,37 @@
             this.shopPage.Location = new System.Drawing.Point(4, 22);
             this.shopPage.Name = "shopPage";
             this.shopPage.Padding = new System.Windows.Forms.Padding(3);
-            this.shopPage.Size = new System.Drawing.Size(1525, 790);
+            this.shopPage.Size = new System.Drawing.Size(1525, 751);
             this.shopPage.TabIndex = 2;
             this.shopPage.Text = "shopPage";
+            // 
+            // sortByNameButton
+            // 
+            this.sortByNameButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.sortByNameButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.sortByNameButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sortByNameButton.ForeColor = System.Drawing.Color.Beige;
+            this.sortByNameButton.Location = new System.Drawing.Point(1151, 32);
+            this.sortByNameButton.Name = "sortByNameButton";
+            this.sortByNameButton.Size = new System.Drawing.Size(155, 47);
+            this.sortByNameButton.TabIndex = 6;
+            this.sortByNameButton.Text = "Sort by name";
+            this.sortByNameButton.UseVisualStyleBackColor = false;
+            this.sortByNameButton.Click += new System.EventHandler(this.sortByNameButton_Click);
+            // 
+            // sortByPriceButton
+            // 
+            this.sortByPriceButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.sortByPriceButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.sortByPriceButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sortByPriceButton.ForeColor = System.Drawing.Color.Beige;
+            this.sortByPriceButton.Location = new System.Drawing.Point(1356, 32);
+            this.sortByPriceButton.Name = "sortByPriceButton";
+            this.sortByPriceButton.Size = new System.Drawing.Size(155, 47);
+            this.sortByPriceButton.TabIndex = 5;
+            this.sortByPriceButton.Text = "Sort by price";
+            this.sortByPriceButton.UseVisualStyleBackColor = false;
+            this.sortByPriceButton.Click += new System.EventHandler(this.sortByPriceButton_Click);
             // 
             // flowLayoutPanel1
             // 
@@ -721,6 +762,11 @@
             // productPage
             // 
             this.productPage.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.productPage.Controls.Add(this.ratingLabel);
+            this.productPage.Controls.Add(this.ratingNumericUpDown);
+            this.productPage.Controls.Add(this.addReviewButton);
+            this.productPage.Controls.Add(this.richTextBox1);
+            this.productPage.Controls.Add(this.viewReviewButton);
             this.productPage.Controls.Add(this.backProductButton);
             this.productPage.Controls.Add(this.productDescriptionLabel);
             this.productPage.Controls.Add(this.productPriceLabel);
@@ -732,6 +778,19 @@
             this.productPage.Size = new System.Drawing.Size(1525, 751);
             this.productPage.TabIndex = 6;
             this.productPage.Text = "productPage";
+            // 
+            // viewReviewButton
+            // 
+            this.viewReviewButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.viewReviewButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.viewReviewButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.viewReviewButton.ForeColor = System.Drawing.Color.Beige;
+            this.viewReviewButton.Location = new System.Drawing.Point(605, 629);
+            this.viewReviewButton.Name = "viewReviewButton";
+            this.viewReviewButton.Size = new System.Drawing.Size(215, 63);
+            this.viewReviewButton.TabIndex = 6;
+            this.viewReviewButton.Text = "View reviews";
+            this.viewReviewButton.UseVisualStyleBackColor = false;
             // 
             // backProductButton
             // 
@@ -951,6 +1010,67 @@
             this.label5.TabIndex = 3;
             this.label5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // reviewsPage
+            // 
+            this.reviewsPage.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.reviewsPage.Controls.Add(this.reviewsLabel);
+            this.reviewsPage.Controls.Add(this.flowLayoutPanel6);
+            this.reviewsPage.Controls.Add(this.backReviewsButton);
+            this.reviewsPage.Controls.Add(this.label2);
+            this.reviewsPage.Location = new System.Drawing.Point(4, 22);
+            this.reviewsPage.Name = "reviewsPage";
+            this.reviewsPage.Padding = new System.Windows.Forms.Padding(3);
+            this.reviewsPage.Size = new System.Drawing.Size(1525, 751);
+            this.reviewsPage.TabIndex = 9;
+            this.reviewsPage.Text = "reviewsPage";
+            // 
+            // reviewsLabel
+            // 
+            this.reviewsLabel.AutoSize = true;
+            this.reviewsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reviewsLabel.ForeColor = System.Drawing.Color.Beige;
+            this.reviewsLabel.Location = new System.Drawing.Point(577, 29);
+            this.reviewsLabel.Name = "reviewsLabel";
+            this.reviewsLabel.Size = new System.Drawing.Size(274, 73);
+            this.reviewsLabel.TabIndex = 11;
+            this.reviewsLabel.Text = "Reviews";
+            this.reviewsLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // flowLayoutPanel6
+            // 
+            this.flowLayoutPanel6.AutoScroll = true;
+            this.flowLayoutPanel6.AutoScrollMargin = new System.Drawing.Size(0, 20);
+            this.flowLayoutPanel6.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.flowLayoutPanel6.Location = new System.Drawing.Point(457, 144);
+            this.flowLayoutPanel6.Name = "flowLayoutPanel6";
+            this.flowLayoutPanel6.Size = new System.Drawing.Size(611, 436);
+            this.flowLayoutPanel6.TabIndex = 6;
+            // 
+            // backReviewsButton
+            // 
+            this.backReviewsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.backReviewsButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.backReviewsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.backReviewsButton.ForeColor = System.Drawing.Color.Beige;
+            this.backReviewsButton.Location = new System.Drawing.Point(31, 630);
+            this.backReviewsButton.Name = "backReviewsButton";
+            this.backReviewsButton.Size = new System.Drawing.Size(158, 68);
+            this.backReviewsButton.TabIndex = 5;
+            this.backReviewsButton.Text = "Back";
+            this.backReviewsButton.UseVisualStyleBackColor = false;
+            this.backReviewsButton.Click += new System.EventHandler(this.backReviewsButton_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Beige;
+            this.label2.Location = new System.Drawing.Point(549, 40);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(0, 73);
+            this.label2.TabIndex = 3;
+            this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // menuStrip1
             // 
             this.menuStrip1.BackColor = System.Drawing.Color.DarkSlateGray;
@@ -1103,33 +1223,60 @@
             // 
             this.orderDetailsTableAdapter.ClearBeforeFill = true;
             // 
-            // sortByPriceButton
+            // richTextBox1
             // 
-            this.sortByPriceButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.sortByPriceButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.sortByPriceButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sortByPriceButton.ForeColor = System.Drawing.Color.Beige;
-            this.sortByPriceButton.Location = new System.Drawing.Point(1356, 32);
-            this.sortByPriceButton.Name = "sortByPriceButton";
-            this.sortByPriceButton.Size = new System.Drawing.Size(155, 47);
-            this.sortByPriceButton.TabIndex = 5;
-            this.sortByPriceButton.Text = "Sort by price";
-            this.sortByPriceButton.UseVisualStyleBackColor = false;
-            this.sortByPriceButton.Click += new System.EventHandler(this.sortByPriceButton_Click);
+            this.richTextBox1.BackColor = System.Drawing.Color.Beige;
+            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox1.Location = new System.Drawing.Point(1160, 461);
+            this.richTextBox1.MaxLength = 100;
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(326, 118);
+            this.richTextBox1.TabIndex = 13;
+            this.richTextBox1.Text = "";
             // 
-            // sortByNameButton
+            // addReviewButton
             // 
-            this.sortByNameButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.sortByNameButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.sortByNameButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sortByNameButton.ForeColor = System.Drawing.Color.Beige;
-            this.sortByNameButton.Location = new System.Drawing.Point(1151, 32);
-            this.sortByNameButton.Name = "sortByNameButton";
-            this.sortByNameButton.Size = new System.Drawing.Size(155, 47);
-            this.sortByNameButton.TabIndex = 6;
-            this.sortByNameButton.Text = "Sort by name";
-            this.sortByNameButton.UseVisualStyleBackColor = false;
-            this.sortByNameButton.Click += new System.EventHandler(this.sortByNameButton_Click);
+            this.addReviewButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.addReviewButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.addReviewButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addReviewButton.ForeColor = System.Drawing.Color.Beige;
+            this.addReviewButton.Location = new System.Drawing.Point(1160, 629);
+            this.addReviewButton.Name = "addReviewButton";
+            this.addReviewButton.Size = new System.Drawing.Size(190, 63);
+            this.addReviewButton.TabIndex = 14;
+            this.addReviewButton.Text = "Add review";
+            this.addReviewButton.UseVisualStyleBackColor = false;
+            // 
+            // ratingNumericUpDown
+            // 
+            this.ratingNumericUpDown.BackColor = System.Drawing.Color.Beige;
+            this.ratingNumericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ratingNumericUpDown.Location = new System.Drawing.Point(1426, 393);
+            this.ratingNumericUpDown.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.ratingNumericUpDown.Name = "ratingNumericUpDown";
+            this.ratingNumericUpDown.Size = new System.Drawing.Size(60, 49);
+            this.ratingNumericUpDown.TabIndex = 15;
+            this.ratingNumericUpDown.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            // 
+            // ratingLabel
+            // 
+            this.ratingLabel.AutoSize = true;
+            this.ratingLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ratingLabel.ForeColor = System.Drawing.Color.Beige;
+            this.ratingLabel.Location = new System.Drawing.Point(1163, 393);
+            this.ratingLabel.Name = "ratingLabel";
+            this.ratingLabel.Size = new System.Drawing.Size(132, 42);
+            this.ratingLabel.TabIndex = 16;
+            this.ratingLabel.Text = "Rating";
+            this.ratingLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form1
             // 
@@ -1137,13 +1284,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1517, 797);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tabControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Hunting Equipment Store";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.tabControl1.ResumeLayout(false);
+            this.tabControl.ResumeLayout(false);
             this.loginPage.ResumeLayout(false);
             this.loginPage.PerformLayout();
             this.signupPage.ResumeLayout(false);
@@ -1166,6 +1313,8 @@
             this.orderDetailsPage.PerformLayout();
             this.categoryPage.ResumeLayout(false);
             this.categoryPage.PerformLayout();
+            this.reviewsPage.ResumeLayout(false);
+            this.reviewsPage.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hunting_equipment_storeDataSet)).EndInit();
@@ -1179,6 +1328,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.categoriesBindingSource3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderDetailsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ratingNumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1201,7 +1351,7 @@
         private System.Windows.Forms.BindingSource reviewsBindingSource;
         private hunting_equipment_storeDataSetTableAdapters.ReviewsTableAdapter reviewsTableAdapter;
         private System.Windows.Forms.BindingSource categoriesBindingSource3;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage loginPage;
         private System.Windows.Forms.TabPage signupPage;
         private System.Windows.Forms.Label loginPageLabel;
@@ -1275,6 +1425,16 @@
         private System.Windows.Forms.Label categoryLabel;
         private System.Windows.Forms.Button sortByNameButton;
         private System.Windows.Forms.Button sortByPriceButton;
+        private System.Windows.Forms.Button viewReviewButton;
+        private System.Windows.Forms.TabPage reviewsPage;
+        private System.Windows.Forms.Label reviewsLabel;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel6;
+        private System.Windows.Forms.Button backReviewsButton;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.NumericUpDown ratingNumericUpDown;
+        private System.Windows.Forms.Button addReviewButton;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Label ratingLabel;
 
     }
 }

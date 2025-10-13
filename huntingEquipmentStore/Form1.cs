@@ -19,7 +19,7 @@ namespace huntingEquipmentStore
         private Size formSize = new Size((int)(Screen.PrimaryScreen.Bounds.Width * 0.7), (int)(Screen.PrimaryScreen.Bounds.Height * 0.7));
         private TabPage lastPage;
         private List<Tuple<int, int>> shoppingCart = new List<Tuple<int, int>>();
-        DataRow customer;
+        DataRow currentCustomer;
         double totalPrice = 0;
 
         private void PositionControlsRelative()
@@ -52,13 +52,16 @@ namespace huntingEquipmentStore
             productDescriptionLabel.MaximumSize = new Size(productPicture.Size.Width, 0);
 
             backProductButton.Size = new Size((int)(this.ClientSize.Width * 0.08), (int)(this.ClientSize.Height * 0.08));
-            backProductButton.Location = new Point((int)(this.ClientSize.Width * 0.02), (int)(this.ClientSize.Height * 0.9));
+            backProductButton.Location = new Point((int)(this.ClientSize.Width * 0.02), (int)(this.ClientSize.Height * 0.86));
 
             backOrderDetailsButton.Size = new Size((int)(this.ClientSize.Width * 0.08), (int)(this.ClientSize.Height * 0.08));
-            backOrderDetailsButton.Location = new Point((int)(this.ClientSize.Width * 0.02), (int)(this.ClientSize.Height * 0.9));
+            backOrderDetailsButton.Location = new Point((int)(this.ClientSize.Width * 0.02), (int)(this.ClientSize.Height * 0.86));
 
             backCategoryButton.Size = new Size((int)(this.ClientSize.Width * 0.08), (int)(this.ClientSize.Height * 0.08));
-            backCategoryButton.Location = new Point((int)(this.ClientSize.Width * 0.02), (int)(this.ClientSize.Height * 0.9));
+            backCategoryButton.Location = new Point((int)(this.ClientSize.Width * 0.02), (int)(this.ClientSize.Height * 0.86));
+
+            backReviewsButton.Size = new Size((int)(this.ClientSize.Width * 0.08), (int)(this.ClientSize.Height * 0.08));
+            backReviewsButton.Location = new Point((int)(this.ClientSize.Width * 0.02), (int)(this.ClientSize.Height * 0.86));
 
             flowLayoutPanel1.Location = new Point((this.ClientSize.Width - flowLayoutPanel1.Width) / 2, (int)(this.ClientSize.Height * 0.15));
             flowLayoutPanel1.Size = new Size((int)(Screen.PrimaryScreen.Bounds.Width * 0.9 * 0.7), (int)(Screen.PrimaryScreen.Bounds.Height * 0.75 * 0.7));
@@ -83,13 +86,18 @@ namespace huntingEquipmentStore
 
             shoppingCartLabel.Location = new Point((this.ClientSize.Width - shoppingCartLabel.Width) / 2, (int)(this.ClientSize.Height * 0.07));
 
-            tabControl1.Size = new Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
+            tabControl.Size = new Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
 
             flowLayoutPanel4.Size = new Size((int)(this.Size.Width * 0.5), (int)(this.Size.Height * 0.7));
             flowLayoutPanel4.Location = new Point((int)(this.Size.Width - flowLayoutPanel4.Width) / 2, (int)(this.Size.Height * 0.2));
 
             flowLayoutPanel5.Size = new Size((int)(this.Size.Width * 0.5), (int)(this.Size.Height * 0.7));
-            flowLayoutPanel5.Location = new Point((int)(this.Size.Width - flowLayoutPanel4.Width) / 2, (int)(this.Size.Height * 0.2));
+            flowLayoutPanel5.Location = new Point((int)(this.Size.Width - flowLayoutPanel5.Width) / 2, (int)(this.Size.Height * 0.2));
+
+            flowLayoutPanel6.Size = new Size((int)(this.Size.Width * 0.5), (int)(this.Size.Height * 0.7));
+            flowLayoutPanel6.Location = new Point((int)(this.Size.Width - flowLayoutPanel6.Width) / 2, (int)(this.Size.Height * 0.2));
+
+            richTextBox1.Location = new Point((int)(this.Size.Width * 0.8), (int)(this.Size.Height * 0.2));
 
             totalItemsLabel2.Location = new Point((int)(this.Size.Width * 0.78), (int)(this.Size.Height * 0.2));
             totalPriceLabel2.Location = new Point((int)(this.Size.Width * 0.78), (int)(this.Size.Height * 0.3));
@@ -118,6 +126,11 @@ namespace huntingEquipmentStore
             sortByPriceButton.Location = new Point((int)(flowLayoutPanel1.Location.X + Screen.PrimaryScreen.Bounds.Width * 0.2 * 3 + 22 - sortByPriceButton.Width), (int)(this.ClientSize.Height * 0.07));
             sortByNameButton.Location = new Point((int)(sortByPriceButton.Location.X - sortByNameButton.Width - 25), (int)(this.ClientSize.Height * 0.07));
 
+            viewReviewButton.Location = new Point((int)(this.ClientSize.Width - viewReviewButton.Width) / 2, (int)(this.ClientSize.Height * 0.75));
+            addReviewButton.Location = new Point((int)(this.ClientSize.Width * 0.8), (int)(this.ClientSize.Height * 0.75));
+            richTextBox1.Location = new Point((int)(this.ClientSize.Width * 0.8), (int)(this.ClientSize.Height * 0.6));
+            ratingLabel.Location = new Point((int)(this.ClientSize.Width * 0.8), (int)(this.ClientSize.Height * 0.55));
+            ratingNumericUpDown.Location = new Point(richTextBox1.Location.X + richTextBox1.Width - ratingNumericUpDown.Width, (int)(this.ClientSize.Height * 0.55));
         }
 
 
@@ -132,7 +145,7 @@ namespace huntingEquipmentStore
 
             PositionControlsRelative();
 
-            tabControl1.SelectedTab = loginPage;
+            tabControl.SelectedTab = loginPage;
             TabPage lastPage = loginPage;
 
         }
@@ -279,8 +292,11 @@ namespace huntingEquipmentStore
             productsTableAdapter.getProductByID(hunting_equipment_storeDataSet.Products, productID);
             DataRow product = hunting_equipment_storeDataSet.Products.Rows[0];
 
-            lastPage = tabControl1.SelectedTab;
-            tabControl1.SelectedTab = productPage;
+            richTextBox1.Clear();
+            ratingNumericUpDown.Value = 5;
+
+            lastPage = tabControl.SelectedTab;
+            tabControl.SelectedTab = productPage;
 
             string image = product["image"].ToString().Trim();
 
@@ -301,7 +317,12 @@ namespace huntingEquipmentStore
             productNameLabel.Location = new Point((this.ClientSize.Width - productNameLabel.Width) / 2, (int)(this.ClientSize.Height * 0.55));
             productPriceLabel.Location = new Point((this.ClientSize.Width - productPriceLabel.Width) / 2, (int)(this.ClientSize.Height * 0.6));
             productDescriptionLabel.Location = new Point((this.ClientSize.Width - productDescriptionLabel.Width) / 2, (int)(this.ClientSize.Height * 0.65));
-             
+
+            viewReviewButton.Click += viewReviews;
+            viewReviewButton.Tag = productID;
+
+            addReviewButton.Click += addReview;
+            addReviewButton.Tag = productID;   
         }
 
         private void addToCart(DataRow product, NumericUpDown numericQuantity)
@@ -324,18 +345,18 @@ namespace huntingEquipmentStore
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (tabControl1.SelectedTab == loginPage)
+            if (tabControl.SelectedTab == loginPage)
             {
                 usernameLoginTextBox.Clear();
                 passwordLoginTextBox.Clear();
             }
-            else if (tabControl1.SelectedTab == signupPage)
+            else if (tabControl.SelectedTab == signupPage)
             {
                 fullnameSignupTextBox.Clear();
                 usernameSignupTextBox.Clear();
                 passwordSignupTextBox.Clear();
             }
-            else if (tabControl1.SelectedTab == shopPage)
+            else if (tabControl.SelectedTab == shopPage)
             {
                 foreach (Panel panel in flowLayoutPanel1.Controls)
                 {
@@ -375,14 +396,14 @@ namespace huntingEquipmentStore
                     DataTable customerTable = hunting_equipment_storeDataSet.Customers;
                     if (customerTable.Rows.Count > 0)
                     {
-                        tabControl1.SelectedTab = shopPage;
+                        tabControl.SelectedTab = shopPage;
 
                         hunting_equipment_storeDataSet.Products.Clear();
                         productsTableAdapter.getAllProducts(hunting_equipment_storeDataSet.Products);
 
                         createFlowLayoutPanel();
                         menuStrip1.Visible = true;
-                        customer = hunting_equipment_storeDataSet.Customers.Rows[0];
+                        currentCustomer = hunting_equipment_storeDataSet.Customers.Rows[0];
                     }
                     else
                     {
@@ -394,7 +415,7 @@ namespace huntingEquipmentStore
 
         private void createAccountButton_Click(object sender, EventArgs e)
         {
-            tabControl1.SelectedTab = signupPage;
+            tabControl.SelectedTab = signupPage;
         }
 
         private void signupButton_Click(object sender, EventArgs e)
@@ -428,7 +449,7 @@ namespace huntingEquipmentStore
                 else
                 {
                     customersTableAdapter.addCustomer(username, password, fullname);
-                    tabControl1.SelectedTab = loginPage;
+                    tabControl.SelectedTab = loginPage;
                 }
             }
 
@@ -437,13 +458,13 @@ namespace huntingEquipmentStore
 
         private void backToLoginButton_Click(object sender, EventArgs e)
         {
-            tabControl1.SelectedTab = loginPage;
+            tabControl.SelectedTab = loginPage;
         }
 
 
         private void shoppingCartToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            tabControl1.SelectedTab = cartPage;
+            tabControl.SelectedTab = cartPage;
             fillShoppingCart();
            
         }
@@ -482,15 +503,16 @@ namespace huntingEquipmentStore
             {
                 totalPrice = 0;
                 int totalItems = 0;
+                hunting_equipment_storeDataSet.ProductsDataTable tempProductsTable = new hunting_equipment_storeDataSet.ProductsDataTable();
                 foreach (Tuple<int, int> cartItem in shoppingCart)
                 {
                     int productID = cartItem.Item1;
                     int quantity = cartItem.Item2;
 
-                    hunting_equipment_storeDataSet.Products.Clear();
-                    productsTableAdapter.getProductByID(hunting_equipment_storeDataSet.Products, productID);
-                    DataRow product = hunting_equipment_storeDataSet.Products.Rows[0];
-
+                    tempProductsTable.Clear();
+                    productsTableAdapter.getProductByID(tempProductsTable, productID);
+                    DataRow product = tempProductsTable.Rows[0];
+                    
                     totalPrice += double.Parse(product["price"].ToString().Trim()) * quantity;
                     totalItems += quantity;
 
@@ -580,7 +602,7 @@ namespace huntingEquipmentStore
             ordersTableAdapter.getOrderByID(hunting_equipment_storeDataSet.Orders, orderID);
             DataRow order = hunting_equipment_storeDataSet.Orders.Rows[0];
 
-            tabControl1.SelectedTab = orderDetailsPage;
+            tabControl.SelectedTab = orderDetailsPage;
             orderLabel.Text = "Order " + order["order_id"].ToString().Trim() + ", " + order["date"].ToString().Trim().Split(' ')[0];
             orderLabel.Location = new Point((this.ClientSize.Width - orderLabel.Width) / 2, (int)(this.ClientSize.Height * 0.07));
 
@@ -589,7 +611,7 @@ namespace huntingEquipmentStore
             DataTable details = hunting_equipment_storeDataSet.OrderDetails;
 
             int totalQuantity = 0;
-
+            hunting_equipment_storeDataSet.ProductsDataTable tempProductsTable = new hunting_equipment_storeDataSet.ProductsDataTable();
             foreach (DataRow detail in details.Rows)
             {
                 int productID = int.Parse(detail["product_id"].ToString().Trim());
@@ -597,9 +619,9 @@ namespace huntingEquipmentStore
 
                 totalQuantity += quantity;
 
-                hunting_equipment_storeDataSet.Products.Clear();
-                productsTableAdapter.getProductByID(hunting_equipment_storeDataSet.Products, productID);
-                DataRow product = hunting_equipment_storeDataSet.Products.Rows[0];
+                tempProductsTable.Clear();
+                productsTableAdapter.getProductByID(tempProductsTable, productID);
+                DataRow product = tempProductsTable.Rows[0];
 
                 Panel card = new Panel()
                 {
@@ -683,7 +705,7 @@ namespace huntingEquipmentStore
 
         private void shopToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            tabControl1.SelectedTab = shopPage;
+            tabControl.SelectedTab = shopPage;
             hunting_equipment_storeDataSet.Products.Clear();
             productsTableAdapter.getAllProducts(hunting_equipment_storeDataSet.Products);
             createFlowLayoutPanel();
@@ -691,19 +713,19 @@ namespace huntingEquipmentStore
 
         private void categoriesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            tabControl1.SelectedTab = categoriesPage;
+            tabControl.SelectedTab = categoriesPage;
         }
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            tabControl1.SelectedTab = loginPage;
+            tabControl.SelectedTab = loginPage;
             shoppingCart.Clear();
             menuStrip1.Visible = false;
         }
 
         private void backProductButton_Click(object sender, EventArgs e)
         {
-            tabControl1.SelectedTab = lastPage;
+            tabControl.SelectedTab = lastPage;
         }
 
         private void clearCartButton_Click(object sender, EventArgs e)
@@ -720,7 +742,7 @@ namespace huntingEquipmentStore
             }
             else
             {
-                ordersTableAdapter.addOrder(int.Parse(customer["customer_id"].ToString().Trim()), DateTime.Now.ToString("dd/MM/yyyy"), totalPrice);
+                ordersTableAdapter.addOrder(int.Parse(currentCustomer["customer_id"].ToString().Trim()), DateTime.Now.ToString("dd/MM/yyyy"), totalPrice);
                 ordersTableAdapter.Update(hunting_equipment_storeDataSet);
                 ordersTableAdapter.Fill(hunting_equipment_storeDataSet.Orders);
 
@@ -738,11 +760,11 @@ namespace huntingEquipmentStore
 
         private void yourOrdersToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            tabControl1.SelectedTab = yourOrdersPage;
+            tabControl.SelectedTab = yourOrdersPage;
             flowLayoutPanel3.Controls.Clear();
 
             hunting_equipment_storeDataSet.Orders.Clear();
-            ordersTableAdapter.getAllOrdersByCustomerID(hunting_equipment_storeDataSet.Orders, int.Parse(customer["customer_id"].ToString().Trim()));
+            ordersTableAdapter.getAllOrdersByCustomerID(hunting_equipment_storeDataSet.Orders, int.Parse(currentCustomer["customer_id"].ToString().Trim()));
             DataTable orders = hunting_equipment_storeDataSet.Orders;
 
             if (orders.Rows.Count == 0)
@@ -807,7 +829,7 @@ namespace huntingEquipmentStore
         {
             flowLayoutPanel5.Controls.Clear();
 
-            tabControl1.SelectedTab = categoryPage;
+            tabControl.SelectedTab = categoryPage;
             hunting_equipment_storeDataSet.Categories.Clear();
             categoriesTableAdapter.getCategoryByID(hunting_equipment_storeDataSet.Categories, categoryID);
             DataRow category = hunting_equipment_storeDataSet.Categories.Rows[0];
@@ -888,12 +910,12 @@ namespace huntingEquipmentStore
 
         private void backOrderDetailsButton_Click(object sender, EventArgs e)
         {
-            tabControl1.SelectedTab = yourOrdersPage;
+            tabControl.SelectedTab = yourOrdersPage;
         }
 
         private void backCategoryButton_Click(object sender, EventArgs e)
         {
-            tabControl1.SelectedTab = categoriesPage;
+            tabControl.SelectedTab = categoriesPage;
         }
 
         private void sortByPriceButton_Click(object sender, EventArgs e)
@@ -910,7 +932,116 @@ namespace huntingEquipmentStore
             createFlowLayoutPanel();
         }
 
+        private void viewReviews(object sender, EventArgs e)
+        {
+            Button button = sender as Button;
+            int productID = (int)button.Tag;
 
-  
+            hunting_equipment_storeDataSet.Products.Clear();
+            productsTableAdapter.getProductByID(hunting_equipment_storeDataSet.Products, productID);
+            DataRow product = hunting_equipment_storeDataSet.Products.Rows[0];
+
+            tabControl.SelectedTab = reviewsPage;
+            flowLayoutPanel6.Controls.Clear();
+            reviewsLabel.Text = product["name"].ToString().Trim() + " reviews";
+            reviewsLabel.Location = new Point((this.ClientSize.Width - reviewsLabel.Width)/ 2, (int)(this.ClientSize.Height * 0.07));
+
+            hunting_equipment_storeDataSet.Reviews.Clear();
+            reviewsTableAdapter.getReviewsByProductID(hunting_equipment_storeDataSet.Reviews, productID);
+            DataTable reviews = hunting_equipment_storeDataSet.Reviews;
+
+            if (reviews.Rows.Count == 0)
+            {
+                Panel card = new Panel()
+                {
+                    Size = new Size((int)(flowLayoutPanel6.Width * 0.95), (int)(Screen.PrimaryScreen.Bounds.Height * 0.05)),
+                    BorderStyle = BorderStyle.FixedSingle,
+                    Margin = new Padding(5),
+                    Padding = new Padding(10)
+                };
+
+                Label noReviewsLabel = new Label()
+                {
+                    Text = "No reviews yet",
+                    Font = new Font("Microsoft Sans Serif", 26, FontStyle.Bold),
+                    ForeColor = Color.Beige,
+                    TextAlign = ContentAlignment.MiddleCenter,
+                    Cursor = Cursors.Hand,
+                    AutoSize = true
+                };
+                card.Controls.Add(noReviewsLabel);
+                noReviewsLabel.Location = new Point((card.Width - noReviewsLabel.Width) / 2, (card.Height - noReviewsLabel.Height) / 2);
+
+                flowLayoutPanel6.Controls.Add(card);
+            }
+            else
+            {
+                hunting_equipment_storeDataSet.CustomersDataTable tempCustomersTable = new hunting_equipment_storeDataSet.CustomersDataTable();
+                foreach(DataRow review in reviews.Rows)
+                {
+                    tempCustomersTable.Clear();
+                    customersTableAdapter.getCustomerByID(tempCustomersTable, int.Parse(review["customer_id"].ToString().Trim()));
+                    DataRow reviewCustomer = tempCustomersTable.Rows[0];
+
+                    Panel card = new Panel()
+                    {
+                        Size = new Size((int)(flowLayoutPanel6.Width * 0.95), (int)(Screen.PrimaryScreen.Bounds.Height * 0.05)),
+                        BorderStyle = BorderStyle.FixedSingle,
+                        Margin = new Padding(5),
+                        Padding = new Padding(10)
+                    };
+
+                    Label userLabel = new Label()
+                    {
+                        Text = reviewCustomer["username"].ToString().Trim() + ", " + review["rating"].ToString().Trim() + "/10, ",
+                        Font = new Font("Microsoft Sans Serif", 26, FontStyle.Bold),
+                        ForeColor = Color.Beige,
+                        TextAlign = ContentAlignment.MiddleCenter,
+                        Cursor = Cursors.Hand,
+                        AutoSize = true
+                    };
+
+                    Label dateLabel = new Label()
+                    {
+                        Text = review["date"].ToString().Trim(),
+                        Font = new Font("Microsoft Sans Serif", 26, FontStyle.Bold),
+                        ForeColor = Color.Beige,
+                        TextAlign = ContentAlignment.MiddleCenter,
+                        Cursor = Cursors.Hand,
+                        AutoSize = true
+                    };
+                    card.Controls.Add(userLabel);
+                    card.Controls.Add(dateLabel);
+                    dateLabel.Location = new Point((card.Location.X + card.Width - dateLabel.Width), dateLabel.Location.Y);
+
+                    flowLayoutPanel6.Controls.Add(card);
+                }
+                
+            }
+        }
+
+        private void backReviewsButton_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = productPage;
+           
+        }
+
+        private void addReview(object sender, EventArgs e)
+        {
+            Button button = sender as Button;
+            int productID = (int)button.Tag;
+            
+            if (richTextBox1.Text.Length == 0)
+            {
+                MessageBox.Show("Review description cannot be empty");
+            }
+            else
+            {
+                reviewsTableAdapter.addReview(int.Parse(currentCustomer["customer_id"].ToString().Trim()), productID, int.Parse(ratingNumericUpDown.Value.ToString().Trim()), richTextBox1.Text, DateTime.Now);
+                richTextBox1.Clear();
+                ratingNumericUpDown.Value = 5;
+            } 
+        }
+
     }
 }
