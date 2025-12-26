@@ -5423,8 +5423,10 @@ SELECT review_id, customer_id, product_id, rating, message, date FROM Reviews WH
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@date", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT        review_id, customer_id, product_id, rating, message, date\r\nFROM    " +
-                "        Reviews\r\nWHERE        (product_id = @id)";
+            this._commandCollection[2].CommandText = "SELECT        r.review_id, r.customer_id, r.product_id, r.rating, r.message, r.da" +
+                "te, c.username\r\nFROM            Reviews AS r INNER JOIN\r\n                       " +
+                "  Customers AS c ON r.customer_id = c.customer_id\r\nWHERE        (r.product_id = " +
+                "@id)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "product_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }

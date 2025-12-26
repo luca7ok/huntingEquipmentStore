@@ -213,7 +213,7 @@ namespace huntingEquipmentStore
 
             if (!string.IsNullOrEmpty(image))
             {
-                picture.Image = Image.FromFile(@"..\\..\\Resources\" + image);
+                picture.Image = Image.FromFile(@"..\\..\\Resources\" + image);                          
             }
             else
             {
@@ -323,7 +323,6 @@ namespace huntingEquipmentStore
             viewReviewButton.Click += viewReviews;
             viewReviewButton.Tag = productID;
 
-            addReviewButton.Click += addReview;
             addReviewButton.Tag = productID;   
         }
 
@@ -978,16 +977,11 @@ namespace huntingEquipmentStore
             }
             else
             {
-                hunting_equipment_storeDataSet.CustomersDataTable tempCustomersTable = new hunting_equipment_storeDataSet.CustomersDataTable();
                 foreach(DataRow review in reviews.Rows)
                 {
-                    tempCustomersTable.Clear();
-                    customersTableAdapter.getCustomerByID(tempCustomersTable, int.Parse(review["customer_id"].ToString().Trim()));
-                    DataRow reviewCustomer = tempCustomersTable.Rows[0];
-
                     Panel card = new Panel()
                     {
-                        Size = new Size((int)(flowLayoutPanel6.Width * 0.95), (int)(Screen.PrimaryScreen.Bounds.Height * 0.05)),
+                        Size = new Size((int)(flowLayoutPanel6.Width * 0.95), (int)(Screen.PrimaryScreen.Bounds.Height * 0.1)),
                         BorderStyle = BorderStyle.FixedSingle,
                         Margin = new Padding(5),
                         Padding = new Padding(10)
@@ -995,7 +989,7 @@ namespace huntingEquipmentStore
 
                     Label userLabel = new Label()
                     {
-                        Text = reviewCustomer["username"].ToString().Trim() + ", " + review["rating"].ToString().Trim() + "/10, ",
+                        Text = review["username"].ToString().Trim() + ", " + review["rating"].ToString().Trim() + "/10, ",
                         Font = new Font("Microsoft Sans Serif", 26, FontStyle.Bold),
                         ForeColor = Color.Beige,
                         TextAlign = ContentAlignment.MiddleCenter,
@@ -1010,9 +1004,23 @@ namespace huntingEquipmentStore
                         TextAlign = ContentAlignment.MiddleCenter,
                         AutoSize = true
                     };
+
+                    Label messageLabel = new Label()
+                    {
+                        Text = review["message"].ToString().Trim(),
+                        Font = new Font("Microsoft Sans Serif", 18, FontStyle.Regular),
+                        ForeColor = Color.Beige,
+                        AutoSize = true,
+                        MaximumSize = new Size(card.Width - 20, 0)
+                    };
+                 
                     card.Controls.Add(userLabel);
                     card.Controls.Add(dateLabel);
-                    dateLabel.Location = new Point((card.Location.X + card.Width - dateLabel.Width), dateLabel.Location.Y);
+                    card.Controls.Add(messageLabel);
+
+                    userLabel.Location = new Point(10, 10);
+                    dateLabel.Location = new Point(card.Width - dateLabel.Width - 10, 10);
+                    messageLabel.Location = new Point(10, userLabel.Bottom + 10);
 
                     flowLayoutPanel6.Controls.Add(card);
                 }

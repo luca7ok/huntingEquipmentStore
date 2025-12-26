@@ -63,9 +63,9 @@ namespace huntingEquipmentStore.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap clothes_category {
+        internal static System.Drawing.Bitmap camping_category {
             get {
-                object obj = ResourceManager.GetObject("clothes_category", resourceCulture);
+                object obj = ResourceManager.GetObject("camping_category", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace huntingEquipmentStore.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap firearms_category {
+        internal static System.Drawing.Bitmap clothes_category1 {
             get {
-                object obj = ResourceManager.GetObject("firearms_category", resourceCulture);
+                object obj = ResourceManager.GetObject("clothes_category1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace huntingEquipmentStore.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap gear_category {
+        internal static System.Drawing.Bitmap tools_category {
             get {
-                object obj = ResourceManager.GetObject("gear_category", resourceCulture);
+                object obj = ResourceManager.GetObject("tools_category", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

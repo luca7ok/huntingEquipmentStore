@@ -1,0 +1,1 @@
+C:\.richbank\c#\huntingEquipmentStore\huntingEquipmentStore\bin\Release\huntingEquipmentStore.exe.config

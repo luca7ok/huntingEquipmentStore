@@ -79,14 +79,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="app.config" />
     <None Include="hunting_equipment_storeDataSet.xsc">
       <DependentUpon>hunting_equipment_storeDataSet.xsd</DependentUpon>
@@ -103,6 +98,11 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -117,23 +117,23 @@
       <DependentUpon>hunting_equipment_store.mdf</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\alphaburly.jpeg" />
-    <Content Include="Resources\ameristripblind.jpg" />
-    <Content Include="Resources\clothes_category.png" />
-    <Content Include="Resources\dannerpronghorn.png" />
-    <Content Include="Resources\doublebullblind.jpg" />
-    <Content Include="Resources\firearms_category.png" />
-    <Content Include="Resources\firstlitekilnhoody.jpeg" />
+    <Content Include="Resources\arcteryx_beta_ar.jpg" />
+    <Content Include="Resources\bear_vault_500.jpg" />
+    <Content Include="Resources\black_diamond.jpg" />
+    <Content Include="Resources\camping_category.jpg" />
+    <Content Include="Resources\clothes_category.jpeg" />
     <Content Include="Resources\footwear_category.jpeg" />
-    <Content Include="Resources\gear_category.jpg" />
-    <Content Include="Resources\irishvaprtreck.jpeg" />
+    <Content Include="Resources\garmin.jpeg" />
+    <Content Include="Resources\la_sportiva_nepal.jpg" />
+    <Content Include="Resources\msr_hubba_nx.jpg" />
+    <Content Include="Resources\north_face_bastion_4.jpg" />
+    <Content Include="Resources\patagonia_down_sweater.jpg" />
     <Content Include="Resources\placeholder.jpg" />
-    <Content Include="Resources\planotacklebox.png" />
-    <Content Include="Resources\remington700.jpg" />
-    <Content Include="Resources\ridgereaper.png" />
-    <Content Include="Resources\savageaxis.png" />
-    <Content Include="Resources\stikajacket.JPG" />
-    <Content Include="Resources\winchesterm70.jpg" />
+    <Content Include="Resources\salomon_quest_4d.jpg" />
+    <Content Include="Resources\scarpa_zodiac.jpg" />
+    <Content Include="Resources\smartwool_merino.jpg" />
+    <Content Include="Resources\tools_category.jpg" />
+    <Content Include="Resources\vortex_viper.jpg" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">

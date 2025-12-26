@@ -174,10 +174,10 @@
             this.tabControl.Controls.Add(this.orderDetailsPage);
             this.tabControl.Controls.Add(this.categoryPage);
             this.tabControl.Controls.Add(this.reviewsPage);
-            this.tabControl.Location = new System.Drawing.Point(-10, -23);
+            this.tabControl.Location = new System.Drawing.Point(-10, 40);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(1533, 812);
+            this.tabControl.Size = new System.Drawing.Size(1533, 749);
             this.tabControl.TabIndex = 0;
             this.tabControl.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
@@ -196,7 +196,7 @@
             this.loginPage.Location = new System.Drawing.Point(4, 22);
             this.loginPage.Name = "loginPage";
             this.loginPage.Padding = new System.Windows.Forms.Padding(3);
-            this.loginPage.Size = new System.Drawing.Size(1525, 786);
+            this.loginPage.Size = new System.Drawing.Size(1525, 723);
             this.loginPage.TabIndex = 0;
             this.loginPage.Text = "loginPage";
             // 
@@ -314,7 +314,7 @@
             this.signupPage.Location = new System.Drawing.Point(4, 22);
             this.signupPage.Name = "signupPage";
             this.signupPage.Padding = new System.Windows.Forms.Padding(3);
-            this.signupPage.Size = new System.Drawing.Size(1525, 751);
+            this.signupPage.Size = new System.Drawing.Size(1525, 723);
             this.signupPage.TabIndex = 1;
             this.signupPage.Text = "signupPage";
             // 
@@ -436,7 +436,7 @@
             this.shopPage.Location = new System.Drawing.Point(4, 22);
             this.shopPage.Name = "shopPage";
             this.shopPage.Padding = new System.Windows.Forms.Padding(3);
-            this.shopPage.Size = new System.Drawing.Size(1525, 751);
+            this.shopPage.Size = new System.Drawing.Size(1525, 723);
             this.shopPage.TabIndex = 2;
             this.shopPage.Text = "shopPage";
             // 
@@ -493,7 +493,7 @@
             this.categoriesPage.Location = new System.Drawing.Point(4, 22);
             this.categoriesPage.Name = "categoriesPage";
             this.categoriesPage.Padding = new System.Windows.Forms.Padding(3);
-            this.categoriesPage.Size = new System.Drawing.Size(1525, 751);
+            this.categoriesPage.Size = new System.Drawing.Size(1525, 723);
             this.categoriesPage.TabIndex = 3;
             this.categoriesPage.Text = "categoriesPage";
             // 
@@ -505,9 +505,9 @@
             this.categoryLabel3.ForeColor = System.Drawing.Color.Beige;
             this.categoryLabel3.Location = new System.Drawing.Point(320, 668);
             this.categoryLabel3.Name = "categoryLabel3";
-            this.categoryLabel3.Size = new System.Drawing.Size(140, 33);
+            this.categoryLabel3.Size = new System.Drawing.Size(92, 33);
             this.categoryLabel3.TabIndex = 11;
-            this.categoryLabel3.Text = "Firearms";
+            this.categoryLabel3.Text = "Tools";
             this.categoryLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBoxCategories3
@@ -515,7 +515,7 @@
             this.pictureBoxCategories3.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pictureBoxCategories3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBoxCategories3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxCategories3.Image = global::huntingEquipmentStore.Properties.Resources.firearms_category;
+            this.pictureBoxCategories3.Image = global::huntingEquipmentStore.Properties.Resources.tools_category;
             this.pictureBoxCategories3.Location = new System.Drawing.Point(244, 450);
             this.pictureBoxCategories3.Name = "pictureBoxCategories3";
             this.pictureBoxCategories3.Size = new System.Drawing.Size(298, 183);
@@ -541,7 +541,7 @@
             this.pictureBoxCategories1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pictureBoxCategories1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBoxCategories1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxCategories1.Image = global::huntingEquipmentStore.Properties.Resources.clothes_category;
+            this.pictureBoxCategories1.Image = global::huntingEquipmentStore.Properties.Resources.clothes_category1;
             this.pictureBoxCategories1.Location = new System.Drawing.Point(244, 155);
             this.pictureBoxCategories1.Name = "pictureBoxCategories1";
             this.pictureBoxCategories1.Size = new System.Drawing.Size(298, 183);
@@ -583,9 +583,9 @@
             this.categoryLabel4.ForeColor = System.Drawing.Color.Beige;
             this.categoryLabel4.Location = new System.Drawing.Point(982, 668);
             this.categoryLabel4.Name = "categoryLabel4";
-            this.categoryLabel4.Size = new System.Drawing.Size(320, 33);
+            this.categoryLabel4.Size = new System.Drawing.Size(139, 33);
             this.categoryLabel4.TabIndex = 5;
-            this.categoryLabel4.Text = "Gear and accessories";
+            this.categoryLabel4.Text = "Camping";
             this.categoryLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBoxCategories4
@@ -593,7 +593,7 @@
             this.pictureBoxCategories4.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pictureBoxCategories4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBoxCategories4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxCategories4.Image = global::huntingEquipmentStore.Properties.Resources.gear_category;
+            this.pictureBoxCategories4.Image = global::huntingEquipmentStore.Properties.Resources.camping_category;
             this.pictureBoxCategories4.Location = new System.Drawing.Point(988, 450);
             this.pictureBoxCategories4.Name = "pictureBoxCategories4";
             this.pictureBoxCategories4.Size = new System.Drawing.Size(298, 183);
@@ -627,7 +627,7 @@
             this.cartPage.Location = new System.Drawing.Point(4, 22);
             this.cartPage.Name = "cartPage";
             this.cartPage.Padding = new System.Windows.Forms.Padding(3);
-            this.cartPage.Size = new System.Drawing.Size(1525, 751);
+            this.cartPage.Size = new System.Drawing.Size(1525, 723);
             this.cartPage.TabIndex = 4;
             this.cartPage.Text = "cartPage";
             // 
@@ -733,7 +733,7 @@
             this.yourOrdersPage.Location = new System.Drawing.Point(4, 22);
             this.yourOrdersPage.Name = "yourOrdersPage";
             this.yourOrdersPage.Padding = new System.Windows.Forms.Padding(3);
-            this.yourOrdersPage.Size = new System.Drawing.Size(1525, 751);
+            this.yourOrdersPage.Size = new System.Drawing.Size(1525, 723);
             this.yourOrdersPage.TabIndex = 5;
             this.yourOrdersPage.Text = "yourOrdersPage";
             // 
@@ -775,7 +775,7 @@
             this.productPage.Location = new System.Drawing.Point(4, 22);
             this.productPage.Name = "productPage";
             this.productPage.Padding = new System.Windows.Forms.Padding(3);
-            this.productPage.Size = new System.Drawing.Size(1525, 751);
+            this.productPage.Size = new System.Drawing.Size(1525, 723);
             this.productPage.TabIndex = 6;
             this.productPage.Text = "productPage";
             // 
@@ -822,6 +822,7 @@
             this.addReviewButton.TabIndex = 14;
             this.addReviewButton.Text = "Add review";
             this.addReviewButton.UseVisualStyleBackColor = false;
+            this.addReviewButton.Click += new System.EventHandler(this.addReview);
             // 
             // richTextBox1
             // 
@@ -921,7 +922,7 @@
             this.orderDetailsPage.Location = new System.Drawing.Point(4, 22);
             this.orderDetailsPage.Name = "orderDetailsPage";
             this.orderDetailsPage.Padding = new System.Windows.Forms.Padding(3);
-            this.orderDetailsPage.Size = new System.Drawing.Size(1525, 751);
+            this.orderDetailsPage.Size = new System.Drawing.Size(1525, 723);
             this.orderDetailsPage.TabIndex = 7;
             this.orderDetailsPage.Text = "orderDetailsPage";
             // 
@@ -1014,7 +1015,7 @@
             this.categoryPage.Location = new System.Drawing.Point(4, 22);
             this.categoryPage.Name = "categoryPage";
             this.categoryPage.Padding = new System.Windows.Forms.Padding(3);
-            this.categoryPage.Size = new System.Drawing.Size(1525, 751);
+            this.categoryPage.Size = new System.Drawing.Size(1525, 723);
             this.categoryPage.TabIndex = 8;
             this.categoryPage.Text = "categoryPage";
             // 
@@ -1075,7 +1076,7 @@
             this.reviewsPage.Location = new System.Drawing.Point(4, 22);
             this.reviewsPage.Name = "reviewsPage";
             this.reviewsPage.Padding = new System.Windows.Forms.Padding(3);
-            this.reviewsPage.Size = new System.Drawing.Size(1525, 751);
+            this.reviewsPage.Size = new System.Drawing.Size(1525, 723);
             this.reviewsPage.TabIndex = 9;
             this.reviewsPage.Text = "reviewsPage";
             // 
@@ -1288,7 +1289,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "Hunting Equipment Store";
+            this.Text = "Hiking & Camping Store";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl.ResumeLayout(false);
             this.loginPage.ResumeLayout(false);
