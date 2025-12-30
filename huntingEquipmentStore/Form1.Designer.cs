@@ -174,10 +174,10 @@
             this.tabControl.Controls.Add(this.orderDetailsPage);
             this.tabControl.Controls.Add(this.categoryPage);
             this.tabControl.Controls.Add(this.reviewsPage);
-            this.tabControl.Location = new System.Drawing.Point(-10, 40);
+            this.tabControl.Location = new System.Drawing.Point(-10, -25);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(1533, 749);
+            this.tabControl.Size = new System.Drawing.Size(1533, 814);
             this.tabControl.TabIndex = 0;
             this.tabControl.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
@@ -196,7 +196,7 @@
             this.loginPage.Location = new System.Drawing.Point(4, 22);
             this.loginPage.Name = "loginPage";
             this.loginPage.Padding = new System.Windows.Forms.Padding(3);
-            this.loginPage.Size = new System.Drawing.Size(1525, 723);
+            this.loginPage.Size = new System.Drawing.Size(1525, 788);
             this.loginPage.TabIndex = 0;
             this.loginPage.Text = "loginPage";
             // 
