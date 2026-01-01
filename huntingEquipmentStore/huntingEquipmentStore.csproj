@@ -111,12 +111,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="hunting_equipment_store.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="hunting_equipment_store.mdf" />
     <Content Include="hunting_equipment_store_log.LDF">
       <DependentUpon>hunting_equipment_store.mdf</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\arcteryx_beta_ar.jpg" />
     <Content Include="Resources\bear_vault_500.jpg" />

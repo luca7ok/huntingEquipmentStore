@@ -1,5 +1,3 @@
-C:\.richbank\c#\huntingEquipmentStore\huntingEquipmentStore\bin\Debug\hunting_equipment_store.mdf
-C:\.richbank\c#\huntingEquipmentStore\huntingEquipmentStore\bin\Debug\hunting_equipment_store_log.LDF
 C:\.richbank\c#\huntingEquipmentStore\huntingEquipmentStore\bin\Debug\huntingEquipmentStore.exe.config
 C:\.richbank\c#\huntingEquipmentStore\huntingEquipmentStore\bin\Debug\huntingEquipmentStore.exe
 C:\.richbank\c#\huntingEquipmentStore\huntingEquipmentStore\bin\Debug\huntingEquipmentStore.pdb
