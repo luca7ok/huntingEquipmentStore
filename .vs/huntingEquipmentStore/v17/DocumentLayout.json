@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\.richbank\\c#\\huntingEquipmentStore\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{991567E8-8A9F-422E-A18E-2357940EBCEA}|huntingEquipmentStore\\huntingEquipmentStore.csproj|c:\\.richbank\\c#\\huntingequipmentstore\\huntingequipmentstore\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{991567E8-8A9F-422E-A18E-2357940EBCEA}|huntingEquipmentStore\\huntingEquipmentStore.csproj|solutionrelative:huntingequipmentstore\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{991567E8-8A9F-422E-A18E-2357940EBCEA}|huntingEquipmentStore\\huntingEquipmentStore.csproj|c:\\.richbank\\c#\\huntingequipmentstore\\huntingequipmentstore\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{991567E8-8A9F-422E-A18E-2357940EBCEA}|huntingEquipmentStore\\huntingEquipmentStore.csproj|solutionrelative:huntingequipmentstore\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
@@ -23,6 +27,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "app.config",
+              "DocumentMoniker": "C:\\.richbank\\c#\\huntingEquipmentStore\\huntingEquipmentStore\\app.config",
+              "RelativeDocumentMoniker": "huntingEquipmentStore\\app.config",
+              "ToolTip": "C:\\.richbank\\c#\\huntingEquipmentStore\\huntingEquipmentStore\\app.config",
+              "RelativeToolTip": "huntingEquipmentStore\\app.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2026-01-01T17:23:54.997Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "C:\\.richbank\\c#\\huntingEquipmentStore\\huntingEquipmentStore\\Form1.cs",
               "RelativeDocumentMoniker": "huntingEquipmentStore\\Form1.cs",
